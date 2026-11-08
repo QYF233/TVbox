@@ -306,6 +306,62 @@ def load_cms_pool() -> list[dict]:
             if isinstance(s, dict) and str(s.get("api") or "").startswith(("http://", "https://"))]
 
 
+def normalize_api(api: str) -> str:
+    """去掉查询串与末尾斜杠，用于池内去重。"""
+    return (api or "").split("?")[0].rstrip("/").lower()
+
+
+def update_cms_pool(found: list[dict], dead_apis: set[str]) -> tuple[int, int]:
+    """把本次发现的可用 CMS 站并入池子，死亡的站做标记而不是物理删除。"""
+    path = ROOT / "cms_pool.json"
+    data: dict = {}
+    if path.is_file():
+        try:
+            loaded = json.loads(path.read_text(encoding="utf-8"))
+            if isinstance(loaded, dict):
+                data = loaded
+        except (json.JSONDecodeError, OSError):
+            data = {}
+
+    pool = list(data.get("sites") or [])
+    index = {normalize_api(str(s.get("api") or "")): s for s in pool if isinstance(s, dict)}
+    stamp = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+    added = 0
+    for site in found:
+        api = str(site.get("api") or "")
+        key = normalize_api(api)
+        if not key:
+            continue
+        if key in index:
+            entry = index[key]
+            if site.get("_videos"):
+                entry["_videos"] = site["_videos"]
+            entry["_last_seen"] = stamp
+            entry.pop("_dead_at", None)
+        else:
+            entry = dict(site)
+            entry["_last_seen"] = stamp
+            pool.append(entry)
+            index[key] = entry
+            added += 1
+
+    marked = 0
+    for api in dead_apis:
+        key = normalize_api(api)
+        entry = index.get(key)
+        if entry is not None and not entry.get("_dead_at"):
+            entry["_dead_at"] = stamp
+            entry["_playable"] = False
+            marked += 1
+
+    data["sites"] = pool
+    data["updated_at"] = stamp
+    path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n",
+                    encoding="utf-8")
+    return added, marked
+
+
 def write_degraded(reason: str, detail: dict | None = None) -> None:
     """记录本次聚合失败，但不覆盖已有 official.json。"""
     payload = {
@@ -381,7 +437,7 @@ def main() -> int:
     # 纯 CMS 模式：先并发验证每个接口是否真能返回影片列表
     cms_cache: dict[str, tuple[bool, int, str]] = {}
     if only_cms:
-        candidates: set[str] = set()
+        candidates: dict[str, dict] = {}
         for row in fetched:
             for site in row["cfg"].get("sites") or []:
                 if not isinstance(site, dict):
@@ -389,7 +445,7 @@ def main() -> int:
                 if site.get("type") in (0, 1, 4):
                     api = str(site.get("api") or "")
                     if is_http_api(api):
-                        candidates.add(api)
+                        candidates.setdefault(api, site)
         if candidates:
             print(f"验证 {len(candidates)} 个 CMS 接口 ...", flush=True)
             with ThreadPoolExecutor(max_workers=8) as pool:
@@ -402,6 +458,26 @@ def main() -> int:
                         cms_cache[api] = (False, 0, str(exc)[:40])
             alive = sum(1 for v in cms_cache.values() if v[0])
             print(f"  CMS 可用 {alive}/{len(cms_cache)}", flush=True)
+
+            # 回写站点池：新增可用站，死亡的只做标记
+            found_sites: list[dict] = []
+            dead_apis: set[str] = set()
+            for api, site in candidates.items():
+                res = cms_cache.get(api)
+                if not res:
+                    continue
+                if res[0]:
+                    entry = {field: site[field] for field in
+                             ("key", "name", "api", "searchable", "quickSearch",
+                              "filterable", "ext") if site.get(field) is not None}
+                    entry["type"] = 1
+                    entry["_videos"] = res[1]
+                    found_sites.append(entry)
+                else:
+                    dead_apis.add(api)
+            added, marked = update_cms_pool(found_sites, dead_apis)
+            if added or marked:
+                print(f"  站点池更新：新增 {added}，标记失效 {marked}", flush=True)
 
     # 主源：pref 分组优先，组内按综合评分（可用性+jar+站点数+延迟+稳定性）
     def primary_rank(row: dict) -> tuple:
@@ -508,23 +584,33 @@ def main() -> int:
             }
         )
 
-    # 并入离线发现的 CMS 站点池（每个都实测过能返回影片列表）
+    # 并入 CMS 站点池：优先用实探过播放的站，按站点评分排序
     pool_sites = load_cms_pool()
+    playable_pool = [s for s in pool_sites if s.get("_playable")]
+    usable_pool = playable_pool if len(playable_pool) >= 10 else pool_sites
     pool_added = 0
-    for item in pool_sites:
+    pool_unplayable = 0
+    for item in usable_pool:
         if is_netdisk_site(item):
+            continue
+        if playable_pool and not item.get("_playable"):
+            pool_unplayable += 1
             continue
         site = {field: item[field] for field in
                 ("key", "name", "api", "searchable", "quickSearch", "filterable", "ext")
                 if item.get(field) is not None}
         site["type"] = 1
         site["key"] = normalize_key(str(site.get("key") or site.get("name") or "cms"), "pool")
-        videos = item.get("_videos") or 0
-        score = 32 + int(min(videos / 30.0, 1.0) * 8)
+        score = int(item.get("_score") or 0)
+        if score <= 0:
+            videos = item.get("_videos") or 0
+            score = 20 + int(min(videos / 30.0, 1.0) * 10)
         sites_scored.append((score, site))
         pool_added += 1
     if pool_added:
-        print(f"  并入 CMS 站点池 {pool_added} 个", flush=True)
+        print(f"  并入 CMS 站点池 {pool_added} 个"
+              f"（可播放 {len(playable_pool)}，剔除不可播放 {pool_unplayable}）",
+              flush=True)
 
     # Deduplicate sites by api+type or key
     sites_scored.sort(key=lambda x: x[0], reverse=True)
@@ -615,6 +701,7 @@ def main() -> int:
         "cms_filtered": cms_skipped,
         "cms_dead": cms_dead,
         "pool_added": pool_added,
+        "pool_unplayable": pool_unplayable,
         "parses": len(parses),
         "lives": len(lives),
         "sources": meta_sources,

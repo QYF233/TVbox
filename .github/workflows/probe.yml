@@ -38,6 +38,9 @@ jobs:
       - name: Check mirrors
         run: python3 scripts/mirrors.py
 
+      - name: Verify playback
+        run: python3 scripts/verify_play.py
+
       - name: Merge official config
         env:
           KEEP_NETDISK: ${{ vars.KEEP_NETDISK }}
@@ -62,7 +65,7 @@ jobs:
           set -e
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add dist/ docs/data/
+          git add dist/ docs/data/ cms_pool.json
           if git diff --staged --quiet; then
             echo "No dist changes"
             exit 0
@@ -76,8 +79,8 @@ jobs:
             git fetch origin main
             if ! git rebase origin/main; then
               # Generated artifacts: keep this run's dist over remote.
-              git checkout --theirs -- dist/ docs/data/
-              git add dist/ docs/data/
+              git checkout --theirs -- dist/ docs/data/ cms_pool.json
+              git add dist/ docs/data/ cms_pool.json
               GIT_EDITOR=true git rebase --continue
             fi
             sleep $((i * 2))
