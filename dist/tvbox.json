@@ -9,24 +9,24 @@
       "name": "菜妮丝"
     },
     {
+      "url": "http://xhztv.top/xhz",
+      "name": "小盒子"
+    },
+    {
       "url": "https://9280.kstore.space/wex.json",
       "name": "牛儿"
+    },
+    {
+      "url": "https://6800.kstore.vip/fish.json",
+      "name": "摸鱼儿"
     },
     {
       "url": "http://124.223.214.31:8/api.json",
       "name": "my interface"
     },
     {
-      "url": "http://xhztv.top/xhz",
-      "name": "小盒子"
-    },
-    {
       "url": "https://9280.kstore.space/newwex.json",
       "name": "牛二"
-    },
-    {
-      "url": "https://6800.kstore.vip/fish.json",
-      "name": "摸鱼儿"
     },
     {
       "url": "http://47.96.82.41:5188/api.json",
@@ -45,16 +45,16 @@
       "name": "王二小接口"
     },
     {
+      "url": "https://www.iyouhun.com/tv/wex",
+      "name": "新接口"
+    },
+    {
       "url": "https://700sjro44343.vicp.fun/vip/vip/tv.json",
       "name": "1号VIP源"
     },
     {
       "url": "https://700sjro44343.vicp.fun/eggp/0211/tv.json",
       "name": "二月红接口"
-    },
-    {
-      "url": "https://www.iyouhun.com/tv/wex",
-      "name": "新接口"
     },
     {
       "url": "http://xn--5mqx81b535a.com/",
@@ -73,36 +73,36 @@
       "name": "荐片"
     },
     {
-      "url": "https://qist.wyfc.qzz.io/fty.json",
-      "name": "饭太硬"
+      "url": "https://g.33445500.xyz/https://raw.githubusercontent.com/qist/tvbox/refs/heads/master/xiaosa/api.json",
+      "name": "潇洒Github备用"
     },
     {
       "url": "https://gh-proxy.com/https://raw.githubusercontent.com/xmbjm/svip/refs/heads/main/svip.json",
       "name": "拾光"
     },
     {
-      "url": "http://xhztv.top/4k.json",
-      "name": "小盒子4K"
-    },
-    {
-      "url": "https://g.33445500.xyz/https://raw.githubusercontent.com/qist/tvbox/refs/heads/master/xiaosa/api.json",
-      "name": "潇洒Github备用"
+      "url": "https://raw.liucn.cc/box/m.json",
+      "name": "ok线路1"
     },
     {
       "url": "https://g.33445500.xyz/https://raw.githubusercontent.com/qist/tvbox/refs/heads/master/jsm.json",
       "name": "神秘大佬"
     },
     {
-      "url": "https://raw.liucn.cc/box/m.json",
-      "name": "ok线路1"
+      "url": "http://xhztv.top/4k.json",
+      "name": "小盒子4K"
     },
     {
-      "url": "http://home.jundie.top:81/top98.json",
-      "name": "俊哥"
+      "url": "https://qist.wyfc.qzz.io/fty.json",
+      "name": "饭太硬"
     },
     {
       "url": "https://tv.nxog.top/m/111.php?ou=公众号欧歌app&mz=index&jar=index&123&b=tv",
       "name": "欧歌免费"
+    },
+    {
+      "url": "http://home.jundie.top:81/top98.json",
+      "name": "俊哥"
     },
     {
       "url": "http://550.3vcn.work/wdjyys.json",
@@ -110,5 +110,5 @@
     }
   ],
   "homepage": "https://www.tvbox.org/",
-  "generated_at": "2026-11-08T07:50:02Z"
+  "generated_at": "2026-11-08T08:07:38Z"
 }
