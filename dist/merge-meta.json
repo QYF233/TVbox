@@ -1,14 +1,15 @@
 {
-  "generated_at": "2026-11-08T06:31:32Z",
+  "generated_at": "2026-11-08T07:10:52Z",
   "homepage": "https://www.tvbox.org/",
   "repo": "https://github.com/TVboxorg/TVbox",
   "primary": "王二小",
   "primary_jar_status": "ok",
-  "sites": 7,
+  "sites": 61,
   "mode": "pure-cms",
   "netdisk_filtered": 77,
   "cms_filtered": 447,
   "cms_dead": 9,
+  "pool_added": 70,
   "parses": 47,
   "lives": 10,
   "sources": [

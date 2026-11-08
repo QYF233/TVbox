@@ -27,7 +27,7 @@ META = ROOT / "dist" / "merge-meta.json"
 DEGRADED = ROOT / "dist" / "degraded.json"
 TIMEOUT = 18
 UA = "TVboxorg-TVbox-merge/1.0 (+https://www.tvbox.org/; +https://github.com/TVboxorg/TVbox)"
-MAX_SITES = 160
+MAX_SITES = 300
 MAX_SOURCES = 12  # fetch budget: pref first, then back
 
 
@@ -290,6 +290,22 @@ def load_health() -> dict[str, float]:
     return health
 
 
+def load_cms_pool() -> list[dict]:
+    """读取离线发现的 CMS 站点池（scripts/discover_cms.py 的产物）。"""
+    path = ROOT / "cms_pool.json"
+    if not path.is_file():
+        return []
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        return []
+    sites = data.get("sites") if isinstance(data, dict) else None
+    if not isinstance(sites, list):
+        return []
+    return [s for s in sites
+            if isinstance(s, dict) and str(s.get("api") or "").startswith(("http://", "https://"))]
+
+
 def write_degraded(reason: str, detail: dict | None = None) -> None:
     """记录本次聚合失败，但不覆盖已有 official.json。"""
     payload = {
@@ -492,6 +508,24 @@ def main() -> int:
             }
         )
 
+    # 并入离线发现的 CMS 站点池（每个都实测过能返回影片列表）
+    pool_sites = load_cms_pool()
+    pool_added = 0
+    for item in pool_sites:
+        if is_netdisk_site(item):
+            continue
+        site = {field: item[field] for field in
+                ("key", "name", "api", "searchable", "quickSearch", "filterable", "ext")
+                if item.get(field) is not None}
+        site["type"] = 1
+        site["key"] = normalize_key(str(site.get("key") or site.get("name") or "cms"), "pool")
+        videos = item.get("_videos") or 0
+        score = 32 + int(min(videos / 30.0, 1.0) * 8)
+        sites_scored.append((score, site))
+        pool_added += 1
+    if pool_added:
+        print(f"  并入 CMS 站点池 {pool_added} 个", flush=True)
+
     # Deduplicate sites by api+type or key
     sites_scored.sort(key=lambda x: x[0], reverse=True)
     final_sites: list[dict] = []
@@ -580,6 +614,7 @@ def main() -> int:
         "netdisk_filtered": netdisk_skipped,
         "cms_filtered": cms_skipped,
         "cms_dead": cms_dead,
+        "pool_added": pool_added,
         "parses": len(parses),
         "lives": len(lives),
         "sources": meta_sources,
