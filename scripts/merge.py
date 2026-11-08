@@ -176,6 +176,7 @@ def adapt_site(
     source_name: str,
     spider: str,
     primary: bool,
+    jar_ok: bool = True,
 ) -> dict[str, Any] | None:
     if not isinstance(site, dict):
         return None
@@ -190,14 +191,17 @@ def adapt_site(
     out["type"] = stype_i if stype_i >= 0 else stype
 
     if primary:
-        # keep original key/name; still ensure key uniqueness handled later
+        # 主源的站点原样保留，key/name 不改写
         return out
 
-    # Non-primary: only keep mergeable sites
+    # 非主源：只保留可合并的站点
     jar = spider_http(spider)
     if stype_i in (0, 1, 4) and is_http_api(api):
         pass
     elif stype_i == 3 and jar and isinstance(api, str) and api.startswith("csp_"):
+        # jar 探测失败的源，其 type=3 站点依赖的 jar 必然不可用
+        if not jar_ok:
+            return None
         out["jar"] = jar
     else:
         return None
@@ -272,12 +276,13 @@ def main() -> int:
         print("no configs fetched", file=sys.stderr)
         return 1
 
-    # Primary: prefer pref with most sites and http spider
+    # 主源：优先 pref + jar 探测通过 + 站点多
     def primary_rank(row: dict) -> tuple:
         src = row["src"]
+        jar_ok = 1 if src.get("jar_status") == "ok" else 0
         has_jar = 1 if spider_http(row["spider"]) else 0
         pref = 1 if src.get("group") == "pref" else 0
-        return (pref, has_jar, row["site_count"])
+        return (pref, jar_ok, has_jar, row["site_count"])
 
     fetched.sort(key=primary_rank, reverse=True)
     primary = fetched[0]
@@ -309,6 +314,7 @@ def main() -> int:
                 source_name=sname,
                 spider=spider,
                 primary=is_primary,
+                jar_ok=src.get("jar_status") == "ok",
             )
             if not adapted:
                 skipped += 1
@@ -350,6 +356,8 @@ def main() -> int:
                 "primary": is_primary,
                 "sites_added": added,
                 "sites_skipped": skipped,
+                "jar_status": src.get("jar_status"),
+                "jar_md5_match": src.get("jar_md5_match"),
                 "spider": spider_http(spider) or spider[:120],
             }
         )
@@ -421,6 +429,7 @@ def main() -> int:
         official["headers"] = pcfg["headers"]
 
     generated_at = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    primary_jar_status = primary["src"].get("jar_status")
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(official, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
@@ -429,6 +438,7 @@ def main() -> int:
         "homepage": "https://www.tvbox.org/",
         "repo": "https://github.com/TVboxorg/TVbox",
         "primary": meta_sources[0]["name"] if meta_sources else "",
+        "primary_jar_status": primary_jar_status,
         "sites": len(final_sites),
         "parses": len(parses),
         "lives": len(lives),
@@ -437,9 +447,23 @@ def main() -> int:
         "subscribe_cdn": "https://cdn.jsdelivr.net/gh/TVboxorg/TVbox@main/dist/official.json",
     }
     META.write_text(json.dumps(meta, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+    if primary_jar_status == "fail":
+        print(
+            f"WARNING: primary source '{meta_sources[0]['name']}' spider jar 探测失败，"
+            "聚合配置可能无法加载",
+            file=sys.stderr,
+        )
+    if primary["src"].get("jar_md5_match") is False:
+        print(
+            f"WARNING: primary source '{meta_sources[0]['name']}' spider jar "
+            "MD5 与声明不符",
+            file=sys.stderr,
+        )
+
     print(
         f"wrote {OUT} sites={len(final_sites)} parses={len(parses)} lives={len(lives)} "
-        f"primary={meta['primary']}"
+        f"primary={meta['primary']} jar={primary_jar_status}"
     )
     return 0
 

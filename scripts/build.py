@@ -22,16 +22,26 @@ def main() -> int:
     pref_up = [x for x in up_items if x.get("group") == "pref"]
     back_up = [x for x in up_items if x.get("group") != "pref"]
 
+    jar_ok = [x for x in up_items if x.get("jar_status") == "ok"]
+    jar_mismatch = [x for x in up_items if x.get("jar_md5_match") is False]
+    multi_up = [x for x in up_items if x.get("multi_count")]
+
     list_payload = {
         "name": "TVboxorg/TVbox",
         "homepage": "https://www.tvbox.org/",
         "repo": "https://github.com/TVboxorg/TVbox",
         "generated_at": data.get("generated_at")
         or datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "probe_version": data.get("probe_version", 1),
+        "elapsed_sec": data.get("elapsed_sec"),
         "summary": {
             "total": len(items),
             "up": len(up_items),
             "down": len(items) - len(up_items),
+            "jar_ok": len(jar_ok),
+            "jar_md5_mismatch": len(jar_mismatch),
+            "multi": len(multi_up),
+            "sites_total": sum(x.get("sites_valid") or 0 for x in up_items),
         },
         "items": items,
     }
@@ -65,17 +75,29 @@ def main() -> int:
         f"- 仓库：https://github.com/TVboxorg/TVbox",
         f"- 生成时间（UTC）：`{list_payload['generated_at']}`",
         f"- 可用：**{len(up_items)}** / {len(items)}",
+        f"- spider 可用：**{len(jar_ok)}**，MD5 不符：{len(jar_mismatch)}，多仓：{len(multi_up)}",
+        f"- 可用站点合计：**{list_payload['summary']['sites_total']}**",
         "",
-        "| 状态 | 分组 | 名称 | 耗时 | 说明 |",
-        "| --- | --- | --- | --- | --- |",
+        "判定口径：先用 App 真实 UA `okhttp/3.15` 拉取；配置须能解析为 JSON 且 "
+        "`sites` 内每项含 `key/type/api`；`spider` 非空时须可下载、是合法 zip、"
+        "MD5 与 `;md5;` 声明一致。`urls` 存在按多仓处理。",
+        "",
+        "| 状态 | 分组 | 名称 | 站点 | jar | 多仓 | 耗时 | 说明 |",
+        "| --- | --- | --- | --- | --- | --- | --- | --- |",
     ]
     for x in items:
         mark = "UP" if x.get("ok") else "DOWN"
         ms = x.get("ms", 0)
         desc = (x.get("desc") or x.get("error") or x.get("kind") or "").replace("|", "/")
         name = (x.get("name") or "").replace("|", "/")
+        sites = x.get("sites_valid")
+        jar = x.get("jar_status") or "-"
+        if x.get("jar_md5_match") is False:
+            jar = "md5!"
+        multi = x.get("multi_count") or "-"
         lines.append(
-            f"| {mark} | {x.get('group','')} | {name} | {ms}ms | {desc[:60]} |"
+            f"| {mark} | {x.get('group','')} | {name} | {sites if sites else '-'} "
+            f"| {jar} | {multi} | {ms}ms | {desc[:52]} |"
         )
     lines.append("")
     (DIST / "status.md").write_text("\n".join(lines), encoding="utf-8")

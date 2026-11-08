@@ -1,24 +1,36 @@
 #!/usr/bin/env python3
-"""Probe TVBox interface URLs from sources.yaml."""
+"""Probe TVBox interface URLs from sources.yaml.
+
+判定分层（模拟 TVBoxOSC ApiConfig）：
+  - 先用 App 真实 UA `okhttp/3.15`，失败再用浏览器 UA 复测
+  - 配置必须能解析成 JSON object
+  - sites 必须存在，每个 site 必须含 key/type/api 且 type 为数字
+  - 存在 urls 键 → 多仓，无 sites 也算有效
+  - spider 非空时必须能下载、是合法 zip、MD5 与 ;md5; 声明一致
+  - 返回 m3u/txt 频道表判定为直播源
+"""
 from __future__ import annotations
 
 import json
-import re
-import ssl
+import os
 import sys
 import time
-import urllib.request
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from validate import analyze  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCES = ROOT / "sources.yaml"
 OUT = ROOT / "dist" / "probe.json"
-TIMEOUT = 12
-UA = "TVboxorg-TVbox-probe/1.0 (+https://www.tvbox.org/; +https://github.com/TVboxorg/TVbox)"
+WORKERS = int(os.environ.get("PROBE_WORKERS", "8"))
+RETRIES = int(os.environ.get("PROBE_RETRIES", "1"))
 
 
 def load_sources(path: Path) -> list[dict]:
+    """极简 YAML 读取（只覆盖本仓库结构，保持零依赖）。"""
     text = path.read_text(encoding="utf-8")
     items: list[dict] = []
     cur: dict | None = None
@@ -30,11 +42,12 @@ def load_sources(path: Path) -> list[dict]:
             continue
         if cur is None or not line.startswith("    "):
             continue
-        m = re.match(r"\s+(\w+):\s*(.*)$", line)
-        if not m:
+        stripped = line.strip()
+        if stripped.startswith("#") or ":" not in stripped:
             continue
-        key, val = m.group(1), m.group(2).strip()
-        if val.startswith('"') and val.endswith('"'):
+        key, val = stripped.split(":", 1)
+        key, val = key.strip(), val.strip()
+        if len(val) >= 2 and val.startswith('"') and val.endswith('"'):
             val = val[1:-1].replace('\\"', '"')
         if key == "enabled":
             cur[key] = val.lower() == "true"
@@ -45,78 +58,99 @@ def load_sources(path: Path) -> list[dict]:
     return items
 
 
-def looks_like_config(body: bytes, content_type: str) -> str:
-    sample = body[:8000].lstrip()
-    ct = (content_type or "").lower()
-    text = sample.decode("utf-8", errors="replace")
-    if "json" in ct or text.startswith("{") or text.startswith("["):
-        if re.search(r'"(sites|lives|spider|parses|wallpaper)"\s*:', text):
-            return "ok"
-        if text.startswith("{") or text.startswith("["):
-            return "json"
-        return "suspect"
-    if "http" in text[:200] and (".json" in text or "sites" in text):
-        return "text"
-    return "suspect"
+def probe_with_retry(url: str) -> dict:
+    last: dict = {}
+    for attempt in range(RETRIES + 1):
+        result = analyze(url)
+        result["attempts"] = attempt + 1
+        if result["ok"]:
+            return result
+        last = result
+        if attempt < RETRIES:
+            time.sleep(1.5 * (attempt + 1))
+    return last
 
 
-def probe_one(url: str) -> dict:
-    ctx = ssl.create_default_context()
-    req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "*/*"})
-    t0 = time.time()
-    try:
-        with urllib.request.urlopen(req, timeout=TIMEOUT, context=ctx) as resp:
-            raw = resp.read(65536)
-            ms = int((time.time() - t0) * 1000)
-            kind = looks_like_config(raw, resp.headers.get("Content-Type", ""))
-            code = getattr(resp, "status", None) or resp.getcode()
-            return {
-                "ok": 200 <= int(code) < 400 and kind in ("ok", "json", "text"),
-                "status": int(code),
-                "ms": ms,
-                "kind": kind,
-                "error": "",
-            }
-    except Exception as e:
-        ms = int((time.time() - t0) * 1000)
-        return {
-            "ok": False,
-            "status": 0,
-            "ms": ms,
-            "kind": "error",
-            "error": f"{type(e).__name__}: {e}"[:200],
-        }
+def summarize(result: dict) -> str:
+    if not result["ok"]:
+        return f"DOWN {result['error'][:40]}"
+    bits = [result["kind"]]
+    if result["sites_valid"]:
+        bits.append(f"sites={result['sites_valid']}")
+    if result["multi_count"]:
+        bits.append(f"multi={result['multi_count']}")
+    if result["jar_status"] != "none":
+        bits.append(f"jar={result['jar_status']}")
+        if result["jar_md5_match"] is False:
+            bits.append("md5=MISMATCH")
+    if result["is_live"]:
+        bits.append("live")
+    return "UP " + " ".join(bits)
 
 
 def main() -> int:
     sources = [s for s in load_sources(SOURCES) if s.get("enabled", True)]
-    results = []
-    for i, src in enumerate(sources, 1):
-        print(f"[{i}/{len(sources)}] {src.get('name')} ...", flush=True)
-        r = probe_one(src["url"])
-        results.append(
-            {
-                "id": src["id"],
+    if not sources:
+        print("no enabled sources in sources.yaml", file=sys.stderr)
+        return 1
+
+    print(f"probing {len(sources)} sources with {WORKERS} workers", flush=True)
+    results: list[dict] = []
+    started = time.time()
+
+    with ThreadPoolExecutor(max_workers=WORKERS) as pool:
+        futures = {pool.submit(probe_with_retry, s["url"]): s for s in sources}
+        done = 0
+        for future in as_completed(futures):
+            src = futures[future]
+            done += 1
+            try:
+                result = future.result()
+            except Exception as exc:
+                result = {
+                    "ok": False, "status": 0, "ms": 0, "kind": "error",
+                    "error": f"{type(exc).__name__}: {exc}"[:120],
+                    "ua_used": "", "sites_total": 0, "sites_valid": 0,
+                    "sites_bad": 0, "types": {}, "jar_status": "none",
+                    "jar_url": "", "jar_note": "", "jar_md5_match": None,
+                    "jar_size": 0, "multi_count": 0, "is_live": False,
+                    "attempts": 0,
+                }
+            results.append({
+                "id": src.get("id"),
                 "name": src.get("name", ""),
                 "group": src.get("group", ""),
                 "url": src["url"],
                 "desc": src.get("desc", ""),
-                **r,
-            }
-        )
-        print(f"  -> ok={r['ok']} status={r['status']} {r['ms']}ms {r['kind']}", flush=True)
+                **result,
+            })
+            print(f"[{done}/{len(sources)}] {src.get('name', '')} -> {summarize(result)}",
+                  flush=True)
+
+    rank = {"pref": 0, "back": 1}
+    results.sort(key=lambda x: (not x["ok"], rank.get(x.get("group"), 9),
+                                x.get("id") or ""))
+
+    up = sum(1 for x in results if x["ok"])
+    jar_ok = sum(1 for x in results if x.get("jar_status") == "ok")
+    multi = sum(1 for x in results if x.get("multi_count"))
 
     payload = {
         "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "homepage": "https://www.tvbox.org/",
         "repo": "https://github.com/TVboxorg/TVbox",
+        "probe_version": 2,
+        "elapsed_sec": round(time.time() - started, 1),
         "count": len(results),
-        "up": sum(1 for x in results if x["ok"]),
+        "up": up,
+        "stats": {"jar_ok": jar_ok, "multi": multi},
         "items": results,
     }
     OUT.parent.mkdir(parents=True, exist_ok=True)
-    OUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(f"wrote {OUT} up={payload['up']}/{payload['count']}")
+    OUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
+                   encoding="utf-8")
+    print(f"\nwrote {OUT} up={up}/{len(results)} jar_ok={jar_ok} multi={multi} "
+          f"in {payload['elapsed_sec']}s")
     return 0
 
 
