@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-11-08T07:10:52Z",
+  "generated_at": "2026-11-08T07:13:02Z",
   "homepage": "https://www.tvbox.org/",
   "repo": "https://github.com/TVboxorg/TVbox",
   "primary": "王二小",
   "primary_jar_status": "ok",
-  "sites": 61,
+  "sites": 58,
   "mode": "pure-cms",
-  "netdisk_filtered": 77,
-  "cms_filtered": 447,
-  "cms_dead": 9,
+  "netdisk_filtered": 100,
+  "cms_filtered": 364,
+  "cms_dead": 0,
   "pool_added": 70,
-  "parses": 47,
-  "lives": 10,
+  "parses": 29,
+  "lives": 12,
   "sources": [
     {
       "id": "pref-001",
@@ -33,8 +33,8 @@
       "primary": false,
       "sites_added": 0,
       "sites_skipped": 0,
-      "jar_status": "fail",
-      "jar_md5_match": null,
+      "jar_status": "ok",
+      "jar_md5_match": true,
       "spider": "http://xhztv.top/xhz/Yoursmile.jar"
     },
     {
@@ -74,16 +74,28 @@
       "spider": "http://118.89.172.248:8025/jar/tan.php"
     },
     {
-      "id": "back-023",
-      "name": "ok线路1",
+      "id": "back-017",
+      "name": "潇洒",
       "group": "back",
-      "url": "https://raw.liucn.cc/box/m.json",
+      "url": "https://qist.wyfc.qzz.io/xiaosa/api.json",
       "primary": false,
-      "sites_added": 6,
+      "sites_added": 0,
       "sites_skipped": 0,
       "jar_status": "fail",
       "jar_md5_match": null,
-      "spider": "https://raw.liucn.cc/box/fty.jar"
+      "spider": "https://qist.wyfc.qzz.io/xiaosa/spider.jar"
+    },
+    {
+      "id": "back-016",
+      "name": "饭太硬",
+      "group": "back",
+      "url": "https://qist.wyfc.qzz.io/fty.json",
+      "primary": false,
+      "sites_added": 0,
+      "sites_skipped": 0,
+      "jar_status": "fail",
+      "jar_md5_match": null,
+      "spider": "https://qist.wyfc.qzz.io/jar/fan.txt"
     }
   ],
   "subscribe": "https://raw.githubusercontent.com/TVboxorg/TVbox/main/dist/official.json",
