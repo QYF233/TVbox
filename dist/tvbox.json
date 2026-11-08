@@ -17,10 +17,6 @@
       "name": "牛儿"
     },
     {
-      "url": "https://6800.kstore.vip/fish.json",
-      "name": "摸鱼儿"
-    },
-    {
       "url": "http://124.223.214.31:8/api.json",
       "name": "my interface"
     },
@@ -29,16 +25,20 @@
       "name": "牛二"
     },
     {
+      "url": "http://tv.999888987.xyz",
+      "name": "王二小放牛娃"
+    },
+    {
       "url": "http://47.96.82.41:5188/api.json",
       "name": "软件内置源"
     },
     {
-      "url": "https://9280.kstore.vip/newwex.json",
-      "name": "王二小"
+      "url": "https://6800.kstore.vip/fish.json",
+      "name": "摸鱼儿"
     },
     {
-      "url": "http://tv.999888987.xyz",
-      "name": "王二小放牛娃"
+      "url": "https://9280.kstore.vip/newwex.json",
+      "name": "王二小"
     },
     {
       "url": "http://tvbox.xn--4kq62z5rby2qupq9ub.top/",
@@ -49,44 +49,32 @@
       "name": "新接口"
     },
     {
-      "url": "https://700sjro44343.vicp.fun/vip/vip/tv.json",
-      "name": "1号VIP源"
-    },
-    {
-      "url": "https://700sjro44343.vicp.fun/eggp/0211/tv.json",
-      "name": "二月红接口"
-    },
-    {
-      "url": "http://xn--5mqx81b535a.com/",
-      "name": "uuccc"
-    },
-    {
       "url": "https://cdn.jsdelivr.net/gh/liu673cn/box@main/m.json",
       "name": "11号托管源"
-    },
-    {
-      "url": "https://qist.wyfc.qzz.io/xiaosa/api.json",
-      "name": "潇洒"
     },
     {
       "url": "https://tv.203511.xyz/0821.json",
       "name": "荐片"
     },
     {
+      "url": "https://qist.wyfc.qzz.io/xiaosa/api.json",
+      "name": "潇洒"
+    },
+    {
       "url": "https://g.33445500.xyz/https://raw.githubusercontent.com/qist/tvbox/refs/heads/master/xiaosa/api.json",
       "name": "潇洒Github备用"
     },
     {
-      "url": "https://gh-proxy.com/https://raw.githubusercontent.com/xmbjm/svip/refs/heads/main/svip.json",
-      "name": "拾光"
+      "url": "https://g.33445500.xyz/https://raw.githubusercontent.com/qist/tvbox/refs/heads/master/jsm.json",
+      "name": "神秘大佬"
     },
     {
       "url": "https://raw.liucn.cc/box/m.json",
       "name": "ok线路1"
     },
     {
-      "url": "https://g.33445500.xyz/https://raw.githubusercontent.com/qist/tvbox/refs/heads/master/jsm.json",
-      "name": "神秘大佬"
+      "url": "https://gh-proxy.com/https://raw.githubusercontent.com/xmbjm/svip/refs/heads/main/svip.json",
+      "name": "拾光"
     },
     {
       "url": "http://xhztv.top/4k.json",
@@ -97,18 +85,30 @@
       "name": "饭太硬"
     },
     {
-      "url": "https://tv.nxog.top/m/111.php?ou=公众号欧歌app&mz=index&jar=index&123&b=tv",
-      "name": "欧歌免费"
-    },
-    {
       "url": "http://home.jundie.top:81/top98.json",
       "name": "俊哥"
     },
     {
       "url": "http://550.3vcn.work/wdjyys.json",
       "name": "金鹰"
+    },
+    {
+      "url": "https://tv.nxog.top/m/111.php?ou=公众号欧歌app&mz=index&jar=index&123&b=tv",
+      "name": "欧歌免费"
+    },
+    {
+      "url": "https://700sjro44343.vicp.fun/vip/vip/tv.json",
+      "name": "1号VIP源"
+    },
+    {
+      "url": "http://xn--5mqx81b535a.com/",
+      "name": "uuccc"
+    },
+    {
+      "url": "https://700sjro44343.vicp.fun/eggp/0211/tv.json",
+      "name": "二月红接口"
     }
   ],
   "homepage": "https://www.tvbox.org/",
-  "generated_at": "2026-11-08T08:07:38Z"
+  "generated_at": "2026-11-08T08:18:00Z"
 }
