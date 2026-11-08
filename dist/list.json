@@ -14,6 +14,8 @@
     "multi": 0,
     "sites_total": 1484,
     "netdisk_filtered": 77,
+    "cms_dead": 9,
+    "mode": "pure-cms",
     "elapsed_sec": 58.3,
     "degraded": false,
     "avg_score": 74,

@@ -254,7 +254,7 @@ function metricsCards(s) {
     { k: "在线平均分", v: s.avg_score != null ? s.avg_score : "-", s: gradeSummary(s.grades), cls: "v-info" },
     { k: "spider 可用", v: s.jar_ok, s: `MD5 不符 ${s.jar_md5_mismatch || 0}`, cls: "v-info" },
     { k: "多仓源", v: s.multi || 0, s: "urls 类型", cls: "" },
-    { k: "可用站点", v: s.sites_total, s: s.netdisk_filtered ? `已排除网盘 ${s.netdisk_filtered}` : "聚合后校验通过", cls: "v-ok" },
+    { k: "可用站点", v: s.sites_total, s: s.mode === "pure-cms" ? `纯净模式 · 剔除死站 ${s.cms_dead || 0}` : (s.netdisk_filtered ? `已排除网盘 ${s.netdisk_filtered}` : "聚合后校验通过"), cls: "v-ok" },
     { k: "探测耗时", v: (s.elapsed_sec || 0) + "s", s: "全量并发", cls: "" }
   ];
   $("cards").innerHTML = items.map((i) => `

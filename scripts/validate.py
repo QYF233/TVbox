@@ -301,6 +301,29 @@ def detect_live(body: bytes) -> bool:
     return False
 
 
+def check_cms_api(api: str, timeout: int = 12) -> tuple[bool, int, str]:
+    """验证 maccms 类型接口是否真能返回影片列表。
+
+    返回 (ok, 影片条数, 失败原因)。只对 http(s) 开头的 api 有意义。
+    """
+    base = (api or "").strip()
+    if not base.startswith(("http://", "https://")):
+        return False, 0, "not-http"
+    sep = "&" if "?" in base else "?"
+    url = f"{base}{sep}ac=videolist&pg=1"
+    ok, code, body, err = http_get(url, timeout=timeout)
+    if not ok or not body:
+        return False, 0, (err or f"HTTP {code}")[:60]
+    try:
+        data = json.loads(body.decode("utf-8", "ignore"))
+    except Exception:
+        return False, code, "not-json"
+    videos = data.get("list") if isinstance(data, dict) else None
+    if isinstance(videos, list) and videos:
+        return True, len(videos), ""
+    return False, code, "empty-list"
+
+
 def analyze(url: str, *, primary_ua: str = UA_APP,
             fallback_ua: str = UA_BROWSER,
             timeout: int = TIMEOUT) -> dict[str, Any]:

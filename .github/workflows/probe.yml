@@ -41,6 +41,7 @@ jobs:
       - name: Merge official config
         env:
           KEEP_NETDISK: ${{ vars.KEEP_NETDISK }}
+          ONLY_CMS: ${{ vars.ONLY_CMS }}
         run: python3 scripts/merge.py
 
       - name: Build dist and dashboard data

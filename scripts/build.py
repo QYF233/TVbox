@@ -102,6 +102,8 @@ def main() -> int:
         "multi": len(multi_up),
         "sites_total": sum(x.get("sites_valid") or 0 for x in up_items),
         "netdisk_filtered": merge_meta.get("netdisk_filtered", 0),
+        "cms_dead": merge_meta.get("cms_dead", 0),
+        "mode": merge_meta.get("mode", "mixed"),
         "elapsed_sec": data.get("elapsed_sec"),
         "degraded": bool(degraded),
         "avg_score": avg_score,
@@ -152,7 +154,9 @@ def main() -> int:
         f"- 可用：**{len(up_items)}** / {len(items)}",
         f"- spider 可用：**{len(jar_ok)}**，MD5 不符：{len(jar_mismatch)}，多仓：{len(multi_up)}",
         f"- 可用站点合计：**{summary['sites_total']}**",
+        f"- 聚合模式：**{'纯净（仅 CMS 接口，实测可出片）' if summary.get('mode') == 'pure-cms' else '混合'}**",
         f"- 已排除网盘站：**{summary.get('netdisk_filtered', 0)}** 个（需网盘会员，播放不了）",
+        f"- 已排除失效 CMS 接口：**{summary.get('cms_dead', 0)}** 个（请求无影片列表）",
     ]
     if degraded:
         lines.append(f"- ⚠️ 本次聚合降级：`{degraded.get('reason')}`，沿用上次 official.json")

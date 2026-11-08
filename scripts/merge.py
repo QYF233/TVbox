@@ -10,6 +10,7 @@ import sys
 import urllib.error
 import urllib.parse
 import urllib.request
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -17,6 +18,7 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from score import score_source  # noqa: E402
+from validate import check_cms_api  # noqa: E402
 
 PROBE = ROOT / "dist" / "probe.json"
 HISTORY = ROOT / "dist" / "history.json"
@@ -317,10 +319,13 @@ def main() -> int:
 
     probe = json.loads(PROBE.read_text(encoding="utf-8"))
     health_map = load_health()
-    exclude_netdisk = os.environ.get("KEEP_NETDISK", "0") != "1"
-    only_cms = os.environ.get("ONLY_CMS", "0") == "1"
+    # 环境变量为空（CI 里仓库变量未设置）时按默认值处理
+    exclude_netdisk = (os.environ.get("KEEP_NETDISK") or "0").strip() != "1"
+    # 默认纯净模式：只保留纯 HTTP 接口站，内容可在本地直接验证，绝不含网盘
+    only_cms = (os.environ.get("ONLY_CMS") or "1").strip() != "0"
     netdisk_skipped = 0
     cms_skipped = 0
+    cms_dead = 0
     sources = pick_sources(probe.get("items") or [])
     if not sources:
         write_degraded("no-up-source", {"total": probe.get("count")})
@@ -356,6 +361,31 @@ def main() -> int:
         write_degraded("no-config-fetched",
                        {"picked": [str(s.get("id")) for s in sources]})
         return 0 if OUT.is_file() else 1
+
+    # 纯 CMS 模式：先并发验证每个接口是否真能返回影片列表
+    cms_cache: dict[str, tuple[bool, int, str]] = {}
+    if only_cms:
+        candidates: set[str] = set()
+        for row in fetched:
+            for site in row["cfg"].get("sites") or []:
+                if not isinstance(site, dict):
+                    continue
+                if site.get("type") in (0, 1, 4):
+                    api = str(site.get("api") or "")
+                    if is_http_api(api):
+                        candidates.add(api)
+        if candidates:
+            print(f"验证 {len(candidates)} 个 CMS 接口 ...", flush=True)
+            with ThreadPoolExecutor(max_workers=8) as pool:
+                futures = {pool.submit(check_cms_api, api): api for api in candidates}
+                for future in as_completed(futures):
+                    api = futures[future]
+                    try:
+                        cms_cache[api] = future.result()
+                    except Exception as exc:
+                        cms_cache[api] = (False, 0, str(exc)[:40])
+            alive = sum(1 for v in cms_cache.values() if v[0])
+            print(f"  CMS 可用 {alive}/{len(cms_cache)}", flush=True)
 
     # 主源：pref 分组优先，组内按综合评分（可用性+jar+站点数+延迟+稳定性）
     def primary_rank(row: dict) -> tuple:
@@ -395,6 +425,13 @@ def main() -> int:
             if only_cms and isinstance(site, dict) and site.get("type") not in (0, 1, 4):
                 cms_skipped += 1
                 continue
+            if only_cms and isinstance(site, dict) and site.get("type") in (0, 1, 4):
+                api = str(site.get("api") or "")
+                if is_http_api(api):
+                    res = cms_cache.get(api)
+                    if res is not None and not res[0]:
+                        cms_dead += 1
+                        continue
             adapted = adapt_site(
                 site,
                 source_id=sid,
@@ -539,8 +576,10 @@ def main() -> int:
         "primary": meta_sources[0]["name"] if meta_sources else "",
         "primary_jar_status": primary_jar_status,
         "sites": len(final_sites),
+        "mode": "pure-cms" if only_cms else "mixed",
         "netdisk_filtered": netdisk_skipped,
         "cms_filtered": cms_skipped,
+        "cms_dead": cms_dead,
         "parses": len(parses),
         "lives": len(lives),
         "sources": meta_sources,
@@ -569,7 +608,7 @@ def main() -> int:
     print(
         f"wrote {OUT} sites={len(final_sites)} parses={len(parses)} lives={len(lives)} "
         f"primary={meta['primary']} jar={primary_jar_status} "
-        f"netdisk_filtered={netdisk_skipped}"
+        f"netdisk_filtered={netdisk_skipped} cms_dead={cms_dead}"
     )
     return 0
 
