@@ -14,6 +14,9 @@ from pathlib import Path
 from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from score import score_source  # noqa: E402
+
 PROBE = ROOT / "dist" / "probe.json"
 HISTORY = ROOT / "dist" / "history.json"
 OUT = ROOT / "dist" / "official.json"
@@ -324,13 +327,13 @@ def main() -> int:
                        {"picked": [str(s.get("id")) for s in sources]})
         return 0 if OUT.is_file() else 1
 
-    # 主源：优先 pref + jar 探测通过 + 站点多
+    # 主源：pref 分组优先，组内按综合评分（可用性+jar+站点数+延迟+稳定性）
     def primary_rank(row: dict) -> tuple:
         src = row["src"]
-        jar_ok = 1 if src.get("jar_status") == "ok" else 0
-        has_jar = 1 if spider_http(row["spider"]) else 0
         pref = 1 if src.get("group") == "pref" else 0
-        return (pref, jar_ok, has_jar, row["site_count"])
+        uptime = health_map.get(str(src.get("id")), 0.0)
+        sc = score_source(src, {"uptime_7d": uptime})
+        return (pref, sc, row["site_count"])
 
     fetched.sort(key=primary_rank, reverse=True)
     primary = fetched[0]

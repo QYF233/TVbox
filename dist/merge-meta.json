@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-11-08T05:16:20Z",
+  "generated_at": "2026-11-08T05:30:15Z",
   "homepage": "https://www.tvbox.org/",
   "repo": "https://github.com/TVboxorg/TVbox",
   "primary": "王二小",
   "primary_jar_status": "ok",
-  "sites": 151,
+  "sites": 116,
   "parses": 47,
   "lives": 10,
   "sources": [
@@ -26,10 +26,10 @@
       "group": "pref",
       "url": "http://xhztv.top/xhz",
       "primary": false,
-      "sites_added": 50,
-      "sites_skipped": 4,
-      "jar_status": "ok",
-      "jar_md5_match": true,
+      "sites_added": 0,
+      "sites_skipped": 54,
+      "jar_status": "fail",
+      "jar_md5_match": null,
       "spider": "http://xhztv.top/xhz/Yoursmile.jar"
     },
     {

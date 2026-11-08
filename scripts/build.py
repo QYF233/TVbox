@@ -15,6 +15,9 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from score import score_all  # noqa: E402
+
 ROOT = Path(__file__).resolve().parents[1]
 PROBE = ROOT / "dist" / "probe.json"
 HISTORY = ROOT / "dist" / "history.json"
@@ -66,6 +69,7 @@ def main() -> int:
     items = data.get("items") or []
     history = load_json(HISTORY)
     hist_sources = history.get("sources") or {}
+    scores = score_all(items, hist_sources)
     mirrors = load_json(MIRRORS)
     merge_meta = load_json(MERGE_META)
     degraded = load_json(DEGRADED) if DEGRADED.is_file() else {}
@@ -80,6 +84,15 @@ def main() -> int:
     generated_at = data.get("generated_at") or datetime.now(timezone.utc).strftime(
         "%Y-%m-%dT%H:%M:%SZ")
 
+    all_scores = [v["score"] for v in scores.values()]
+    online_ids = [str(x.get("id") or x.get("url")) for x in items if x.get("ok")]
+    online_scores = [scores[i]["score"] for i in online_ids if i in scores]
+    avg_score = round(sum(online_scores) / len(online_scores)) if online_scores else 0
+    avg_all = round(sum(all_scores) / len(all_scores)) if all_scores else 0
+    grade_counts: dict[str, int] = {}
+    for v in scores.values():
+        grade_counts[v["grade"]] = grade_counts.get(v["grade"], 0) + 1
+
     summary = {
         "total": len(items),
         "up": len(up_items),
@@ -90,6 +103,9 @@ def main() -> int:
         "sites_total": sum(x.get("sites_valid") or 0 for x in up_items),
         "elapsed_sec": data.get("elapsed_sec"),
         "degraded": bool(degraded),
+        "avg_score": avg_score,
+        "avg_score_all": avg_all,
+        "grades": grade_counts,
     }
 
     list_payload = {
@@ -150,6 +166,8 @@ def main() -> int:
     for x in items:
         sid = str(x.get("id") or x.get("url"))
         h = hist_sources.get(sid) or {}
+        sc = scores.get(sid) or {}
+        score_txt = f"{sc.get('grade', '-')}{sc.get('score', 0)}"
         mark = "UP" if x.get("ok") else "DOWN"
         desc = (x.get("desc") or x.get("error") or x.get("kind") or "").replace("|", "/")
         name = (x.get("name") or "").replace("|", "/")
@@ -165,7 +183,7 @@ def main() -> int:
         else:
             streak = f"↓{h.get('streak_down', 0)}"
         lines.append(
-            f"| {mark} | {x.get('group','')} | {name} | {sites if sites else '-'} "
+            f"| {mark} | {x.get('group','')} | {name} `{score_txt}` | {sites if sites else '-'} "
             f"| {jar} | {multi} | {uptime_txt} | {streak} | {x.get('ms', 0)}ms | {desc[:44]} |"
         )
     lines.append("")
@@ -176,9 +194,12 @@ def main() -> int:
     for x in items:
         sid = str(x.get("id") or x.get("url"))
         h = hist_sources.get(sid) or {}
+        sc = scores.get(sid) or {}
         dashboard_sources.append({
             "id": sid,
             "name": x.get("name", ""),
+            "score": sc.get("score", 0),
+            "grade": sc.get("grade", "D"),
             "group": x.get("group", ""),
             "url": x.get("url", ""),
             "desc": x.get("desc", ""),

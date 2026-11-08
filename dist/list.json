@@ -14,7 +14,15 @@
     "multi": 0,
     "sites_total": 1484,
     "elapsed_sec": 58.3,
-    "degraded": false
+    "degraded": false,
+    "avg_score": 74,
+    "avg_score_all": 45,
+    "grades": {
+      "S": 8,
+      "A": 5,
+      "B": 10,
+      "D": 15
+    }
   },
   "items": [
     {
