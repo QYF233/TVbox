@@ -187,8 +187,11 @@ def normalize_key(raw: str, source_id: str) -> str:
 
 
 # 网盘类站点：播放需要登录对应网盘账号，普通用户点进去也看不了，默认剔除
+# 除了显式网盘名，还要覆盖「4K / 原盘 / 盘库 / 盘搜」这批实为网盘分享的站点，
+# 以及 Emby / WebDAV / Alist 这类需要自建服务才能用的站
 NETDISK_NAME = re.compile(
-    r"网盘|云盘|夸克|天翼|115|alist|小雅|迅雷|uc网盘|百度网盘", re.I)
+    r"网盘|云盘|夸克|天翼|115|alist|小雅|迅雷|uc网盘|百度网盘"
+    r"|4k|原盘|盘库|盘搜|emby|webdav", re.I)
 # api 形如 csp_PanCms / csp_AListGuard / csp_MyPanGuard；
 # 用负向断言排掉 csp_PanConfigGuard 这类设置面板
 NETDISK_API = re.compile(
@@ -315,7 +318,9 @@ def main() -> int:
     probe = json.loads(PROBE.read_text(encoding="utf-8"))
     health_map = load_health()
     exclude_netdisk = os.environ.get("KEEP_NETDISK", "0") != "1"
+    only_cms = os.environ.get("ONLY_CMS", "0") == "1"
     netdisk_skipped = 0
+    cms_skipped = 0
     sources = pick_sources(probe.get("items") or [])
     if not sources:
         write_degraded("no-up-source", {"total": probe.get("count")})
@@ -386,6 +391,9 @@ def main() -> int:
         for site in cfg.get("sites") or []:
             if exclude_netdisk and isinstance(site, dict) and is_netdisk_site(site):
                 netdisk_skipped += 1
+                continue
+            if only_cms and isinstance(site, dict) and site.get("type") not in (0, 1, 4):
+                cms_skipped += 1
                 continue
             adapted = adapt_site(
                 site,
@@ -532,6 +540,7 @@ def main() -> int:
         "primary_jar_status": primary_jar_status,
         "sites": len(final_sites),
         "netdisk_filtered": netdisk_skipped,
+        "cms_filtered": cms_skipped,
         "parses": len(parses),
         "lives": len(lives),
         "sources": meta_sources,
