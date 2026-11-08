@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TVBox 接口监控台</title>
+<style>
+:root{
+  --bg:#0d1117; --panel:#161b22; --panel2:#1c2230; --line:#30363d;
+  --text:#e6edf3; --muted:#8b949e; --dim:#6e7681;
+  --ok:#3fb950; --bad:#f85149; --warn:#d29922; --info:#58a6ff; --accent:#2ea043;
+  --radius:10px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:var(--bg); color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+  font-size:14px; line-height:1.6; padding:24px 20px 60px;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1280px;margin:0 auto}
+a{color:var(--info);text-decoration:none}
+a:hover{text-decoration:underline}
+code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:12.5px}
+
+header{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:22px}
+h1{font-size:20px;font-weight:600;letter-spacing:.2px}
+h1 span{color:var(--muted);font-weight:400;font-size:13px;margin-left:10px}
+.meta{color:var(--muted);font-size:12.5px;margin-top:6px}
+.meta b{color:var(--text);font-weight:500}
+.btn{
+  background:var(--panel2);border:1px solid var(--line);color:var(--text);
+  padding:7px 14px;border-radius:8px;cursor:pointer;font-size:13px;
+  transition:border-color .15s,background .15s;font-family:inherit;
+}
+.btn:hover{border-color:var(--info);background:#20293a}
+.btn:active{transform:translateY(1px)}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:20px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px}
+.card .k{color:var(--muted);font-size:12px;letter-spacing:.3px}
+.card .v{font-size:26px;font-weight:600;margin-top:4px;line-height:1.2;font-variant-numeric:tabular-nums}
+.card .s{color:var(--dim);font-size:11.5px;margin-top:2px}
+.v-ok{color:var(--ok)} .v-bad{color:var(--bad)} .v-warn{color:var(--warn)} .v-info{color:var(--info)}
+
+section{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:18px;margin-bottom:18px}
+section h2{font-size:14px;font-weight:600;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+section h2 .tag{font-size:11px;color:var(--muted);font-weight:400;background:var(--panel2);padding:2px 8px;border-radius:20px;border:1px solid var(--line)}
+
+#chart{width:100%;height:150px;display:block}
+.chart-empty{color:var(--dim);font-size:13px;padding:30px 0;text-align:center}
+
+.mirror-grid{display:grid;gap:8px}
+.mirror-row{display:flex;align-items:center;gap:10px;background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:9px 12px;flex-wrap:wrap}
+.mirror-row .fname{min-width:104px;color:var(--muted);font-size:12px}
+.mirror-row .url{flex:1;min-width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--dim);font-size:12px}
+.dot{width:7px;height:7px;border-radius:50%;flex:0 0 7px}
+.dot.ok{background:var(--ok);box-shadow:0 0 6px rgba(63,185,80,.6)}
+.dot.bad{background:var(--bad)}
+.pill{font-size:11px;padding:1px 7px;border-radius:20px;border:1px solid var(--line);color:var(--muted)}
+.pill.ok{color:var(--ok);border-color:rgba(63,185,80,.4)}
+.pill.bad{color:var(--bad);border-color:rgba(248,81,73,.4)}
+
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
+input[type=search],select{
+  background:var(--panel2);border:1px solid var(--line);color:var(--text);
+  padding:7px 11px;border-radius:8px;font-size:13px;font-family:inherit;outline:none;
+}
+input[type=search]{flex:1;min-width:180px}
+input[type=search]:focus,select:focus{border-color:var(--info)}
+.filters{display:flex;gap:6px;flex-wrap:wrap}
+.chip{
+  background:transparent;border:1px solid var(--line);color:var(--muted);
+  padding:6px 12px;border-radius:20px;cursor:pointer;font-size:12.5px;font-family:inherit;
+  transition:all .15s;
+}
+.chip:hover{color:var(--text);border-color:var(--dim)}
+.chip.on{background:var(--accent);border-color:var(--accent);color:#fff}
+
+.table-wrap{overflow-x:auto;margin:0 -18px -18px;padding:0 18px}
+table{width:100%;border-collapse:collapse;font-size:13px;min-width:900px}
+th{
+  text-align:left;color:var(--muted);font-weight:500;font-size:12px;
+  padding:8px 10px;border-bottom:1px solid var(--line);white-space:nowrap;
+  position:sticky;top:0;background:var(--panel);z-index:1;
+}
+th.num,td.num{text-align:right;font-variant-numeric:tabular-nums}
+td{padding:9px 10px;border-bottom:1px solid rgba(48,54,61,.5);vertical-align:middle}
+tbody tr{cursor:pointer;transition:background .12s}
+tbody tr:hover{background:rgba(88,166,255,.06)}
+tr.is-down td:first-child{border-left:2px solid var(--bad)}
+tr.is-up td:first-child{border-left:2px solid transparent}
+td.name{max-width:200px}
+.group{font-size:11px;color:var(--dim);margin-left:6px}
+.badge{font-size:11px;padding:1px 6px;border-radius:5px;border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+.badge.jar-ok{color:var(--ok);border-color:rgba(63,185,80,.35)}
+.badge.jar-fail{color:var(--bad);border-color:rgba(248,81,73,.35)}
+.badge.jar-md5{color:var(--warn);border-color:rgba(210,153,34,.4)}
+.badge.jar-none{color:var(--dim)}
+.uptime-bar{display:inline-flex;gap:1px;margin-left:8px;vertical-align:middle}
+.uptime-bar i{width:4px;height:12px;border-radius:1px;display:block;background:#2d333b}
+.uptime-bar i.u{background:var(--ok)}
+.uptime-bar i.d{background:var(--bad)}
+
+tr.detail-row{cursor:default;background:rgba(0,0,0,.18)}
+tr.detail-row:hover{background:rgba(0,0,0,.18)}
+tr.detail-row td{padding:0;border-bottom:1px solid var(--line)}
+.detail{padding:14px 16px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px 24px;font-size:12.5px}
+.detail div{min-width:0}
+.detail dt{color:var(--muted);font-size:11.5px;margin-bottom:2px}
+.detail dd{word-break:break-all;color:var(--text)}
+.err{color:var(--bad)}
+
+.empty{padding:40px;text-align:center;color:var(--dim)}
+footer{color:var(--dim);font-size:12px;text-align:center;margin-top:26px;line-height:1.9}
+.banner{
+  background:rgba(210,153,34,.12);border:1px solid rgba(210,153,34,.4);color:var(--warn);
+  padding:10px 14px;border-radius:8px;font-size:12.5px;margin-bottom:16px;
+}
+.toast{
+  position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);
+  background:var(--panel2);border:1px solid var(--line);color:var(--text);
+  padding:10px 18px;border-radius:8px;font-size:13px;opacity:0;pointer-events:none;
+  transition:all .2s;z-index:99;
+}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <h1>TVBox 接口监控台<span id="repoLabel"></span></h1>
+      <div class="meta" id="metaLine">加载中…</div>
+    </div>
+    <div style="display:flex;gap:8px">
+      <button class="btn" id="reloadBtn">重新加载数据</button>
+      <a class="btn" id="repoLink" href="#" target="_blank" rel="noopener">打开仓库</a>
+    </div>
+  </header>
+
+  <div id="degraded"></div>
+
+  <div class="cards" id="cards"></div>
+
+  <section>
+    <h2>可用源趋势 <span class="tag" id="runTag"></span></h2>
+    <div id="chartBox"><div class="chart-empty">暂无历史数据，需至少两次探测</div></div>
+  </section>
+
+  <section>
+    <h2>订阅地址 <span class="tag">点击复制，绿色表示当前可达</span></h2>
+    <div class="mirror-grid" id="mirrors"></div>
+  </section>
+
+  <section>
+    <h2>接口源 <span class="tag" id="countTag"></span></h2>
+    <div class="toolbar">
+      <input type="search" id="search" placeholder="搜索名称、地址、描述…">
+      <div class="filters" id="filters"></div>
+      <select id="sortBy">
+        <option value="default">默认顺序</option>
+        <option value="ms">延迟从低到高</option>
+        <option value="uptime">7 日可用率</option>
+        <option value="sites">站点数</option>
+        <option value="name">名称</option>
+      </select>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>状态</th><th>名称</th><th class="num">站点</th><th>jar</th>
+            <th class="num">延迟</th><th class="num">7 日</th><th>连续</th><th>说明</th>
+          </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer id="footer"></footer>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+const FILES = ["official.json", "tvbox.json", "list.json"];
+let DATA = null;
+let STATE = { filter: "all", search: "", sort: "default", expanded: new Set() };
+
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s == null ? "" : s)
+  .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+  .replace(/"/g, "&quot;");
+
+function toast(msg) {
+  const el = $("toast");
+  el.textContent = msg;
+  el.classList.add("show");
+  clearTimeout(el._t);
+  el._t = setTimeout(() => el.classList.remove("show"), 1800);
+}
+
+function copyText(text) {
+  if (navigator.clipboard && window.isSecureContext) {
+    return navigator.clipboard.writeText(text);
+  }
+  const ta = document.createElement("textarea");
+  ta.value = text;
+  ta.style.position = "fixed";
+  ta.style.opacity = "0";
+  document.body.appendChild(ta);
+  ta.select();
+  try { document.execCommand("copy"); } finally { document.body.removeChild(ta); }
+  return Promise.resolve();
+}
+
+function fmtTime(iso) {
+  if (!iso) return "-";
+  const d = new Date(iso);
+  if (isNaN(d.getTime())) return iso;
+  const p = (n) => String(n).padStart(2, "0");
+  return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())} ` +
+         `${p(d.getHours())}:${p(d.getMinutes())}`;
+}
+
+function pct(v) {
+  if (typeof v !== "number") return "-";
+  return (v * 100).toFixed(0) + "%";
+}
+
+function metricsCards(s) {
+  const items = [
+    { k: "接口源", v: s.total, s: `可用 ${s.up} · 掉线 ${s.down}`, cls: "" },
+    { k: "可用率", v: s.total ? Math.round(s.up / s.total * 100) + "%" : "-", s: "本次探测", cls: s.up >= s.total * 0.6 ? "v-ok" : "v-warn" },
+    { k: "spider 可用", v: s.jar_ok, s: `MD5 不符 ${s.jar_md5_mismatch || 0}`, cls: "v-info" },
+    { k: "多仓源", v: s.multi || 0, s: "urls 类型", cls: "" },
+    { k: "可用站点", v: s.sites_total, s: "聚合后校验通过", cls: "v-ok" },
+    { k: "探测耗时", v: (s.elapsed_sec || 0) + "s", s: "全量并发", cls: "" }
+  ];
+  $("cards").innerHTML = items.map((i) => `
+    <div class="card">
+      <div class="k">${esc(i.k)}</div>
+      <div class="v ${i.cls}">${esc(i.v)}</div>
+      <div class="s">${esc(i.s)}</div>
+    </div>`).join("");
+}
+
+function drawChart(runs) {
+  const box = $("chartBox");
+  if (!runs || runs.length < 2) {
+    box.innerHTML = '<div class="chart-empty">暂无历史数据，需至少两次探测</div>';
+    return;
+  }
+  const data = runs.slice(-60);
+  const W = 1000, H = 150, padL = 34, padR = 10, padT = 12, padB = 22;
+  const innerW = W - padL - padR, innerH = H - padT - padB;
+  const maxV = Math.max(...data.map((d) => d.total), 1);
+  const x = (i) => padL + (data.length === 1 ? 0 : i * innerW / (data.length - 1));
+  const y = (v) => padT + innerH - (v / maxV) * innerH;
+
+  const upPts = data.map((d, i) => `${x(i).toFixed(1)},${y(d.up).toFixed(1)}`);
+  const totalPts = data.map((d, i) => `${x(i).toFixed(1)},${y(d.total).toFixed(1)}`);
+  const area = `M${padL},${padT + innerH} L${upPts.join(" L")} L${x(data.length - 1)},${padT + innerH} Z`;
+
+  const grid = [0, 0.5, 1].map((f) => {
+    const gy = (padT + innerH - f * innerH).toFixed(1);
+    const val = Math.round(f * maxV);
+    return `<line x1="${padL}" y1="${gy}" x2="${W - padR}" y2="${gy}" stroke="#30363d" stroke-width="1" stroke-dasharray="${f === 0 ? 0 : 3}"/>` +
+           `<text x="${padL - 2}" y="${gy}" fill="#6e7681" font-size="10" text-anchor="end" dominant-baseline="central">${val}</text>`;
+  }).join("");
+
+  const first = data[0], last = data[data.length - 1];
+  box.innerHTML = `
+  <svg id="chart" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" role="img" aria-label="可用源趋势">
+    <defs>
+      <linearGradient id="g1" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#2ea043" stop-opacity="0.35"/>
+        <stop offset="100%" stop-color="#2ea043" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+    ${grid}
+    <path d="${area}" fill="url(#g1)"/>
+    <polyline points="${totalPts.join(" ")}" fill="none" stroke="#30363d" stroke-width="1.5" stroke-dasharray="4 3"/>
+    <polyline points="${upPts.join(" ")}" fill="none" stroke="#3fb950" stroke-width="2" stroke-linejoin="round"/>
+    <circle cx="${x(data.length - 1).toFixed(1)}" cy="${y(last.up).toFixed(1)}" r="3.5" fill="#3fb950"/>
+  </svg>
+  <div style="display:flex;gap:18px;justify-content:space-between;margin-top:8px;font-size:11.5px;color:#6e7681">
+    <span>${esc(fmtTime(first.at))} · 可用 ${first.up}/${first.total}</span>
+    <span style="color:#3fb950">实线 = 可用数　虚线 = 总量</span>
+    <span>${esc(fmtTime(last.at))} · 可用 ${last.up}/${last.total}</span>
+  </div>`;
+}
+
+function renderMirrors(mirrors, repo) {
+  const rows = [];
+  FILES.forEach((f) => {
+    const list = (mirrors && mirrors[f]) || [];
+    list.forEach((m) => rows.push({ file: f, ...m }));
+  });
+  if (!rows.length) {
+    const raw = FILES.map((f) =>
+      `<div class="mirror-row"><span class="fname">${esc(f)}</span>
+       <code class="url">https://raw.githubusercontent.com/${esc(repo)}/main/dist/${esc(f)}</code>
+       <button class="btn" data-copy="https://raw.githubusercontent.com/${esc(repo)}/main/dist/${esc(f)}">复制</button></div>`).join("");
+    $("mirrors").innerHTML = raw;
+    bindCopy();
+    return;
+  }
+  $("mirrors").innerHTML = rows.map((m) => `
+    <div class="mirror-row">
+      <span class="dot ${m.ok ? "ok" : "bad"}"></span>
+      <span class="fname">${esc(m.file)}</span>
+      <code class="url">${esc(m.url)}</code>
+      <span class="pill ${m.ok ? "ok" : "bad"}">${m.ok ? (m.ms + "ms") : "不可达"}</span>
+      <button class="btn" data-copy="${esc(m.url)}">复制</button>
+    </div>`).join("");
+  bindCopy();
+}
+
+function bindCopy() {
+  document.querySelectorAll("[data-copy]").forEach((btn) => {
+    btn.onclick = () => {
+      copyText(btn.getAttribute("data-copy"))
+        .then(() => toast("已复制"))
+        .catch(() => toast("复制失败，请手动选择"));
+    };
+  });
+}
+
+function jarBadge(src) {
+  if (src.jarMd5Match === false) return '<span class="badge jar-md5">md5 不符</span>';
+  const st = src.jarStatus;
+  if (st === "ok") return '<span class="badge jar-ok">ok</span>';
+  if (st === "fail") return '<span class="badge jar-fail">失败</span>';
+  if (st === "local") return '<span class="badge jar-none">本地</span>';
+  if (st === "none") {
+    if (src.isLive) return '<span class="badge jar-none">直播</span>';
+    if (src.multiCount) return '<span class="badge jar-none">多仓</span>';
+    return '<span class="badge jar-none">无</span>';
+  }
+  return `<span class="badge jar-none">${esc(st)}</span>`;
+}
+
+function recentBar(recent) {
+  if (!recent || !recent.length) return "";
+  return '<span class="uptime-bar">' + recent.slice(-20).map((v) =>
+    `<i class="${v ? "u" : "d"}"></i>`).join("") + "</span>";
+}
+
+function filteredSources() {
+  const s = STATE.search.trim().toLowerCase();
+  let list = DATA.sources.filter((x) => {
+    if (STATE.filter === "up" && !x.ok) return false;
+    if (STATE.filter === "down" && x.ok) return false;
+    if (STATE.filter === "jarfail" && x.jarStatus !== "fail" && x.jarMd5Match !== false) return false;
+    if (STATE.filter === "multi" && !x.multiCount) return false;
+    if (STATE.filter === "live" && !x.isLive) return false;
+    if (s) {
+      const hay = `${x.name} ${x.url} ${x.desc} ${x.id}`.toLowerCase();
+      if (!hay.includes(s)) return false;
+    }
+    return true;
+  });
+  if (STATE.sort === "ms") list = list.slice().sort((a, b) => (a.ms || 1e9) - (b.ms || 1e9));
+  if (STATE.sort === "uptime") list = list.slice().sort((a, b) => (b.uptime7d || 0) - (a.uptime7d || 0));
+  if (STATE.sort === "sites") list = list.slice().sort((a, b) => (b.sitesValid || 0) - (a.sitesValid || 0));
+  if (STATE.sort === "name") list = list.slice().sort((a, b) => a.name.localeCompare(b.name, "zh"));
+  return list;
+}
+
+function renderTable() {
+  const list = filteredSources();
+  $("countTag").textContent = `${list.length} / ${DATA.sources.length}`;
+  if (!list.length) {
+    $("tbody").innerHTML = '<tr><td colspan="8" class="empty">没有匹配的源</td></tr>';
+    return;
+  }
+  const html = [];
+  list.forEach((x) => {
+    const cls = x.ok ? "is-up" : "is-down";
+    const statusTxt = x.ok ? "UP" : "DOWN";
+    const statusColor = x.ok ? "var(--ok)" : "var(--bad)";
+    const note = x.ok
+      ? (x.desc || (x.multiCount ? `${x.multiCount} 个子仓` : (x.isLive ? "直播源" : "")))
+      : (x.error || x.kind || "");
+    html.push(`
+      <tr class="${cls}" data-id="${esc(x.id)}">
+        <td><span style="color:${statusColor};font-weight:600;font-size:12px">${statusTxt}</span></td>
+        <td class="name">${esc(x.name)}<span class="group">${esc(x.group)}</span>${x.active ? "" : ' <span class="badge jar-none">已移除</span>'}</td>
+        <td class="num">${x.sitesValid || "-"}</td>
+        <td>${jarBadge(x)}</td>
+        <td class="num">${x.ms ? x.ms + "ms" : "-"}</td>
+        <td class="num">${pct(x.uptime7d)}${recentBar(x.recent)}</td>
+        <td style="color:${x.ok ? "var(--ok)" : "var(--bad)"}">${x.ok ? "↑" : "↓"}${x.ok ? (x.streakUp || 0) : (x.streakDown || 0)}</td>
+        <td style="color:var(--muted);max-width:260px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(String(note).slice(0, 60))}</td>
+      </tr>`);
+    if (STATE.expanded.has(x.id)) {
+      html.push(`<tr class="detail-row"><td colspan="8"><div class="detail">
+        <div><dl><dt>接口地址</dt><dd><a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.url)}</a></dd></dl></div>
+        <div><dl><dt>spider jar</dt><dd>${esc(x.jarUrl || "-")}</dd></dl></div>
+        <div><dl><dt>jar 说明</dt><dd>${esc(x.jarNote || "-")}${x.jarSize ? " · " + Math.round(x.jarSize / 1024) + " KB" : ""}</dd></dl></div>
+        <div><dl><dt>站点类型分布</dt><dd>${esc(JSON.stringify(x.types || {}))}</dd></dl></div>
+        <div><dl><dt>请求 UA</dt><dd>${esc(x.uaUsed || "-")}</dd></dl></div>
+        <div><dl><dt>累计探测 / 可用</dt><dd>${x.checks || 0} / ${x.checks ? Math.round((x.recent.filter(Boolean).length / Math.max(x.recent.length, 1)) * 100) : 0}%</dd></dl></div>
+        <div><dl><dt>最近状态变更</dt><dd>${esc(fmtTime(x.lastChangeAt) || "-")}</dd></dl></div>
+        <div><dl><dt>错误信息</dt><dd class="err">${esc(x.error || "-")}</dd></dl></div>
+      </div></td></tr>`);
+    }
+  });
+  $("tbody").innerHTML = html.join("");
+
+  $("tbody").querySelectorAll("tr[data-id]").forEach((tr) => {
+    tr.onclick = () => {
+      const id = tr.getAttribute("data-id");
+      if (STATE.expanded.has(id)) STATE.expanded.delete(id);
+      else STATE.expanded.add(id);
+      renderTable();
+    };
+  });
+}
+
+function renderFilters() {
+  const defs = [
+    ["all", "全部"], ["up", "可用"], ["down", "掉线"],
+    ["jarfail", "jar 异常"], ["multi", "多仓"], ["live", "直播"]
+  ];
+  $("filters").innerHTML = defs.map(([k, label]) => {
+    let n = "";
+    if (k === "up") n = DATA.sources.filter((x) => x.ok).length;
+    if (k === "down") n = DATA.sources.filter((x) => !x.ok).length;
+    if (k === "jarfail") n = DATA.sources.filter((x) => x.jarStatus === "fail" || x.jarMd5Match === false).length;
+    if (k === "multi") n = DATA.sources.filter((x) => x.multiCount).length;
+    if (k === "live") n = DATA.sources.filter((x) => x.isLive).length;
+    const on = STATE.filter === k ? "on" : "";
+    return `<button class="chip ${on}" data-f="${k}">${label}${n !== "" ? " " + n : ""}</button>`;
+  }).join("");
+  $("filters").querySelectorAll("[data-f]").forEach((b) => {
+    b.onclick = () => { STATE.filter = b.getAttribute("data-f"); renderFilters(); renderTable(); };
+  });
+}
+
+function renderHeader() {
+  const s = DATA.summary;
+  $("repoLabel").textContent = DATA.repo;
+  $("metaLine").innerHTML =
+    `最近探测 <b>${esc(fmtTime(DATA.generatedAt))}</b>　` +
+    `可用 <b>${s.up}/${s.total}</b>　` +
+    `聚合站点 <b>${s.sites_total}</b>　` +
+    `主源 <b>${esc(DATA.merge.primary || "-")}</b>`;
+  $("repoLink").href = `https://github.com/${DATA.repo}`;
+  $("runTag").textContent = `${(DATA.runs || []).length} 次记录`;
+
+  if (DATA.degraded) {
+    $("degraded").innerHTML =
+      `<div class="banner">本次聚合降级：${esc(DATA.degraded.reason)}；` +
+      `已沿用上一次的 official.json${DATA.degraded.kept_previous ? "" : "（无历史文件）"}</div>`;
+  } else {
+    $("degraded").innerHTML = "";
+  }
+
+  const m = DATA.merge;
+  $("footer").innerHTML =
+    `主源 ${esc(m.primary || "-")}（jar ${esc(m.primaryJarStatus || "-")}）· ` +
+    `聚合站点 ${m.sites} · 解析器 ${m.parses} · 直播源 ${m.lives}<br>` +
+    `判定口径：App 真实 UA 拉取 + sites 字段校验 + spider jar 下载与 MD5 比对<br>` +
+    `<a href="https://github.com/${DATA.repo}/actions" target="_blank" rel="noopener">查看 Actions</a> · ` +
+    `<a href="https://github.com/${DATA.repo}/edit/main/sources.yaml" target="_blank" rel="noopener">编辑 sources.yaml</a>`;
+}
+
+function render() {
+  renderHeader();
+  metricsCards(DATA.summary);
+  drawChart(DATA.runs);
+  renderMirrors(DATA.mirrors, DATA.repo);
+  renderFilters();
+  renderTable();
+}
+
+function load() {
+  return fetch("./data/dashboard.json?t=" + Date.now(), { cache: "no-store" })
+    .then((r) => {
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      return r.json();
+    })
+    .then((d) => {
+      DATA = d;
+      if (!Array.isArray(DATA.sources)) DATA.sources = [];
+      if (!DATA.summary) DATA.summary = {};
+      if (!DATA.merge) DATA.merge = {};
+      render();
+    })
+    .catch((e) => {
+      $("metaLine").innerHTML = `<span class="err">加载数据失败：${esc(e.message)}</span>`;
+      $("cards").innerHTML = "";
+      $("tbody").innerHTML = '<tr><td colspan="8" class="empty">请先运行 scripts/build.py 生成 docs/data/dashboard.json</td></tr>';
+    });
+}
+
+$("reloadBtn").onclick = () => { load().then(() => toast("已刷新")); };
+$("search").oninput = (e) => { STATE.search = e.target.value; renderTable(); };
+$("sortBy").onchange = (e) => { STATE.sort = e.target.value; renderTable(); };
+load();
+</script>
+</body>
+</html>

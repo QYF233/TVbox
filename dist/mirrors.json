@@ -1,0 +1,162 @@
+{
+  "generated_at": "2026-11-08T05:15:04Z",
+  "repo": "QYF233/TVbox",
+  "files": {
+    "official.json": [
+      {
+        "name": "raw",
+        "label": "GitHub Raw（国内多不可达）",
+        "url": "https://raw.githubusercontent.com/QYF233/TVbox/main/dist/official.json",
+        "ok": false,
+        "status": 0,
+        "size": 0,
+        "ms": 166,
+        "error": "URLError: <urlopen error [WinError 10054] 远程主机强迫关闭了一个现有的连接。>"
+      },
+      {
+        "name": "jsdelivr-fastly",
+        "label": "jsDelivr Fastly（国内通常可用）",
+        "url": "https://fastly.jsdelivr.net/gh/QYF233/TVbox@main/dist/official.json",
+        "ok": true,
+        "status": 200,
+        "size": 68256,
+        "ms": 2963,
+        "error": ""
+      },
+      {
+        "name": "jsdelivr",
+        "label": "jsDelivr（国内常被墙）",
+        "url": "https://cdn.jsdelivr.net/gh/QYF233/TVbox@main/dist/official.json",
+        "ok": false,
+        "status": 0,
+        "size": 0,
+        "ms": 1254,
+        "error": "URLError: <urlopen error [WinError 10054] 远程主机强迫关闭了一个现有的连接。>"
+      },
+      {
+        "name": "gh-proxy",
+        "label": "gh-proxy 代理",
+        "url": "https://gh-proxy.com/https://raw.githubusercontent.com/QYF233/TVbox/main/dist/official.json",
+        "ok": false,
+        "status": 0,
+        "size": 0,
+        "ms": 21207,
+        "error": "URLError: <urlopen error _ssl.c:1015: The handshake operation timed out>"
+      },
+      {
+        "name": "ghproxy-net",
+        "label": "ghproxy.net 代理",
+        "url": "https://ghproxy.net/https://raw.githubusercontent.com/QYF233/TVbox/main/dist/official.json",
+        "ok": true,
+        "status": 200,
+        "size": 68256,
+        "ms": 7885,
+        "error": ""
+      }
+    ],
+    "tvbox.json": [
+      {
+        "name": "raw",
+        "label": "GitHub Raw（国内多不可达）",
+        "url": "https://raw.githubusercontent.com/QYF233/TVbox/main/dist/tvbox.json",
+        "ok": false,
+        "status": 0,
+        "size": 0,
+        "ms": 126,
+        "error": "URLError: <urlopen error [WinError 10054] 远程主机强迫关闭了一个现有的连接。>"
+      },
+      {
+        "name": "jsdelivr-fastly",
+        "label": "jsDelivr Fastly（国内通常可用）",
+        "url": "https://fastly.jsdelivr.net/gh/QYF233/TVbox@main/dist/tvbox.json",
+        "ok": true,
+        "status": 200,
+        "size": 2408,
+        "ms": 1685,
+        "error": ""
+      },
+      {
+        "name": "jsdelivr",
+        "label": "jsDelivr（国内常被墙）",
+        "url": "https://cdn.jsdelivr.net/gh/QYF233/TVbox@main/dist/tvbox.json",
+        "ok": false,
+        "status": 0,
+        "size": 0,
+        "ms": 260,
+        "error": "URLError: <urlopen error [WinError 10054] 远程主机强迫关闭了一个现有的连接。>"
+      },
+      {
+        "name": "gh-proxy",
+        "label": "gh-proxy 代理",
+        "url": "https://gh-proxy.com/https://raw.githubusercontent.com/QYF233/TVbox/main/dist/tvbox.json",
+        "ok": true,
+        "status": 200,
+        "size": 2408,
+        "ms": 929,
+        "error": ""
+      },
+      {
+        "name": "ghproxy-net",
+        "label": "ghproxy.net 代理",
+        "url": "https://ghproxy.net/https://raw.githubusercontent.com/QYF233/TVbox/main/dist/tvbox.json",
+        "ok": true,
+        "status": 200,
+        "size": 2408,
+        "ms": 5001,
+        "error": ""
+      }
+    ],
+    "list.json": [
+      {
+        "name": "raw",
+        "label": "GitHub Raw（国内多不可达）",
+        "url": "https://raw.githubusercontent.com/QYF233/TVbox/main/dist/list.json",
+        "ok": false,
+        "status": 0,
+        "size": 0,
+        "ms": 128,
+        "error": "URLError: <urlopen error [WinError 10054] 远程主机强迫关闭了一个现有的连接。>"
+      },
+      {
+        "name": "jsdelivr-fastly",
+        "label": "jsDelivr Fastly（国内通常可用）",
+        "url": "https://fastly.jsdelivr.net/gh/QYF233/TVbox@main/dist/list.json",
+        "ok": true,
+        "status": 200,
+        "size": 26040,
+        "ms": 1845,
+        "error": ""
+      },
+      {
+        "name": "jsdelivr",
+        "label": "jsDelivr（国内常被墙）",
+        "url": "https://cdn.jsdelivr.net/gh/QYF233/TVbox@main/dist/list.json",
+        "ok": false,
+        "status": 0,
+        "size": 0,
+        "ms": 257,
+        "error": "URLError: <urlopen error [WinError 10054] 远程主机强迫关闭了一个现有的连接。>"
+      },
+      {
+        "name": "gh-proxy",
+        "label": "gh-proxy 代理",
+        "url": "https://gh-proxy.com/https://raw.githubusercontent.com/QYF233/TVbox/main/dist/list.json",
+        "ok": true,
+        "status": 200,
+        "size": 26040,
+        "ms": 4874,
+        "error": ""
+      },
+      {
+        "name": "ghproxy-net",
+        "label": "ghproxy.net 代理",
+        "url": "https://ghproxy.net/https://raw.githubusercontent.com/QYF233/TVbox/main/dist/list.json",
+        "ok": true,
+        "status": 200,
+        "size": 26040,
+        "ms": 10751,
+        "error": ""
+      }
+    ]
+  }
+}

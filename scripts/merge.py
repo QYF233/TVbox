@@ -15,8 +15,10 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 PROBE = ROOT / "dist" / "probe.json"
+HISTORY = ROOT / "dist" / "history.json"
 OUT = ROOT / "dist" / "official.json"
 META = ROOT / "dist" / "merge-meta.json"
+DEGRADED = ROOT / "dist" / "degraded.json"
 TIMEOUT = 18
 UA = "TVboxorg-TVbox-merge/1.0 (+https://www.tvbox.org/; +https://github.com/TVboxorg/TVbox)"
 MAX_SITES = 160
@@ -126,40 +128,51 @@ def is_http_api(api: Any) -> bool:
     return api.startswith("http://") or api.startswith("https://")
 
 
-def site_score(site: dict[str, Any], group: str, from_primary: bool) -> int:
+def site_score(
+    site: dict[str, Any],
+    *,
+    group: str,
+    from_primary: bool,
+    health: float = 0.0,
+    source_ms: int = 0,
+) -> int:
+    """站点综合评分。
+
+    排序依据以「可验证的信号」为准：主源优先、pref 分组、可移植性、
+    来源历史可用率、实测延迟。不再依赖名字里有没有「4K」这类营销词。
+    """
     score = 0
     if from_primary:
         score += 40
     if group == "pref":
         score += 20
-    name = str(site.get("name") or "")
+
     api = str(site.get("api") or "")
     stype = site.get("type")
     if site.get("searchable") in (1, True, "1"):
         score += 8
     if site.get("quickSearch") in (1, True, "1"):
         score += 4
+    # type=1/4 是纯 HTTP 接口，不依赖 jar，迁移后存活率最高
     if stype in (1, 4):
-        score += 15  # portable CMS
+        score += 15
     if stype == 3 and site.get("jar"):
         score += 6
-    low = name.lower()
-    for token, pts in (
-        ("4k", 10),
-        ("高清", 6),
-        ("蓝光", 6),
-        ("官", 3),
-        ("推荐", 3),
-        ("vip", 2),
-    ):
-        if token in low or token in name:
-            score += pts
-    # deprioritize adult / noisy markers lightly (still include if space)
+    if is_http_api(api):
+        score += 5
+
+    # 来源历史可用率 0~1 → 0~25 分
+    score += round(max(0.0, min(1.0, health)) * 25)
+
+    # 延迟惩罚：每 500ms 扣 1 分，最多扣 8 分
+    if source_ms:
+        score -= min(int(source_ms // 500), 8)
+
+    # 内容类别降权（保持原有过滤口径）
+    name = str(site.get("name") or "")
     for bad in ("伦理", "福利", "色情", "成人"):
         if bad in name:
             score -= 30
-    if is_http_api(api):
-        score += 5
     return score
 
 
@@ -227,6 +240,39 @@ def merge_list(dst: list, src: list, keyfn) -> None:
         dst.append(item)
 
 
+def load_health() -> dict[str, float]:
+    """从 history.json 读取各源 7 日可用率，缺失时返回空表。"""
+    if not HISTORY.is_file():
+        return {}
+    try:
+        data = json.loads(HISTORY.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        return {}
+    sources = data.get("sources") or {}
+    health: dict[str, float] = {}
+    for sid, entry in sources.items():
+        if not isinstance(entry, dict):
+            continue
+        ratio = entry.get("uptime_7d")
+        if isinstance(ratio, (int, float)):
+            health[sid] = float(ratio)
+    return health
+
+
+def write_degraded(reason: str, detail: dict | None = None) -> None:
+    """记录本次聚合失败，但不覆盖已有 official.json。"""
+    payload = {
+        "at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "reason": reason,
+        "detail": detail or {},
+        "kept_previous": OUT.is_file(),
+    }
+    DEGRADED.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
+                        encoding="utf-8")
+    print(f"degraded: {reason} (kept_previous={payload['kept_previous']})",
+          file=sys.stderr)
+
+
 def pick_sources(items: list[dict]) -> list[dict]:
     up = [x for x in items if x.get("ok")]
     pref = [x for x in up if x.get("group") == "pref"]
@@ -241,10 +287,11 @@ def main() -> int:
         return 1
 
     probe = json.loads(PROBE.read_text(encoding="utf-8"))
+    health_map = load_health()
     sources = pick_sources(probe.get("items") or [])
     if not sources:
-        print("no UP sources to merge", file=sys.stderr)
-        return 1
+        write_degraded("no-up-source", {"total": probe.get("count")})
+        return 0 if OUT.is_file() else 1
 
     fetched: list[dict[str, Any]] = []
     for i, src in enumerate(sources, 1):
@@ -273,8 +320,9 @@ def main() -> int:
             print(f"  -> err {type(e).__name__}: {e}", flush=True)
 
     if not fetched:
-        print("no configs fetched", file=sys.stderr)
-        return 1
+        write_degraded("no-config-fetched",
+                       {"picked": [str(s.get("id")) for s in sources]})
+        return 0 if OUT.is_file() else 1
 
     # 主源：优先 pref + jar 探测通过 + 站点多
     def primary_rank(row: dict) -> tuple:
@@ -319,7 +367,13 @@ def main() -> int:
             if not adapted:
                 skipped += 1
                 continue
-            score = site_score(adapted, str(src.get("group") or ""), is_primary)
+            score = site_score(
+                adapted,
+                group=str(src.get("group") or ""),
+                from_primary=is_primary,
+                health=health_map.get(sid, 0.0),
+                source_ms=int(src.get("ms") or 0),
+            )
             sites_scored.append((score, adapted))
             added += 1
 
@@ -405,6 +459,11 @@ def main() -> int:
             rest.append(s)
     final_sites = pinned + rest
 
+    if not final_sites:
+        write_degraded("no-valid-site-after-merge",
+                       {"fetched": [row["src"].get("name") for row in fetched]})
+        return 0 if OUT.is_file() else 1
+
     pcfg = primary["cfg"]
     official = {
         "spider": primary["spider"] or pcfg.get("spider") or "",
@@ -447,6 +506,10 @@ def main() -> int:
         "subscribe_cdn": "https://cdn.jsdelivr.net/gh/TVboxorg/TVbox@main/dist/official.json",
     }
     META.write_text(json.dumps(meta, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+    # 本次聚合成功，清掉上一次的降级标记
+    if DEGRADED.is_file():
+        DEGRADED.unlink()
 
     if primary_jar_status == "fail":
         print(

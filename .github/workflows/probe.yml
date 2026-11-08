@@ -32,18 +32,34 @@ jobs:
       - name: Probe sources
         run: python3 scripts/probe.py
 
-      - name: Build dist
-        run: python3 scripts/build.py
+      - name: Update history
+        run: python3 scripts/history.py
+
+      - name: Check mirrors
+        run: python3 scripts/mirrors.py
 
       - name: Merge official config
         run: python3 scripts/merge.py
+
+      - name: Build dist and dashboard data
+        run: python3 scripts/build.py
+
+      - name: Notify on status change
+        continue-on-error: true
+        env:
+          ALERT_WEBHOOK: ${{ secrets.ALERT_WEBHOOK }}
+          SERVERCHAN_KEY: ${{ secrets.SERVERCHAN_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          ALERT_ON: ${{ vars.ALERT_ON }}
+        run: python3 scripts/notify.py
 
       - name: Commit dist
         run: |
           set -e
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add dist/
+          git add dist/ docs/data/
           if git diff --staged --quiet; then
             echo "No dist changes"
             exit 0
@@ -57,8 +73,8 @@ jobs:
             git fetch origin main
             if ! git rebase origin/main; then
               # Generated artifacts: keep this run's dist over remote.
-              git checkout --theirs -- dist/
-              git add dist/
+              git checkout --theirs -- dist/ docs/data/
+              git add dist/ docs/data/
               GIT_EDITOR=true git rebase --continue
             fi
             sleep $((i * 2))

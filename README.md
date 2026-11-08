@@ -38,10 +38,16 @@ https://cdn.jsdelivr.net/gh/TVboxorg/TVbox@main/dist/tvbox.json
 | [`sources.yaml`](./sources.yaml) | 人工维护的接口源（权威数据） |
 | [`dist/`](./dist/) | 探测结果与生成的订阅文件（CI 定时更新） |
 | [`dist/official.json`](./dist/official.json) | 跨线路聚合的单仓配置 |
+| [`dist/history.json`](./dist/history.json) | 每次探测的历史记录与 7 日可用率 |
+| [`dist/mirrors.json`](./dist/mirrors.json) | 各镜像通道的实测可达性 |
+| [`docs/`](./docs/) | 可视化监控台（GitHub Pages） |
 | [`scripts/validate.py`](./scripts/validate.py) | 配置与 jar 校验核心（零依赖，可单独引用） |
 | [`scripts/probe.py`](./scripts/probe.py) | 并发探测脚本 |
-| [`scripts/build.py`](./scripts/build.py) | 生成 list / tvbox / status |
+| [`scripts/history.py`](./scripts/history.py) | 累积历史、计算连续可用次数与状态变更 |
+| [`scripts/mirrors.py`](./scripts/mirrors.py) | 实测各镜像通道是否可达 |
 | [`scripts/merge.py`](./scripts/merge.py) | 跨线路拼 sites → official.json |
+| [`scripts/build.py`](./scripts/build.py) | 生成 list / tvbox / status 与页面数据 |
+| [`scripts/notify.py`](./scripts/notify.py) | 状态变更告警 |
 
 ## 探测判定口径
 
@@ -97,6 +103,38 @@ python3 scripts/merge.py    # 聚合 → dist/official.json
 ```bash
 cd scripts && python3 -c "import validate;print(validate.analyze('https://example.com/tvbox.json'))"
 ```
+
+## 可视化监控台
+
+页面在 [`docs/index.html`](./docs/index.html)，数据由 `build.py` 输出到 `docs/data/dashboard.json`，纯静态、无外部依赖。
+
+启用 GitHub Pages：
+
+1. 仓库 **Settings → Pages**
+2. Source 选 **Deploy from a branch**
+3. Branch 选 **main**，目录选 **/docs**
+4. 保存后访问 `https://<你的用户名>.github.io/TVbox/`
+
+页面包含：指标卡、可用源趋势曲线、镜像地址（标出当前哪几个能打开，可一键复制）、源列表（按状态筛选、按延迟/可用率/站点数排序、点击展开详情）。
+
+## 状态变更告警
+
+只有在源发生 UP/DOWN 翻转时推送，平时静默。配置任意一个 Secret 即可启用：
+
+| Secret | 说明 |
+| --- | --- |
+| `ALERT_WEBHOOK` | 通用 webhook，POST JSON `{"text": "..."}` |
+| `SERVERCHAN_KEY` | Server 酱 SendKey |
+| `TELEGRAM_BOT_TOKEN` + `TELEGRAM_CHAT_ID` | Telegram 机器人 |
+
+可选仓库变量 `ALERT_ON=down`，则只推送掉线、不推送恢复。
+
+## 历史与降级
+
+- `history.json` 记录每个源最近 30 次探测结果，7 日可用率按最近 28 次统计
+- `merge.py` 用「来源历史可用率 + 实测延迟」给站点打分，不再按名字里有没有「4K / 高清」这类词排序
+- 聚合失败时不覆盖 `official.json`，改写 `dist/degraded.json` 记录原因，监控台顶部会显示黄色横幅
+
 
 ## 说明与免责
 

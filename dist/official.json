@@ -176,27 +176,6 @@
       "changeable": 0
     },
     {
-      "key": "Emby",
-      "name": "💓Emby┃4K💓",
-      "type": 3,
-      "api": "csp_EmbyGuard",
-      "searchable": 1,
-      "quickSearch": 1,
-      "changeable": 0
-    },
-    {
-      "key": "Emby001",
-      "name": "💓Emby001┃4K💓",
-      "type": 3,
-      "api": "csp_EmbyDiyGuard",
-      "searchable": 1,
-      "quickSearch": 1,
-      "changeable": 0,
-      "ext": {
-        "embynumber": 0
-      }
-    },
-    {
       "key": "WexHanXiaoQuan",
       "name": "💥韩剧┃秒播💥",
       "type": 3,
@@ -303,6 +282,27 @@
       "searchable": 1,
       "quickSearch": 1,
       "changeable": 0
+    },
+    {
+      "key": "Emby",
+      "name": "💓Emby┃4K💓",
+      "type": 3,
+      "api": "csp_EmbyGuard",
+      "searchable": 1,
+      "quickSearch": 1,
+      "changeable": 0
+    },
+    {
+      "key": "Emby001",
+      "name": "💓Emby001┃4K💓",
+      "type": 3,
+      "api": "csp_EmbyDiyGuard",
+      "searchable": 1,
+      "quickSearch": 1,
+      "changeable": 0,
+      "ext": {
+        "embynumber": 0
+      }
     },
     {
       "key": "biliys",
@@ -1170,6 +1170,33 @@
       "jar": "http://xhztv.top/xhz/Yoursmile.jar"
     },
     {
+      "key": "tv_back-012_feifan",
+      "name": "🍀┃非凡┃资源·二月红接口",
+      "type": 1,
+      "api": "http://ffzy5.tv/api.php/provide/vod",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "categories": [
+        "韩国剧",
+        "欧美剧",
+        "台湾剧",
+        "战争片",
+        "国产剧",
+        "大陆综艺"
+      ],
+      "hide": 1
+    },
+    {
+      "key": "tv_back-023_csp_小胡",
+      "name": "👒┃小胡┃资源┃·ok线路1",
+      "type": 1,
+      "api": "http://c.小胡.icu/api.php/provide/vod/",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1
+    },
+    {
       "key": "tv_back-023_csp_SNzy",
       "name": "🐉┃索尼┃高清·ok线路1",
       "type": 1,
@@ -1204,33 +1231,6 @@
         "日韩综艺",
         "欧美综艺"
       ]
-    },
-    {
-      "key": "tv_back-012_feifan",
-      "name": "🍀┃非凡┃资源·二月红接口",
-      "type": 1,
-      "api": "http://ffzy5.tv/api.php/provide/vod",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "categories": [
-        "韩国剧",
-        "欧美剧",
-        "台湾剧",
-        "战争片",
-        "国产剧",
-        "大陆综艺"
-      ],
-      "hide": 1
-    },
-    {
-      "key": "tv_back-023_csp_小胡",
-      "name": "👒┃小胡┃资源┃·ok线路1",
-      "type": 1,
-      "api": "http://c.小胡.icu/api.php/provide/vod/",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1
     },
     {
       "key": "tv_back-023_csp_非凡资源",
@@ -1617,57 +1617,6 @@
       "jar": "http://xhztv.top/xhz/Yoursmile.jar"
     },
     {
-      "key": "tv_back-012_JianSou",
-      "name": "💖┃简搜┃4K💖·二月红接口",
-      "type": 3,
-      "api": "csp_JianSou",
-      "searchable": 1,
-      "filterable": 0,
-      "ext": {
-        "site": "http://118.89.172.248:8000",
-        "type": 0,
-        "name": " 简搜"
-      },
-      "jar": "http://118.89.172.248:8025/jar/tan.php"
-    },
-    {
-      "key": "tv_back-012_ZhiZhenPanCms",
-      "name": "💖┃至臻┃4K💖·二月红接口",
-      "type": 3,
-      "api": "csp_PanCms",
-      "searchable": 1,
-      "filterable": 1,
-      "ext": "{\"site\":[\"http://118.89.172.248:22776\"],\"name\":\"网盘CMS\"}",
-      "jar": "http://118.89.172.248:8025/jar/tan.php"
-    },
-    {
-      "key": "tv_back-012_Star2",
-      "name": "💖┃剧透┃4K💖·二月红接口",
-      "type": 3,
-      "api": "csp_Star2",
-      "searchable": 1,
-      "filterable": 0,
-      "ext": "{\"site\":[\"https://1.star2.cn\"],\"name\":\"剧透社\"}",
-      "jar": "http://118.89.172.248:8025/jar/tan.php"
-    },
-    {
-      "key": "tv_back-012_AppRJ",
-      "name": "🍂┃热播┃高清·二月红接口",
-      "type": 3,
-      "api": "csp_AppRJ",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "ext": {
-        "url": "http://v.rbotv.cn",
-        "block": [
-          "线路二(点击切换)",
-          "CO4K"
-        ]
-      },
-      "jar": "http://118.89.172.248:8025/jar/tan.php"
-    },
-    {
       "key": "tv_back-023_暴风采集",
       "name": "🌪️暴风影音·ok线路1",
       "type": 1,
@@ -1722,6 +1671,23 @@
       "jar": "http://118.89.172.248:8025/jar/tan.php"
     },
     {
+      "key": "tv_back-012_AppRJ",
+      "name": "🍂┃热播┃高清·二月红接口",
+      "type": 3,
+      "api": "csp_AppRJ",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "ext": {
+        "url": "http://v.rbotv.cn",
+        "block": [
+          "线路二(点击切换)",
+          "CO4K"
+        ]
+      },
+      "jar": "http://118.89.172.248:8025/jar/tan.php"
+    },
+    {
       "key": "tv_back-012_YunDuo",
       "name": "🍂┃大鹅┃1080P·二月红接口",
       "type": 3,
@@ -1749,6 +1715,40 @@
       "searchable": 1,
       "quickSearch": 1,
       "changeable": 1
+    },
+    {
+      "key": "tv_back-012_JianSou",
+      "name": "💖┃简搜┃4K💖·二月红接口",
+      "type": 3,
+      "api": "csp_JianSou",
+      "searchable": 1,
+      "filterable": 0,
+      "ext": {
+        "site": "http://118.89.172.248:8000",
+        "type": 0,
+        "name": " 简搜"
+      },
+      "jar": "http://118.89.172.248:8025/jar/tan.php"
+    },
+    {
+      "key": "tv_back-012_ZhiZhenPanCms",
+      "name": "💖┃至臻┃4K💖·二月红接口",
+      "type": 3,
+      "api": "csp_PanCms",
+      "searchable": 1,
+      "filterable": 1,
+      "ext": "{\"site\":[\"http://118.89.172.248:22776\"],\"name\":\"网盘CMS\"}",
+      "jar": "http://118.89.172.248:8025/jar/tan.php"
+    },
+    {
+      "key": "tv_back-012_Star2",
+      "name": "💖┃剧透┃4K💖·二月红接口",
+      "type": 3,
+      "api": "csp_Star2",
+      "searchable": 1,
+      "filterable": 0,
+      "ext": "{\"site\":[\"https://1.star2.cn\"],\"name\":\"剧透社\"}",
+      "jar": "http://118.89.172.248:8025/jar/tan.php"
     },
     {
       "key": "tv_back-012_Gz360",
