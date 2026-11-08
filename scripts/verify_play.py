@@ -121,6 +121,45 @@ def probe_media(url: str) -> tuple[bool, str, str]:
     return False, "", f"not-media ctype={ctype[:24]}"
 
 
+def check_classes(api: str) -> dict:
+    """拉分类列表，并检查电视剧 / 电影分类里究竟有没有内容。
+
+    很多采集站的分类列表很齐（几十个），但点进去是空的。
+    只看分类名会被骗，必须实际请求分类内容。
+    """
+    info = {"classes": 0, "drama": 0, "movie": 0, "dramaName": "", "names": []}
+    data, _ = api_call(api, "ac=list")
+    if not data:
+        return info
+    classes = [c for c in (data.get("class") or []) if isinstance(c, dict)]
+    info["classes"] = len(classes)
+    info["names"] = [str(c.get("type_name") or "") for c in classes][:24]
+
+    def pick(keywords):
+        for c in classes:
+            name = str(c.get("type_name") or "")
+            if any(k in name for k in keywords):
+                return c.get("type_id"), name
+        return None, ""
+
+    drama_id, drama_name = pick(("电视剧", "连续剧"))
+    info["dramaName"] = drama_name
+
+    def count(tid) -> int:
+        if tid is None:
+            return 0
+        detail, _ = api_call(api, f"ac=videolist&t={tid}&pg=1")
+        if not detail:
+            return 0
+        videos = detail.get("list")
+        return len(videos) if isinstance(videos, list) else 0
+
+    info["drama"] = count(drama_id)
+    movie_id, _ = pick(("电影",))
+    info["movie"] = count(movie_id)
+    return info
+
+
 def verify_site(site: dict) -> dict:
     """完整验证一个站：列表 → 详情 → 播放。"""
     api = str(site.get("api") or "")
@@ -134,6 +173,10 @@ def verify_site(site: dict) -> dict:
         "ms": 0,
         "reason": "",
         "restricted": False,
+        "classes": 0,
+        "drama": 0,
+        "movie": 0,
+        "dramaName": "",
     }
     if not api:
         result["reason"] = "no-api"
@@ -148,6 +191,13 @@ def verify_site(site: dict) -> dict:
 
     result["videos"] = total
     result["video"] = str(first.get("vod_name") or "")
+
+    # 分类内容检查：分类列表齐全 ≠ 分类里有货
+    cls = check_classes(api)
+    result["classes"] = cls["classes"]
+    result["drama"] = cls["drama"]
+    result["movie"] = cls["movie"]
+    result["dramaName"] = cls["dramaName"]
     vod_id = first.get("vod_id")
 
     detail, derr = api_call(api, f"ac=detail&ids={vod_id}")
@@ -181,24 +231,41 @@ def verify_site(site: dict) -> dict:
 
 
 def score_site(item: dict, result: dict) -> int:
-    """CMS 站评分：播放可用 40 + 影片数 20 + 延迟 20 + 详情完整 20。"""
+    """站点评分。
+
+    播放 30 + 剧集有货 25 + 电影有货 15 + 分类深度 10 + 延迟 10 + 详情 10。
+    分类列表再漂亮，电视剧和电影都空的话一律封顶 35 分——这种站打开就是空的。
+    """
     score = 0
     if result["playable"]:
-        score += 40
-    videos = result.get("videos") or item.get("_videos") or 0
-    score += int(min(videos / 30.0, 1.0) * 20)
+        score += 30
+
+    drama = result.get("drama") or 0
+    score += int(min(drama / 20.0, 1.0) * 25)
+    movie = result.get("movie") or 0
+    score += int(min(movie / 20.0, 1.0) * 15)
+
+    classes = result.get("classes") or 0
+    score += int(min(classes / 10.0, 1.0) * 10)
+
     ms = result.get("ms") or 0
     if ms:
-        if ms <= 1500:
-            score += 20
-        elif ms <= 3000:
-            score += 14
-        elif ms <= 6000:
-            score += 8
+        if ms <= 2000:
+            score += 10
+        elif ms <= 4000:
+            score += 7
+        elif ms <= 8000:
+            score += 4
         else:
-            score += 3
+            score += 1
+
     if result.get("playUrl"):
-        score += 20
+        score += 10
+
+    if drama == 0 and movie == 0:
+        # 空壳站：分类齐全但没内容
+        score = min(score, 35)
+
     return max(0, min(100, score))
 
 
@@ -245,6 +312,9 @@ def main() -> int:
         result = results.get(api) or {}
         site["_playable"] = bool(result.get("playable"))
         site["_mediaKind"] = result.get("mediaKind", "")
+        site["_classes"] = result.get("classes", 0)
+        site["_drama"] = result.get("drama", 0)
+        site["_movie"] = result.get("movie", 0)
         site["_playUrl"] = result.get("playUrl", "")
         site["_playMs"] = result.get("ms", 0)
         site["_playReason"] = result.get("reason", "")

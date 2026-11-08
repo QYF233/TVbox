@@ -36,6 +36,7 @@ def main() -> int:
     picked: list[tuple[int, dict]] = []
     seen_api: set[str] = set()
     skipped_netdisk = 0
+    skipped_empty = 0
     for item in sites:
         api = str(item.get("api") or "")
         if not api.startswith(("http://", "https://")):
@@ -43,6 +44,12 @@ def main() -> int:
         name = str(item.get("name") or "")
         if NETDISK.search(name):
             skipped_netdisk += 1
+            continue
+        # 分类齐全但电视剧和电影都空 → 空壳站，点进去什么都没有
+        drama = int(item.get("_drama") or 0)
+        movie = int(item.get("_movie") or 0)
+        if drama == 0 and movie == 0:
+            skipped_empty += 1
             continue
         sig = api.split("?")[0].rstrip("/").lower()
         if sig in seen_api:
@@ -80,7 +87,7 @@ def main() -> int:
     playable = sum(1 for _, s in picked if True)
     print(f"wrote {OUT}")
     print(f"  池内 {len(sites)} → 输出 {len(final)} 站点"
-          f"（剔除网盘 {skipped_netdisk}）")
+          f"（剔除网盘 {skipped_netdisk}，剔除空壳站 {skipped_empty}）")
     for score, site in picked[:10]:
         print(f"    {score:3d}  {site['name'][:28]:30s} {site['api'][:46]}")
     return 0

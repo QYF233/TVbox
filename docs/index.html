@@ -431,7 +431,7 @@ function renderTable() {
       <tr class="${cls}" data-id="${esc(x.id)}">
         <td><span style="color:${statusColor};font-weight:600;font-size:12px">${statusTxt}</span></td>
         <td class="name">${esc(x.name)}<span class="group">${esc(x.group)}</span>${scoreBadge(x)}${x.active ? "" : ' <span class="badge jar-none">已移除</span>'}</td>
-        <td class="num">${x.sitesValid || "-"}</td>
+        <td class="num">${x.drama != null ? (x.drama + "/" + (x.movie || 0)) : (x.sitesValid || "-")}</td>
         <td>${jarBadge(x)}</td>
         <td class="num">${x.ms ? x.ms + "ms" : "-"}</td>
         <td class="num">${pct(x.uptime7d)}${recentBar(x.recent)}</td>
@@ -440,7 +440,8 @@ function renderTable() {
       </tr>`);
     if (STATE.expanded.has(x.id)) {
       html.push(`<tr class="detail-row"><td colspan="8"><div class="detail">
-        <div><dl><dt>综合评分</dt><dd>${x.score} 分 · ${x.grade} 级（可用 40 + jar 20 + 站点 20 + 延迟 10 + 稳定性 10）</dd></dl></div>
+        <div><dl><dt>综合评分</dt><dd>${x.score} 分 · ${x.grade} 级（播放 30 + 剧集 25 + 电影 15 + 分类 10 + 延迟 10 + 详情 10）</dd></dl></div>
+        <div><dl><dt>分类 / 剧集 / 电影</dt><dd>${x.classes != null ? `${x.classes} 个分类 · 电视剧 ${x.drama} 条 · 电影 ${x.movie} 条` : "-"}</dd></dl></div>
         <div><dl><dt>接口地址</dt><dd><a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.url)}</a></dd></dl></div>
         <div><dl><dt>spider jar</dt><dd>${esc(x.jarUrl || "-")}</dd></dl></div>
         <div><dl><dt>jar 说明</dt><dd>${esc(x.jarNote || "-")}${x.jarSize ? " · " + Math.round(x.jarSize / 1024) + " KB" : ""}</dd></dl></div>
@@ -521,7 +522,7 @@ function renderHeader() {
 
 function applyMode() {
   if (!DATA || DATA.mode !== "local") return;
-  $("thSites").textContent = "影片";
+  $("thSites").textContent = "剧/影";
   $("thJar").textContent = "播放";
   $("thUptime").textContent = "—";
   $("thStreak").textContent = "—";
