@@ -2,3 +2,10 @@ __pycache__/
 *.pyc
 .DS_Store
 .venv/
+
+# 临时分析文件
+*_ci.json
+off_*.json
+hist_*.json
+pool_*.json
+meta_*.json
