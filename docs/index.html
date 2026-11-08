@@ -181,8 +181,8 @@ footer{color:var(--dim);font-size:12px;text-align:center;margin-top:26px;line-he
       <table>
         <thead>
           <tr>
-            <th>状态</th><th>名称</th><th class="num">站点</th><th>jar</th>
-            <th class="num">延迟</th><th class="num">7 日</th><th>连续</th><th>说明</th>
+            <th>状态</th><th>名称</th><th id="thSites" class="num">站点</th><th id="thJar">jar</th>
+            <th class="num">延迟</th><th id="thUptime" class="num">7 日</th><th id="thStreak">连续</th><th>说明</th>
           </tr>
         </thead>
         <tbody id="tbody"></tbody>
@@ -312,6 +312,22 @@ function drawChart(runs) {
 }
 
 function renderMirrors(mirrors, repo) {
+  if (DATA && DATA.mode === "local") {
+    const url = new URL("./official.json", location.href).href;
+    $("mirrors").innerHTML = `
+      <div class="mirror-row">
+        <span class="dot ok"></span>
+        <span class="fname">内网直出</span>
+        <code class="url">${esc(url)}</code>
+        <span class="pill ok">HTTP</span>
+        <button class="btn" data-copy="${esc(url)}">复制</button>
+      </div>
+      <div style="color:var(--muted);font-size:12px;padding:2px 4px">
+        同一局域网内的 TVBox 直接填上面这个地址即可，无需联网到 GitHub。
+      </div>`;
+    bindCopy();
+    return;
+  }
   const rows = [];
   FILES.forEach((f) => {
     const list = (mirrors && mirrors[f]) || [];
@@ -470,7 +486,7 @@ function renderFilters() {
 
 function renderHeader() {
   const s = DATA.summary;
-  $("repoLabel").textContent = DATA.repo;
+  $("repoLabel").textContent = DATA.mode === "local" ? "内网部署" : DATA.repo;
   $("metaLine").innerHTML =
     `最近探测 <b>${esc(fmtTime(DATA.generatedAt))}</b>　` +
     `可用 <b>${s.up}/${s.total}</b>　` +
@@ -488,12 +504,30 @@ function renderHeader() {
   }
 
   const m = DATA.merge;
-  $("footer").innerHTML =
-    `主源 ${esc(m.primary || "-")}（jar ${esc(m.primaryJarStatus || "-")}）· ` +
-    `聚合站点 ${m.sites} · 解析器 ${m.parses} · 直播源 ${m.lives}<br>` +
-    `判定口径：App 真实 UA 拉取 + sites 字段校验 + spider jar 下载与 MD5 比对<br>` +
-    `<a href="https://github.com/${DATA.repo}/actions" target="_blank" rel="noopener">查看 Actions</a> · ` +
-    `<a href="https://github.com/${DATA.repo}/edit/main/sources.yaml" target="_blank" rel="noopener">编辑 sources.yaml</a>`;
+  if (DATA.mode === "local") {
+    $("footer").innerHTML =
+      `内网部署 · 站点 ${m.sites} 个 · 每 6 小时自动刷新<br>` +
+      `判定口径：国内网络实测（列表 → 详情 → 播放地址），只有能取出流的站才保留<br>` +
+      `<a href="./official.json" target="_blank" rel="noopener">查看 official.json</a>`;
+  } else {
+    $("footer").innerHTML =
+      `主源 ${esc(m.primary || "-")}（jar ${esc(m.primaryJarStatus || "-")}）· ` +
+      `聚合站点 ${m.sites} · 解析器 ${m.parses} · 直播源 ${m.lives}<br>` +
+      `判定口径：App 真实 UA 拉取 + sites 字段校验 + spider jar 下载与 MD5 比对<br>` +
+      `<a href="https://github.com/${DATA.repo}/actions" target="_blank" rel="noopener">查看 Actions</a> · ` +
+      `<a href="https://github.com/${DATA.repo}/edit/main/sources.yaml" target="_blank" rel="noopener">编辑 sources.yaml</a>`;
+  }
+}
+
+function applyMode() {
+  if (!DATA || DATA.mode !== "local") return;
+  $("thSites").textContent = "影片";
+  $("thJar").textContent = "播放";
+  $("thUptime").textContent = "—";
+  $("thStreak").textContent = "—";
+  const link = $("repoLink");
+  link.textContent = "配置地址";
+  link.href = "./official.json";
 }
 
 function render() {
@@ -502,6 +536,7 @@ function render() {
   drawChart(DATA.runs);
   renderMirrors(DATA.mirrors, DATA.repo);
   renderFilters();
+  applyMode();
   renderTable();
 }
 
