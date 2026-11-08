@@ -22,6 +22,7 @@ import urllib.error
 import urllib.parse
 import urllib.request
 import zipfile
+from pathlib import Path
 from typing import Any
 
 TIMEOUT = 15
@@ -42,6 +43,43 @@ def ssl_context() -> ssl.SSLContext:
     ctx.check_hostname = False
     ctx.verify_mode = ssl.CERT_NONE
     return ctx
+
+
+_BLOCKLIST_PATH = Path(__file__).resolve().parent / "blocklist.txt"
+_blocked_cache: set[str] | None = None
+
+
+def blocked_hosts() -> set[str]:
+    """读取域名黑名单（scripts/blocklist.txt），结果缓存。"""
+    global _blocked_cache
+    if _blocked_cache is not None:
+        return _blocked_cache
+    hosts: set[str] = set()
+    try:
+        text = _BLOCKLIST_PATH.read_text(encoding="utf-8")
+    except OSError:
+        _blocked_cache = hosts
+        return hosts
+    for line in text.splitlines():
+        entry = line.split("#", 1)[0].strip().lower()
+        if entry:
+            hosts.add(entry)
+    _blocked_cache = hosts
+    return hosts
+
+
+def is_blocked(url: str) -> bool:
+    """域名命中黑名单则拒绝请求，避免探测挂马地址。"""
+    try:
+        host = (urllib.parse.urlsplit(url).hostname or "").lower()
+    except Exception:
+        return False
+    if not host:
+        return False
+    for bad in blocked_hosts():
+        if host == bad or host.endswith("." + bad):
+            return True
+    return False
 
 
 def normalize_url(url: str) -> str:
@@ -65,7 +103,13 @@ def normalize_url(url: str) -> str:
 
 def http_get(url: str, *, ua: str = UA_APP, timeout: int = TIMEOUT,
              limit: int = HEAD_BYTES) -> tuple[bool, int, bytes, str]:
-    """直连 GET（不走系统代理）。返回 (ok, status, body, error)。"""
+    """直连 GET（不走系统代理）。返回 (ok, status, body, error)。
+
+    安全约束：命中 blocklist 的域名直接拒绝；响应为 JavaScript 时不读取内容。
+    只读取字节内容，解析交由调用方处理，从不执行响应。
+    """
+    if is_blocked(url):
+        return False, 0, b"", "blocked-host"
     headers = {
         "User-Agent": ua,
         "Accept": ACCEPT,
@@ -79,6 +123,10 @@ def http_get(url: str, *, ua: str = UA_APP, timeout: int = TIMEOUT,
             urllib.request.HTTPSHandler(context=ssl_context()),
         )
         with opener.open(req, timeout=timeout) as resp:
+            content_type = (resp.headers.get("Content-Type") or "").lower()
+            if "javascript" in content_type:
+                # 挂马页典型形态，不读取、不解析
+                return False, getattr(resp, "status", 200) or 200, b"", "blocked-js"
             raw = resp.read(limit)
             return True, getattr(resp, "status", 200) or 200, raw, ""
     except urllib.error.HTTPError as exc:
