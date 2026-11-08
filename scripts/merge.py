@@ -584,18 +584,18 @@ def main() -> int:
             }
         )
 
-    # 并入 CMS 站点池：优先用实探过播放的站，按站点评分排序
+    # 并入 CMS 站点池：拿到播放地址就算合格。
+    # 播放探测失败多为 CDN 地域限制（CI 在海外，403 很常见），只降权不剔除。
     pool_sites = load_cms_pool()
-    playable_pool = [s for s in pool_sites if s.get("_playable")]
-    usable_pool = playable_pool if len(playable_pool) >= 10 else pool_sites
+    qualified = [s for s in pool_sites if s.get("_playUrl")]
+    usable_pool = qualified if len(qualified) >= 10 else pool_sites
     pool_added = 0
     pool_unplayable = 0
     for item in usable_pool:
         if is_netdisk_site(item):
             continue
-        if playable_pool and not item.get("_playable"):
+        if not item.get("_playable"):
             pool_unplayable += 1
-            continue
         site = {field: item[field] for field in
                 ("key", "name", "api", "searchable", "quickSearch", "filterable", "ext")
                 if item.get(field) is not None}
@@ -608,9 +608,9 @@ def main() -> int:
         sites_scored.append((score, site))
         pool_added += 1
     if pool_added:
+        live = len([s for s in usable_pool if s.get("_playable")])
         print(f"  并入 CMS 站点池 {pool_added} 个"
-              f"（可播放 {len(playable_pool)}，剔除不可播放 {pool_unplayable}）",
-              flush=True)
+              f"（实探可播 {live}，仅取到播放地址 {pool_unplayable}）", flush=True)
 
     # Deduplicate sites by api+type or key
     sites_scored.sort(key=lambda x: x[0], reverse=True)

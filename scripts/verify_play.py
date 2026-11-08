@@ -133,6 +133,7 @@ def verify_site(site: dict) -> dict:
         "videos": 0,
         "ms": 0,
         "reason": "",
+        "restricted": False,
     }
     if not api:
         result["reason"] = "no-api"
@@ -168,6 +169,9 @@ def verify_site(site: dict) -> dict:
     if not ok:
         result["ms"] = int((time.time() - started) * 1000)
         result["reason"] = f"media: {nerr}"
+        # 403 / 404 / 返回网页，通常是 CDN 按地域拒绝，不代表节目真的不可播
+        result["restricted"] = bool(
+            nerr.startswith(("HTTP 403", "HTTP 404")) or "not-media" in nerr)
         return result
 
     result["playable"] = True
@@ -244,6 +248,7 @@ def main() -> int:
         site["_playUrl"] = result.get("playUrl", "")
         site["_playMs"] = result.get("ms", 0)
         site["_playReason"] = result.get("reason", "")
+        site["_restricted"] = bool(result.get("restricted"))
         if result.get("video"):
             site["_sample"] = result["video"]
         site["_score"] = score_site(site, result)

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-08T06:32:04Z",
+  "generatedAt": "2026-11-08T07:11:58Z",
   "repo": "QYF233/TVbox",
   "summary": {
     "total": 38,
@@ -12,13 +12,13 @@
     "netdisk_filtered": 64,
     "cms_dead": 0,
     "mode": "pure-cms",
-    "elapsed_sec": 21.9,
+    "elapsed_sec": 23.2,
     "degraded": false,
-    "avg_score": 73,
-    "avg_score_all": 52,
+    "avg_score": 72,
+    "avg_score_all": 51,
     "grades": {
-      "S": 8,
-      "A": 7,
+      "S": 6,
+      "A": 9,
       "B": 12,
       "D": 11
     }
@@ -27,13 +27,13 @@
     {
       "id": "pref-001",
       "name": "王二小",
-      "score": 93,
+      "score": 94,
       "grade": "S",
       "group": "pref",
       "url": "https://9280.kstore.vip/newwex.json",
       "desc": "混合线路，以网盘(4K)为主，适合网盘VIP用户",
       "ok": true,
-      "ms": 1014,
+      "ms": 818,
       "latency": "normal",
       "kind": "config",
       "error": "",
@@ -51,10 +51,11 @@
       "isLive": false,
       "uaUsed": "okhttp",
       "uptime7d": 1.0,
-      "checks": 3,
-      "streakUp": 3,
+      "checks": 4,
+      "streakUp": 4,
       "streakDown": 0,
       "recent": [
+        1,
         1,
         1,
         1
@@ -71,7 +72,7 @@
       "url": "https://tv.xn--yhqu5zs87a.top",
       "desc": "常规线路，推荐瓜子、金牌等线路",
       "ok": true,
-      "ms": 273,
+      "ms": 290,
       "latency": "fast",
       "kind": "config",
       "error": "",
@@ -90,10 +91,11 @@
       "isLive": false,
       "uaUsed": "okhttp",
       "uptime7d": 1.0,
-      "checks": 3,
-      "streakUp": 3,
+      "checks": 4,
+      "streakUp": 4,
       "streakDown": 0,
       "recent": [
+        1,
         1,
         1,
         1
@@ -110,7 +112,7 @@
       "url": "http://home.jundie.top:81/top98.json",
       "desc": "常规线路",
       "ok": true,
-      "ms": 1292,
+      "ms": 1307,
       "latency": "normal",
       "kind": "config",
       "error": "",
@@ -128,10 +130,11 @@
       "isLive": false,
       "uaUsed": "okhttp",
       "uptime7d": 1.0,
-      "checks": 3,
-      "streakUp": 3,
+      "checks": 4,
+      "streakUp": 4,
       "streakDown": 0,
       "recent": [
+        1,
         1,
         1,
         1
@@ -148,7 +151,7 @@
       "url": "http://xhztv.top/xhz",
       "desc": "常规线路",
       "ok": true,
-      "ms": 429,
+      "ms": 399,
       "latency": "fast",
       "kind": "config",
       "error": "",
@@ -166,10 +169,11 @@
       "isLive": false,
       "uaUsed": "okhttp",
       "uptime7d": 1.0,
-      "checks": 3,
-      "streakUp": 3,
+      "checks": 4,
+      "streakUp": 4,
       "streakDown": 0,
       "recent": [
+        1,
         1,
         1,
         1
@@ -180,13 +184,13 @@
     {
       "id": "back-011",
       "name": "小盒子4K",
-      "score": 68,
+      "score": 69,
       "grade": "B",
       "group": "back",
       "url": "http://xhztv.top/4k.json",
       "desc": "4K高清线路",
       "ok": true,
-      "ms": 194,
+      "ms": 289,
       "latency": "fast",
       "kind": "live",
       "error": "",
@@ -202,10 +206,11 @@
       "isLive": true,
       "uaUsed": "okhttp",
       "uptime7d": 1.0,
-      "checks": 3,
-      "streakUp": 3,
+      "checks": 4,
+      "streakUp": 4,
       "streakDown": 0,
       "recent": [
+        1,
         1,
         1,
         1
@@ -222,7 +227,7 @@
       "url": "https://700sjro44343.vicp.fun/eggp/0211/tv.json",
       "desc": "综合影视源",
       "ok": true,
-      "ms": 1895,
+      "ms": 1766,
       "latency": "normal",
       "kind": "config",
       "error": "",
@@ -241,10 +246,11 @@
       "isLive": false,
       "uaUsed": "okhttp",
       "uptime7d": 1.0,
-      "checks": 3,
-      "streakUp": 3,
+      "checks": 4,
+      "streakUp": 4,
       "streakDown": 0,
       "recent": [
+        1,
         1,
         1,
         1
@@ -255,13 +261,13 @@
     {
       "id": "back-013",
       "name": "欧歌免费",
-      "score": 61,
+      "score": 62,
       "grade": "B",
       "group": "back",
       "url": "https://tv.nxog.top/m/111.php?ou=公众号欧歌app&mz=index&jar=index&123&b=tv",
       "desc": "欧歌免费公用线路",
       "ok": true,
-      "ms": 1283,
+      "ms": 845,
       "latency": "normal",
       "kind": "live",
       "error": "",
@@ -276,13 +282,14 @@
       "multiCount": 0,
       "isLive": true,
       "uaUsed": "okhttp",
-      "uptime7d": 0.3333,
-      "checks": 3,
-      "streakUp": 1,
+      "uptime7d": 0.5,
+      "checks": 4,
+      "streakUp": 2,
       "streakDown": 0,
       "recent": [
         0,
         0,
+        1,
         1
       ],
       "lastChangeAt": "2026-11-08T06:32:04Z",
@@ -291,14 +298,14 @@
     {
       "id": "back-014",
       "name": "王二小接口",
-      "score": 86,
-      "grade": "S",
+      "score": 80,
+      "grade": "A",
       "group": "back",
       "url": "http://tvbox.xn--4kq62z5rby2qupq9ub.top/",
       "desc": "王二小备用线路",
       "ok": true,
-      "ms": 1126,
-      "latency": "normal",
+      "ms": 4828,
+      "latency": "slow",
       "kind": "config",
       "error": "",
       "sitesTotal": 63,
@@ -315,10 +322,11 @@
       "isLive": false,
       "uaUsed": "okhttp",
       "uptime7d": 1.0,
-      "checks": 3,
-      "streakUp": 3,
+      "checks": 4,
+      "streakUp": 4,
       "streakDown": 0,
       "recent": [
+        1,
         1,
         1,
         1
@@ -329,14 +337,14 @@
     {
       "id": "back-015",
       "name": "王二小放牛娃",
-      "score": 86,
-      "grade": "S",
+      "score": 80,
+      "grade": "A",
       "group": "back",
       "url": "http://tv.999888987.xyz",
       "desc": "王二小网盘备用源",
       "ok": true,
-      "ms": 1173,
-      "latency": "normal",
+      "ms": 4767,
+      "latency": "slow",
       "kind": "config",
       "error": "",
       "sitesTotal": 63,
@@ -353,10 +361,11 @@
       "isLive": false,
       "uaUsed": "okhttp",
       "uptime7d": 1.0,
-      "checks": 3,
-      "streakUp": 3,
+      "checks": 4,
+      "streakUp": 4,
       "streakDown": 0,
       "recent": [
+        1,
         1,
         1,
         1
@@ -373,7 +382,7 @@
       "url": "https://qist.wyfc.qzz.io/fty.json",
       "desc": "混合线路，推荐荐片等线路",
       "ok": true,
-      "ms": 223,
+      "ms": 130,
       "latency": "fast",
       "kind": "config",
       "error": "",
@@ -390,13 +399,14 @@
       "multiCount": 0,
       "isLive": false,
       "uaUsed": "okhttp",
-      "uptime7d": 0.3333,
-      "checks": 3,
-      "streakUp": 1,
+      "uptime7d": 0.5,
+      "checks": 4,
+      "streakUp": 2,
       "streakDown": 0,
       "recent": [
         0,
         0,
+        1,
         1
       ],
       "lastChangeAt": "2026-11-08T06:32:04Z",
@@ -411,7 +421,7 @@
       "url": "https://qist.wyfc.qzz.io/xiaosa/api.json",
       "desc": "综合高清线路",
       "ok": true,
-      "ms": 104,
+      "ms": 91,
       "latency": "fast",
       "kind": "config",
       "error": "",
@@ -428,13 +438,14 @@
       "multiCount": 0,
       "isLive": false,
       "uaUsed": "okhttp",
-      "uptime7d": 0.3333,
-      "checks": 3,
-      "streakUp": 1,
+      "uptime7d": 0.5,
+      "checks": 4,
+      "streakUp": 2,
       "streakDown": 0,
       "recent": [
         0,
         0,
+        1,
         1
       ],
       "lastChangeAt": "2026-11-08T06:32:04Z",
@@ -443,13 +454,13 @@
     {
       "id": "back-018",
       "name": "牛二",
-      "score": 96,
+      "score": 94,
       "grade": "S",
       "group": "back",
       "url": "https://9280.kstore.space/newwex.json",
       "desc": "网盘4K混合线路",
       "ok": true,
-      "ms": 468,
+      "ms": 601,
       "latency": "fast",
       "kind": "config",
       "error": "",
@@ -467,10 +478,11 @@
       "isLive": false,
       "uaUsed": "okhttp",
       "uptime7d": 1.0,
-      "checks": 3,
-      "streakUp": 3,
+      "checks": 4,
+      "streakUp": 4,
       "streakDown": 0,
       "recent": [
+        1,
         1,
         1,
         1
@@ -487,7 +499,7 @@
       "url": "http://xn--5mqx81b535a.com/",
       "desc": "通用影视线路",
       "ok": true,
-      "ms": 2281,
+      "ms": 2388,
       "latency": "normal",
       "kind": "config",
       "error": "",
@@ -506,10 +518,11 @@
       "isLive": false,
       "uaUsed": "okhttp",
       "uptime7d": 1.0,
-      "checks": 3,
-      "streakUp": 3,
+      "checks": 4,
+      "streakUp": 4,
       "streakDown": 0,
       "recent": [
+        1,
         1,
         1,
         1
@@ -526,7 +539,7 @@
       "url": "https://www.iyouhun.com/tv/wex",
       "desc": "全新综合聚合源",
       "ok": true,
-      "ms": 1993,
+      "ms": 2248,
       "latency": "normal",
       "kind": "config",
       "error": "",
@@ -544,10 +557,11 @@
       "isLive": false,
       "uaUsed": "okhttp",
       "uptime7d": 1.0,
-      "checks": 3,
-      "streakUp": 3,
+      "checks": 4,
+      "streakUp": 4,
       "streakDown": 0,
       "recent": [
+        1,
         1,
         1,
         1
@@ -564,7 +578,7 @@
       "url": "https://raw.liucn.cc/box/m.json",
       "desc": "稳定通用影视源",
       "ok": true,
-      "ms": 426,
+      "ms": 181,
       "latency": "fast",
       "kind": "config",
       "error": "",
@@ -583,10 +597,11 @@
       "isLive": false,
       "uaUsed": "okhttp",
       "uptime7d": 1.0,
-      "checks": 3,
-      "streakUp": 3,
+      "checks": 4,
+      "streakUp": 4,
       "streakDown": 0,
       "recent": [
+        1,
         1,
         1,
         1
@@ -603,7 +618,7 @@
       "url": "https://tv.203511.xyz/0821.json",
       "desc": "荐片高清专用线路",
       "ok": true,
-      "ms": 181,
+      "ms": 148,
       "latency": "fast",
       "kind": "config",
       "error": "",
@@ -623,10 +638,11 @@
       "isLive": false,
       "uaUsed": "okhttp",
       "uptime7d": 1.0,
-      "checks": 3,
-      "streakUp": 3,
+      "checks": 4,
+      "streakUp": 4,
       "streakDown": 0,
       "recent": [
+        1,
         1,
         1,
         1
@@ -643,7 +659,7 @@
       "url": "http://124.223.214.31:8/api.json",
       "desc": "自建本地接口源",
       "ok": true,
-      "ms": 482,
+      "ms": 467,
       "latency": "fast",
       "kind": "config",
       "error": "",
@@ -661,10 +677,11 @@
       "isLive": false,
       "uaUsed": "okhttp",
       "uptime7d": 1.0,
-      "checks": 3,
-      "streakUp": 3,
+      "checks": 4,
+      "streakUp": 4,
       "streakDown": 0,
       "recent": [
+        1,
         1,
         1,
         1
@@ -681,7 +698,7 @@
       "url": "https://700sjro44343.vicp.fun/vip/vip/tv.json",
       "desc": "VIP付费影视线路",
       "ok": true,
-      "ms": 1715,
+      "ms": 1834,
       "latency": "normal",
       "kind": "config",
       "error": "",
@@ -700,10 +717,11 @@
       "isLive": false,
       "uaUsed": "okhttp",
       "uptime7d": 1.0,
-      "checks": 3,
-      "streakUp": 3,
+      "checks": 4,
+      "streakUp": 4,
       "streakDown": 0,
       "recent": [
+        1,
         1,
         1,
         1
@@ -714,13 +732,13 @@
     {
       "id": "back-027",
       "name": "软件内置源",
-      "score": 91,
+      "score": 92,
       "grade": "S",
       "group": "back",
       "url": "http://47.96.82.41:5188/api.json",
       "desc": "本地端口服务接口",
       "ok": true,
-      "ms": 681,
+      "ms": 691,
       "latency": "fast",
       "kind": "config",
       "error": "",
@@ -738,10 +756,11 @@
       "isLive": false,
       "uaUsed": "okhttp",
       "uptime7d": 1.0,
-      "checks": 3,
-      "streakUp": 3,
+      "checks": 4,
+      "streakUp": 4,
       "streakDown": 0,
       "recent": [
+        1,
         1,
         1,
         1
@@ -752,13 +771,13 @@
     {
       "id": "back-028",
       "name": "ok线路2",
-      "score": 76,
+      "score": 77,
       "grade": "A",
       "group": "back",
       "url": "https://gist.githubusercontent.com/ph7368/20ee6c7b64d77d82f8f4162cdd04ad61/raw/gistfile1.txt",
       "desc": "Gist托管备用源",
       "ok": true,
-      "ms": 249,
+      "ms": 180,
       "latency": "fast",
       "kind": "config",
       "error": "",
@@ -776,10 +795,11 @@
       "isLive": false,
       "uaUsed": "okhttp",
       "uptime7d": 1.0,
-      "checks": 3,
-      "streakUp": 3,
+      "checks": 4,
+      "streakUp": 4,
       "streakDown": 0,
       "recent": [
+        1,
         1,
         1,
         1
@@ -796,7 +816,7 @@
       "url": "https://cdn.jsdelivr.net/gh/liu673cn/box@main/m.json",
       "desc": "Github静态加速源",
       "ok": true,
-      "ms": 226,
+      "ms": 66,
       "latency": "fast",
       "kind": "config",
       "error": "",
@@ -814,13 +834,14 @@
       "multiCount": 0,
       "isLive": false,
       "uaUsed": "okhttp",
-      "uptime7d": 0.3333,
-      "checks": 3,
-      "streakUp": 1,
+      "uptime7d": 0.5,
+      "checks": 4,
+      "streakUp": 2,
       "streakDown": 0,
       "recent": [
         0,
         0,
+        1,
         1
       ],
       "lastChangeAt": "2026-11-08T06:32:04Z",
@@ -829,13 +850,13 @@
     {
       "id": "back-030",
       "name": "摸鱼儿",
-      "score": 93,
+      "score": 94,
       "grade": "S",
       "group": "back",
       "url": "https://6800.kstore.vip/fish.json",
       "desc": "鱼影视专用线路",
       "ok": true,
-      "ms": 580,
+      "ms": 700,
       "latency": "fast",
       "kind": "config",
       "error": "",
@@ -853,10 +874,11 @@
       "isLive": false,
       "uaUsed": "okhttp",
       "uptime7d": 1.0,
-      "checks": 3,
-      "streakUp": 3,
+      "checks": 4,
+      "streakUp": 4,
       "streakDown": 0,
       "recent": [
+        1,
         1,
         1,
         1
@@ -867,13 +889,13 @@
     {
       "id": "back-032",
       "name": "牛儿",
-      "score": 89,
+      "score": 86,
       "grade": "S",
       "group": "back",
       "url": "https://9280.kstore.space/wex.json",
       "desc": "牛二同站备用wex源",
       "ok": true,
-      "ms": 484,
+      "ms": 507,
       "latency": "fast",
       "kind": "config",
       "error": "",
@@ -891,10 +913,11 @@
       "isLive": false,
       "uaUsed": "okhttp",
       "uptime7d": 1.0,
-      "checks": 3,
-      "streakUp": 3,
+      "checks": 4,
+      "streakUp": 4,
       "streakDown": 0,
       "recent": [
+        1,
         1,
         1,
         1
@@ -905,13 +928,13 @@
     {
       "id": "back-033",
       "name": "拾光",
-      "score": 68,
+      "score": 69,
       "grade": "B",
       "group": "back",
       "url": "https://gh-proxy.com/https://raw.githubusercontent.com/xmbjm/svip/refs/heads/main/svip.json",
       "desc": "SVIP高清影视托管源",
       "ok": true,
-      "ms": 201,
+      "ms": 159,
       "latency": "fast",
       "kind": "live",
       "error": "",
@@ -927,10 +950,11 @@
       "isLive": true,
       "uaUsed": "okhttp",
       "uptime7d": 1.0,
-      "checks": 3,
-      "streakUp": 3,
+      "checks": 4,
+      "streakUp": 4,
       "streakDown": 0,
       "recent": [
+        1,
         1,
         1,
         1
@@ -947,7 +971,7 @@
       "url": "https://g.33445500.xyz/https://raw.githubusercontent.com/qist/tvbox/refs/heads/master/jsm.json",
       "desc": "Github加速聚合综合源",
       "ok": true,
-      "ms": 270,
+      "ms": 199,
       "latency": "fast",
       "kind": "config",
       "error": "",
@@ -967,10 +991,11 @@
       "isLive": false,
       "uaUsed": "okhttp",
       "uptime7d": 1.0,
-      "checks": 3,
-      "streakUp": 3,
+      "checks": 4,
+      "streakUp": 4,
       "streakDown": 0,
       "recent": [
+        1,
         1,
         1,
         1
@@ -987,7 +1012,7 @@
       "url": "https://g.33445500.xyz/https://raw.githubusercontent.com/qist/tvbox/refs/heads/master/xiaosa/api.json",
       "desc": "潇洒线路镜像加速地址",
       "ok": true,
-      "ms": 139,
+      "ms": 112,
       "latency": "fast",
       "kind": "config",
       "error": "",
@@ -1005,10 +1030,11 @@
       "isLive": false,
       "uaUsed": "okhttp",
       "uptime7d": 1.0,
-      "checks": 3,
-      "streakUp": 3,
+      "checks": 4,
+      "streakUp": 4,
       "streakDown": 0,
       "recent": [
+        1,
         1,
         1,
         1
@@ -1025,8 +1051,8 @@
       "url": "http://550.3vcn.work/wdjyys.json",
       "desc": "金鹰影视专用聚合线路",
       "ok": true,
-      "ms": 2462,
-      "latency": "normal",
+      "ms": 2535,
+      "latency": "slow",
       "kind": "config",
       "error": "",
       "sitesTotal": 106,
@@ -1045,10 +1071,11 @@
       "isLive": false,
       "uaUsed": "okhttp",
       "uptime7d": 1.0,
-      "checks": 3,
-      "streakUp": 3,
+      "checks": 4,
+      "streakUp": 4,
       "streakDown": 0,
       "recent": [
+        1,
         1,
         1,
         1
@@ -1065,7 +1092,7 @@
       "url": "http://www.饭太硬.net/tv",
       "desc": "混合线路，推荐荐片等线路",
       "ok": false,
-      "ms": 99,
+      "ms": 174,
       "latency": "fast",
       "kind": "html",
       "error": "html",
@@ -1081,10 +1108,11 @@
       "isLive": false,
       "uaUsed": "Mozilla",
       "uptime7d": 0.0,
-      "checks": 3,
+      "checks": 4,
       "streakUp": 0,
-      "streakDown": 3,
+      "streakDown": 4,
       "recent": [
+        0,
         0,
         0,
         0
@@ -1101,7 +1129,7 @@
       "url": "http://肥猫.net/",
       "desc": "混合线路，推荐肥猫、瓜子、金牌等线路",
       "ok": false,
-      "ms": 1956,
+      "ms": 2439,
       "latency": "normal",
       "kind": "html",
       "error": "html",
@@ -1117,10 +1145,11 @@
       "isLive": false,
       "uaUsed": "Mozilla",
       "uptime7d": 0.0,
-      "checks": 3,
+      "checks": 4,
       "streakUp": 0,
-      "streakDown": 3,
+      "streakDown": 4,
       "recent": [
+        0,
         0,
         0,
         0
@@ -1137,7 +1166,7 @@
       "url": "https://jihulab.com/ymz1231/xymz/-/raw/main/ymshaoer",
       "desc": "常规线路，启蒙、少儿、小/初/高",
       "ok": false,
-      "ms": 134,
+      "ms": 156,
       "latency": "fast",
       "kind": "other",
       "error": "decode-fail",
@@ -1153,10 +1182,11 @@
       "isLive": false,
       "uaUsed": "Mozilla",
       "uptime7d": 0.0,
-      "checks": 3,
+      "checks": 4,
       "streakUp": 0,
-      "streakDown": 3,
+      "streakDown": 4,
       "recent": [
+        0,
         0,
         0,
         0
@@ -1173,7 +1203,7 @@
       "url": "https://9xi4o.tk/0725.json",
       "desc": "混合线路，可用性较差",
       "ok": false,
-      "ms": 245,
+      "ms": 279,
       "latency": "fast",
       "kind": "error",
       "error": "URLError: <urlopen error [Errno -2] Name or service not known>",
@@ -1189,10 +1219,11 @@
       "isLive": false,
       "uaUsed": "Mozilla",
       "uptime7d": 0.0,
-      "checks": 3,
+      "checks": 4,
       "streakUp": 0,
-      "streakDown": 3,
+      "streakDown": 4,
       "recent": [
+        0,
         0,
         0,
         0
@@ -1209,7 +1240,7 @@
       "url": "https://ym.wya6.cn/",
       "desc": "混合线路，若不用网盘的话可以选排序靠后的线路，画质较高",
       "ok": false,
-      "ms": 323,
+      "ms": 353,
       "latency": "fast",
       "kind": "error",
       "error": "URLError: <urlopen error [Errno -2] Name or service not known>",
@@ -1225,10 +1256,11 @@
       "isLive": false,
       "uaUsed": "Mozilla",
       "uptime7d": 0.0,
-      "checks": 3,
+      "checks": 4,
       "streakUp": 0,
-      "streakDown": 3,
+      "streakDown": 4,
       "recent": [
+        0,
         0,
         0,
         0
@@ -1245,7 +1277,7 @@
       "url": "https://xn--sdds-rp5imh.v.nxog.top/apitv.php?id=3",
       "desc": "常规影视线路",
       "ok": false,
-      "ms": 20,
+      "ms": 15,
       "latency": "fast",
       "kind": "error",
       "error": "URLError: <urlopen error [SSL: SSLV3_ALERT_HANDSHAKE_FAILURE] ssl/tls alert handshake failure (_ssl.c:1011)>",
@@ -1261,10 +1293,11 @@
       "isLive": false,
       "uaUsed": "Mozilla",
       "uptime7d": 0.0,
-      "checks": 3,
+      "checks": 4,
       "streakUp": 0,
-      "streakDown": 3,
+      "streakDown": 4,
       "recent": [
+        0,
         0,
         0,
         0
@@ -1281,8 +1314,8 @@
       "url": "http://fmys.top/fmys.json",
       "desc": "综合聚合线路",
       "ok": false,
-      "ms": 837,
-      "latency": "normal",
+      "ms": 665,
+      "latency": "fast",
       "kind": "error",
       "error": "HTTP 404",
       "sitesTotal": 0,
@@ -1297,10 +1330,11 @@
       "isLive": false,
       "uaUsed": "Mozilla",
       "uptime7d": 0.0,
-      "checks": 3,
+      "checks": 4,
       "streakUp": 0,
-      "streakDown": 3,
+      "streakDown": 4,
       "recent": [
+        0,
         0,
         0,
         0
@@ -1317,7 +1351,7 @@
       "url": "https://fty.888484.xyz/tv",
       "desc": "饭太硬备用访问地址",
       "ok": false,
-      "ms": 765,
+      "ms": 465,
       "latency": "fast",
       "kind": "html",
       "error": "html",
@@ -1333,10 +1367,11 @@
       "isLive": false,
       "uaUsed": "Mozilla",
       "uptime7d": 0.0,
-      "checks": 3,
+      "checks": 4,
       "streakUp": 0,
-      "streakDown": 3,
+      "streakDown": 4,
       "recent": [
+        0,
         0,
         0,
         0
@@ -1353,7 +1388,7 @@
       "url": "http://www.xn--sss604efuw.net/tv",
       "desc": "长期稳定通用线路",
       "ok": false,
-      "ms": 391,
+      "ms": 59,
       "latency": "fast",
       "kind": "html",
       "error": "html",
@@ -1369,10 +1404,11 @@
       "isLive": false,
       "uaUsed": "Mozilla",
       "uptime7d": 0.0,
-      "checks": 3,
+      "checks": 4,
       "streakUp": 0,
-      "streakDown": 3,
+      "streakDown": 4,
       "recent": [
+        0,
         0,
         0,
         0
@@ -1389,7 +1425,7 @@
       "url": "https://bitbucket.org/xduo/duoapi/raw/master/xpg.json",
       "desc": "Bitbucket托管苹果影视源",
       "ok": false,
-      "ms": 315,
+      "ms": 68,
       "latency": "fast",
       "kind": "error",
       "error": "HTTP 404",
@@ -1405,10 +1441,11 @@
       "isLive": false,
       "uaUsed": "Mozilla",
       "uptime7d": 0.0,
-      "checks": 3,
+      "checks": 4,
       "streakUp": 0,
-      "streakDown": 3,
+      "streakDown": 4,
       "recent": [
+        0,
         0,
         0,
         0
@@ -1425,10 +1462,10 @@
       "url": "https://raw.gitcode.com/jvftibcs-jbduyh/021/raw/main/18.json",
       "desc": "国内Gitee类静态影视接口",
       "ok": false,
-      "ms": 1065,
+      "ms": 2212,
       "latency": "normal",
       "kind": "error",
-      "error": "HTTP 403",
+      "error": "HTTP 418",
       "sitesTotal": 0,
       "sitesValid": 0,
       "types": {},
@@ -1441,10 +1478,11 @@
       "isLive": false,
       "uaUsed": "Mozilla",
       "uptime7d": 0.0,
-      "checks": 3,
+      "checks": 4,
       "streakUp": 0,
-      "streakDown": 3,
+      "streakDown": 4,
       "recent": [
+        0,
         0,
         0,
         0
@@ -1471,6 +1509,12 @@
       "up": 27,
       "total": 38,
       "jar_ok": 15
+    },
+    {
+      "at": "2026-11-08T07:11:58Z",
+      "up": 27,
+      "total": 38,
+      "jar_ok": 15
     }
   ],
   "mirrors": {
@@ -1481,8 +1525,8 @@
         "url": "https://raw.githubusercontent.com/QYF233/TVbox/main/dist/official.json",
         "ok": true,
         "status": 200,
-        "size": 28477,
-        "ms": 186
+        "size": 41050,
+        "ms": 128
       },
       {
         "name": "jsdelivr-fastly",
@@ -1491,7 +1535,7 @@
         "ok": true,
         "status": 200,
         "size": 28477,
-        "ms": 471
+        "ms": 20
       },
       {
         "name": "jsdelivr",
@@ -1500,7 +1544,7 @@
         "ok": true,
         "status": 200,
         "size": 28477,
-        "ms": 383
+        "ms": 50
       },
       {
         "name": "gh-proxy",
@@ -1508,8 +1552,8 @@
         "url": "https://gh-proxy.com/https://raw.githubusercontent.com/QYF233/TVbox/main/dist/official.json",
         "ok": true,
         "status": 200,
-        "size": 28477,
-        "ms": 144
+        "size": 41050,
+        "ms": 139
       },
       {
         "name": "ghproxy-net",
@@ -1517,8 +1561,8 @@
         "url": "https://ghproxy.net/https://raw.githubusercontent.com/QYF233/TVbox/main/dist/official.json",
         "ok": true,
         "status": 200,
-        "size": 28477,
-        "ms": 5344
+        "size": 41050,
+        "ms": 7295
       }
     ],
     "tvbox.json": [
@@ -1528,8 +1572,8 @@
         "url": "https://raw.githubusercontent.com/QYF233/TVbox/main/dist/tvbox.json",
         "ok": true,
         "status": 200,
-        "size": 2408,
-        "ms": 119
+        "size": 2841,
+        "ms": 90
       },
       {
         "name": "jsdelivr-fastly",
@@ -1538,7 +1582,7 @@
         "ok": true,
         "status": 200,
         "size": 2408,
-        "ms": 260
+        "ms": 14
       },
       {
         "name": "jsdelivr",
@@ -1547,7 +1591,7 @@
         "ok": true,
         "status": 200,
         "size": 2408,
-        "ms": 166
+        "ms": 42
       },
       {
         "name": "gh-proxy",
@@ -1555,8 +1599,8 @@
         "url": "https://gh-proxy.com/https://raw.githubusercontent.com/QYF233/TVbox/main/dist/tvbox.json",
         "ok": true,
         "status": 200,
-        "size": 2408,
-        "ms": 233
+        "size": 2841,
+        "ms": 183
       },
       {
         "name": "ghproxy-net",
@@ -1564,8 +1608,8 @@
         "url": "https://ghproxy.net/https://raw.githubusercontent.com/QYF233/TVbox/main/dist/tvbox.json",
         "ok": true,
         "status": 200,
-        "size": 2408,
-        "ms": 3250
+        "size": 2841,
+        "ms": 4462
       }
     ],
     "list.json": [
@@ -1575,8 +1619,8 @@
         "url": "https://raw.githubusercontent.com/QYF233/TVbox/main/dist/list.json",
         "ok": true,
         "status": 200,
-        "size": 26313,
-        "ms": 178
+        "size": 26208,
+        "ms": 173
       },
       {
         "name": "jsdelivr-fastly",
@@ -1585,7 +1629,7 @@
         "ok": true,
         "status": 200,
         "size": 26040,
-        "ms": 206
+        "ms": 222
       },
       {
         "name": "jsdelivr",
@@ -1594,7 +1638,7 @@
         "ok": true,
         "status": 200,
         "size": 26313,
-        "ms": 665
+        "ms": 56
       },
       {
         "name": "gh-proxy",
@@ -1602,8 +1646,8 @@
         "url": "https://gh-proxy.com/https://raw.githubusercontent.com/QYF233/TVbox/main/dist/list.json",
         "ok": true,
         "status": 200,
-        "size": 26313,
-        "ms": 233
+        "size": 26208,
+        "ms": 112
       },
       {
         "name": "ghproxy-net",
@@ -1611,15 +1655,15 @@
         "url": "https://ghproxy.net/https://raw.githubusercontent.com/QYF233/TVbox/main/dist/list.json",
         "ok": true,
         "status": 200,
-        "size": 26313,
-        "ms": 3280
+        "size": 26208,
+        "ms": 7748
       }
     ]
   },
   "merge": {
     "primary": "王二小",
     "primaryJarStatus": "ok",
-    "sites": 28,
+    "sites": 58,
     "parses": 28,
     "lives": 7,
     "sources": [
