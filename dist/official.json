@@ -58,6 +58,15 @@
       "type": 1
     },
     {
+      "key": "tv_pool_金鹰资源",
+      "name": "🌼金鹰┃资源🌼",
+      "api": "https://jyzyapi.com/provide/vod/from/jinyingm3u8/at/json",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "type": 1
+    },
+    {
       "key": "tv_pool_jszycj",
       "name": "👖裤佬丨极速丨采集",
       "api": "https://jszyapi.com/api.php/provide/vod/from/jsm3u8/at/json",
@@ -346,18 +355,18 @@
       "type": 1
     },
     {
-      "key": "tv_pool_豪华资源",
-      "name": "豪华资源┃刺桐",
-      "api": "https://hhzyapi.com/api.php/provide/vod",
+      "key": "tv_pool_百度",
+      "name": "百度",
+      "api": "https://api.apibdzy.com/api.php/provide/vod?ac=list",
       "searchable": 1,
       "quickSearch": 1,
-      "filterable": 1,
+      "filterable": 0,
       "type": 1
     },
     {
-      "key": "tv_pool_量子资源",
-      "name": "量子资源(切)",
-      "api": "http://cj.lziapi.com/api.php/provide/vod/",
+      "key": "tv_pool_豪华资源",
+      "name": "豪华资源┃刺桐",
+      "api": "https://hhzyapi.com/api.php/provide/vod",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -400,6 +409,24 @@
       "type": 1
     },
     {
+      "key": "tv_pool_金鹰点播",
+      "name": "🌻金鹰点播🌻",
+      "api": "https://jinyingzy.com/api.php/provide/vod",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "type": 1
+    },
+    {
+      "key": "tv_pool_鸭鸭资源",
+      "name": "🌻鸭鸭采集🌻",
+      "api": "https://yayazy2.com/api.php/provide/vod/",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "type": 1
+    },
+    {
       "key": "tv_pool_zy_金鹰影视点主页切换源",
       "name": "🔰金鹰┃影视",
       "api": "https://jyzyapi.com/provide/vod/",
@@ -409,30 +436,21 @@
       "type": 1
     },
     {
+      "key": "tv_pool_量子资源",
+      "name": "🥑┃量子┃资源",
+      "api": "https://lzizy1.com/api.php/provide/vod/",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "type": 1
+    },
+    {
       "key": "tv_pool_电影天堂",
       "name": "☀天堂🔹采集",
       "api": "http://caiji.dyttzyapi.com/api.php/provide/vod/from/dyttm3u8/at/json/?ac=list",
       "searchable": 1,
       "quickSearch": 0,
       "filterable": 0,
-      "type": 1
-    },
-    {
-      "key": "tv_pool_非凡影视",
-      "name": "✅非凡┃影视",
-      "api": "http://cj.ffzyapi.com//api.php/provide/vod",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "type": 1
-    },
-    {
-      "key": "tv_pool_csp_xml_非凡资源",
-      "name": "❤非凡资源",
-      "api": "http://cj.ffzyapi.com/api.php/provide/vod/",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
       "type": 1
     },
     {
@@ -463,18 +481,18 @@
       "type": 1
     },
     {
-      "key": "tv_pool_百度",
-      "name": "百度",
-      "api": "https://api.apibdzy.com/api.php/provide/vod?ac=list",
+      "key": "tv_pool_非凡影视",
+      "name": "✅非凡┃影视",
+      "api": "http://cj.ffzyapi.com//api.php/provide/vod",
       "searchable": 1,
       "quickSearch": 1,
-      "filterable": 0,
+      "filterable": 1,
       "type": 1
     },
     {
-      "key": "tv_pool_金鹰点播",
-      "name": "🌻金鹰点播🌻",
-      "api": "https://jinyingzy.com/api.php/provide/vod",
+      "key": "tv_pool_csp_xml_非凡资源",
+      "name": "❤非凡资源",
+      "api": "http://cj.ffzyapi.com/api.php/provide/vod/",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -493,24 +511,6 @@
       "key": "tv_pool_全民视界",
       "name": "🌻全民视界🌻",
       "api": "http://www.cmov.cn/api.php/provide/vod/",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "type": 1
-    },
-    {
-      "key": "tv_pool_鸭鸭资源",
-      "name": "🌻鸭鸭采集🌻",
-      "api": "https://yayazy2.com/api.php/provide/vod/",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "type": 1
-    },
-    {
-      "key": "tv_pool_金鹰资源",
-      "name": "🌼金鹰┃资源🌼",
-      "api": "https://jyzyapi.com/provide/vod/from/jinyingm3u8/at/json",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
