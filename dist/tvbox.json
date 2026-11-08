@@ -1,88 +1,76 @@
 {
   "urls": [
     {
-      "url": "http://124.223.214.31:8/api.json",
-      "name": "my interface"
-    },
-    {
-      "url": "http://47.96.82.41:5188/api.json",
-      "name": "软件内置源"
-    },
-    {
-      "url": "https://9280.kstore.space/wex.json",
-      "name": "牛儿"
-    },
-    {
-      "url": "https://9280.kstore.space/newwex.json",
-      "name": "牛二"
-    },
-    {
-      "url": "https://www.iyouhun.com/tv/wex",
-      "name": "新接口"
-    },
-    {
-      "url": "http://tvbox.xn--4kq62z5rby2qupq9ub.top/",
-      "name": "王二小接口"
-    },
-    {
-      "url": "http://xn--5mqx81b535a.com/",
-      "name": "uuccc"
-    },
-    {
-      "url": "https://700sjro44343.vicp.fun/eggp/0211/tv.json",
-      "name": "二月红接口"
-    },
-    {
-      "url": "http://tv.999888987.xyz",
-      "name": "王二小放牛娃"
-    },
-    {
-      "url": "https://6800.kstore.vip/fish.json",
-      "name": "摸鱼儿"
-    },
-    {
-      "url": "https://9280.kstore.vip/newwex.json",
-      "name": "王二小"
-    },
-    {
-      "url": "https://700sjro44343.vicp.fun/vip/vip/tv.json",
-      "name": "1号VIP源"
+      "url": "https://gist.githubusercontent.com/ph7368/20ee6c7b64d77d82f8f4162cdd04ad61/raw/gistfile1.txt",
+      "name": "ok线路2"
     },
     {
       "url": "https://tv.xn--yhqu5zs87a.top",
       "name": "菜妮丝"
     },
     {
-      "url": "https://gist.githubusercontent.com/ph7368/20ee6c7b64d77d82f8f4162cdd04ad61/raw/gistfile1.txt",
-      "name": "ok线路2"
+      "url": "http://xhztv.top/xhz",
+      "name": "小盒子"
     },
     {
-      "url": "http://home.jundie.top:81/top98.json",
-      "name": "俊哥"
+      "url": "https://9280.kstore.space/newwex.json",
+      "name": "牛二"
     },
     {
-      "url": "https://tv.203511.xyz/0821.json",
-      "name": "荐片"
+      "url": "http://124.223.214.31:8/api.json",
+      "name": "my interface"
+    },
+    {
+      "url": "https://9280.kstore.space/wex.json",
+      "name": "牛儿"
+    },
+    {
+      "url": "https://6800.kstore.vip/fish.json",
+      "name": "摸鱼儿"
+    },
+    {
+      "url": "http://47.96.82.41:5188/api.json",
+      "name": "软件内置源"
+    },
+    {
+      "url": "https://9280.kstore.vip/newwex.json",
+      "name": "王二小"
+    },
+    {
+      "url": "http://tvbox.xn--4kq62z5rby2qupq9ub.top/",
+      "name": "王二小接口"
+    },
+    {
+      "url": "http://tv.999888987.xyz",
+      "name": "王二小放牛娃"
+    },
+    {
+      "url": "https://700sjro44343.vicp.fun/vip/vip/tv.json",
+      "name": "1号VIP源"
+    },
+    {
+      "url": "https://700sjro44343.vicp.fun/eggp/0211/tv.json",
+      "name": "二月红接口"
+    },
+    {
+      "url": "https://www.iyouhun.com/tv/wex",
+      "name": "新接口"
+    },
+    {
+      "url": "http://xn--5mqx81b535a.com/",
+      "name": "uuccc"
+    },
+    {
+      "url": "https://qist.wyfc.qzz.io/xiaosa/api.json",
+      "name": "潇洒"
     },
     {
       "url": "https://g.33445500.xyz/https://raw.githubusercontent.com/qist/tvbox/refs/heads/master/xiaosa/api.json",
       "name": "潇洒Github备用"
     },
     {
-      "url": "https://g.33445500.xyz/https://raw.githubusercontent.com/qist/tvbox/refs/heads/master/jsm.json",
-      "name": "神秘大佬"
-    },
-    {
-      "url": "http://550.3vcn.work/wdjyys.json",
-      "name": "金鹰"
-    },
-    {
-      "url": "https://raw.liucn.cc/box/m.json",
-      "name": "ok线路1"
-    },
-    {
-      "url": "http://xhztv.top/xhz",
-      "name": "小盒子"
+      "url": "https://tv.203511.xyz/0821.json",
+      "name": "荐片"
     },
     {
       "url": "http://xhztv.top/4k.json",
@@ -91,8 +79,36 @@
     {
       "url": "https://gh-proxy.com/https://raw.githubusercontent.com/xmbjm/svip/refs/heads/main/svip.json",
       "name": "拾光"
+    },
+    {
+      "url": "https://qist.wyfc.qzz.io/fty.json",
+      "name": "饭太硬"
+    },
+    {
+      "url": "https://cdn.jsdelivr.net/gh/liu673cn/box@main/m.json",
+      "name": "11号托管源"
+    },
+    {
+      "url": "https://g.33445500.xyz/https://raw.githubusercontent.com/qist/tvbox/refs/heads/master/jsm.json",
+      "name": "神秘大佬"
+    },
+    {
+      "url": "https://raw.liucn.cc/box/m.json",
+      "name": "ok线路1"
+    },
+    {
+      "url": "https://tv.nxog.top/m/111.php?ou=公众号欧歌app&mz=index&jar=index&123&b=tv",
+      "name": "欧歌免费"
+    },
+    {
+      "url": "http://home.jundie.top:81/top98.json",
+      "name": "俊哥"
+    },
+    {
+      "url": "http://550.3vcn.work/wdjyys.json",
+      "name": "金鹰"
     }
   ],
   "homepage": "https://www.tvbox.org/",
-  "generated_at": "2026-11-08T05:17:28Z"
+  "generated_at": "2026-11-08T06:32:04Z"
 }
