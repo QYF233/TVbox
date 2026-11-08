@@ -1,46 +1,5 @@
 {
-  "at": "2026-11-08T06:32:04Z",
-  "count": 4,
-  "items": [
-    {
-      "id": "back-013",
-      "name": "欧歌免费",
-      "group": "back",
-      "url": "https://tv.nxog.top/m/111.php?ou=公众号欧歌app&mz=index&jar=index&123&b=tv",
-      "change": "up",
-      "from": "DOWN",
-      "to": "UP",
-      "reason": ""
-    },
-    {
-      "id": "back-016",
-      "name": "饭太硬",
-      "group": "back",
-      "url": "https://qist.wyfc.qzz.io/fty.json",
-      "change": "up",
-      "from": "DOWN",
-      "to": "UP",
-      "reason": ""
-    },
-    {
-      "id": "back-017",
-      "name": "潇洒",
-      "group": "back",
-      "url": "https://qist.wyfc.qzz.io/xiaosa/api.json",
-      "change": "up",
-      "from": "DOWN",
-      "to": "UP",
-      "reason": ""
-    },
-    {
-      "id": "back-029",
-      "name": "11号托管源",
-      "group": "back",
-      "url": "https://cdn.jsdelivr.net/gh/liu673cn/box@main/m.json",
-      "change": "up",
-      "from": "DOWN",
-      "to": "UP",
-      "reason": ""
-    }
-  ]
+  "at": "2026-11-08T07:11:58Z",
+  "count": 0,
+  "items": []
 }
