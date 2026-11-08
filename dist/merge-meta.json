@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-08T08:54:24Z",
+  "generated_at": "2026-11-08T17:17:07Z",
   "homepage": "https://www.tvbox.org/",
   "repo": "https://github.com/TVboxorg/TVbox",
   "primary": "王二小",
@@ -9,8 +9,8 @@
   "netdisk_filtered": 100,
   "cms_filtered": 364,
   "cms_dead": 0,
-  "pool_added": 67,
-  "pool_unplayable": 52,
+  "pool_added": 68,
+  "pool_unplayable": 56,
   "parses": 29,
   "lives": 12,
   "sources": [
