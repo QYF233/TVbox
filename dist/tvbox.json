@@ -5,10 +5,6 @@
       "name": "ok线路2"
     },
     {
-      "url": "http://xhztv.top/xhz",
-      "name": "小盒子"
-    },
-    {
       "url": "https://tv.xn--yhqu5zs87a.top",
       "name": "菜妮丝"
     },
@@ -21,8 +17,8 @@
       "name": "my interface"
     },
     {
-      "url": "https://9280.kstore.vip/newwex.json",
-      "name": "王二小"
+      "url": "http://xhztv.top/xhz",
+      "name": "小盒子"
     },
     {
       "url": "https://9280.kstore.space/newwex.json",
@@ -37,6 +33,10 @@
       "name": "软件内置源"
     },
     {
+      "url": "https://9280.kstore.vip/newwex.json",
+      "name": "王二小"
+    },
+    {
       "url": "http://tv.999888987.xyz",
       "name": "王二小放牛娃"
     },
@@ -45,20 +45,24 @@
       "name": "王二小接口"
     },
     {
-      "url": "https://www.iyouhun.com/tv/wex",
-      "name": "新接口"
-    },
-    {
       "url": "https://700sjro44343.vicp.fun/vip/vip/tv.json",
       "name": "1号VIP源"
+    },
+    {
+      "url": "https://700sjro44343.vicp.fun/eggp/0211/tv.json",
+      "name": "二月红接口"
+    },
+    {
+      "url": "https://www.iyouhun.com/tv/wex",
+      "name": "新接口"
     },
     {
       "url": "http://xn--5mqx81b535a.com/",
       "name": "uuccc"
     },
     {
-      "url": "https://700sjro44343.vicp.fun/eggp/0211/tv.json",
-      "name": "二月红接口"
+      "url": "https://cdn.jsdelivr.net/gh/liu673cn/box@main/m.json",
+      "name": "11号托管源"
     },
     {
       "url": "https://qist.wyfc.qzz.io/xiaosa/api.json",
@@ -69,20 +73,8 @@
       "name": "荐片"
     },
     {
-      "url": "https://g.33445500.xyz/https://raw.githubusercontent.com/qist/tvbox/refs/heads/master/jsm.json",
-      "name": "神秘大佬"
-    },
-    {
-      "url": "https://raw.liucn.cc/box/m.json",
-      "name": "ok线路1"
-    },
-    {
-      "url": "https://g.33445500.xyz/https://raw.githubusercontent.com/qist/tvbox/refs/heads/master/xiaosa/api.json",
-      "name": "潇洒Github备用"
-    },
-    {
-      "url": "https://cdn.jsdelivr.net/gh/liu673cn/box@main/m.json",
-      "name": "11号托管源"
+      "url": "https://qist.wyfc.qzz.io/fty.json",
+      "name": "饭太硬"
     },
     {
       "url": "https://gh-proxy.com/https://raw.githubusercontent.com/xmbjm/svip/refs/heads/main/svip.json",
@@ -93,8 +85,16 @@
       "name": "小盒子4K"
     },
     {
-      "url": "https://qist.wyfc.qzz.io/fty.json",
-      "name": "饭太硬"
+      "url": "https://g.33445500.xyz/https://raw.githubusercontent.com/qist/tvbox/refs/heads/master/xiaosa/api.json",
+      "name": "潇洒Github备用"
+    },
+    {
+      "url": "https://g.33445500.xyz/https://raw.githubusercontent.com/qist/tvbox/refs/heads/master/jsm.json",
+      "name": "神秘大佬"
+    },
+    {
+      "url": "https://raw.liucn.cc/box/m.json",
+      "name": "ok线路1"
     },
     {
       "url": "http://home.jundie.top:81/top98.json",
@@ -110,5 +110,5 @@
     }
   ],
   "homepage": "https://www.tvbox.org/",
-  "generated_at": "2026-11-08T07:22:47Z"
+  "generated_at": "2026-11-08T07:50:02Z"
 }
