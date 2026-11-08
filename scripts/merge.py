@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import os
 import re
 import ssl
 import sys
@@ -185,6 +186,28 @@ def normalize_key(raw: str, source_id: str) -> str:
     return f"tv_{source_id}_{key}"
 
 
+# 网盘类站点：播放需要登录对应网盘账号，普通用户点进去也看不了，默认剔除
+NETDISK_NAME = re.compile(
+    r"网盘|云盘|夸克|天翼|115|alist|小雅|迅雷|uc网盘|百度网盘", re.I)
+# api 形如 csp_PanCms / csp_AListGuard / csp_MyPanGuard；
+# 用负向断言排掉 csp_PanConfigGuard 这类设置面板
+NETDISK_API = re.compile(
+    r"^csp_(?!.*Config).*(Pan|Quark|AList|AliYun|Uc|Baidu|Tianyi|115|Xiaoya)", re.I)
+# ext 里出现网盘域名也判定为网盘源
+NETDISK_EXT = re.compile(
+    r"quark\.cn|aliyundrive|alipan|cloud\.189|115\.com|pan\.baidu|xiaoya|alist", re.I)
+
+
+def is_netdisk_site(site: dict) -> bool:
+    name = str(site.get("name") or "")
+    api = str(site.get("api") or "")
+    ext = site.get("ext")
+    ext_str = ext if isinstance(ext, str) else json.dumps(ext, ensure_ascii=False) if ext else ""
+    if NETDISK_NAME.search(name) or NETDISK_API.search(api) or NETDISK_EXT.search(ext_str):
+        return True
+    return False
+
+
 def adapt_site(
     site: dict[str, Any],
     *,
@@ -291,6 +314,8 @@ def main() -> int:
 
     probe = json.loads(PROBE.read_text(encoding="utf-8"))
     health_map = load_health()
+    exclude_netdisk = os.environ.get("KEEP_NETDISK", "0") != "1"
+    netdisk_skipped = 0
     sources = pick_sources(probe.get("items") or [])
     if not sources:
         write_degraded("no-up-source", {"total": probe.get("count")})
@@ -359,6 +384,9 @@ def main() -> int:
         added = 0
         skipped = 0
         for site in cfg.get("sites") or []:
+            if exclude_netdisk and isinstance(site, dict) and is_netdisk_site(site):
+                netdisk_skipped += 1
+                continue
             adapted = adapt_site(
                 site,
                 source_id=sid,
@@ -476,7 +504,8 @@ def main() -> int:
         "parses": parses,
         "lives": lives,
         "homepage": "https://www.tvbox.org/",
-        "warning": "聚合自公开接口，自动筛选；若部分站失效请换多仓或单线路。仅供学习交流。",
+        "warning": ("聚合自公开接口，自动筛选；已排除需要网盘会员的站点。"
+                    "若部分站失效请换多仓或单线路。仅供学习交流。"),
     }
     if rules:
         official["rules"] = rules
@@ -502,6 +531,7 @@ def main() -> int:
         "primary": meta_sources[0]["name"] if meta_sources else "",
         "primary_jar_status": primary_jar_status,
         "sites": len(final_sites),
+        "netdisk_filtered": netdisk_skipped,
         "parses": len(parses),
         "lives": len(lives),
         "sources": meta_sources,
@@ -529,7 +559,8 @@ def main() -> int:
 
     print(
         f"wrote {OUT} sites={len(final_sites)} parses={len(parses)} lives={len(lives)} "
-        f"primary={meta['primary']} jar={primary_jar_status}"
+        f"primary={meta['primary']} jar={primary_jar_status} "
+        f"netdisk_filtered={netdisk_skipped}"
     )
     return 0
 

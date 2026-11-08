@@ -83,6 +83,20 @@ https://cdn.jsdelivr.net/gh/TVboxorg/TVbox@main/dist/tvbox.json
 
 `merge.py` 只合并 jar 探测通过的源的 `type=3` 站点。jar 挂掉的源，其爬虫站点依赖的 jar 必然不可用，直接剔除；这类源只保留不依赖 jar 的 CMS（`type=0/1/4`）站点。
 
+**网盘站过滤**
+
+默认剔除需要网盘会员才能播放的站点（115、夸克、阿里云盘、天翼、百度网盘、Alist、小雅等），这类站普通用户点进去必然失败。
+
+识别依据：
+
+| 位置 | 规则 |
+| --- | --- |
+| 站点名 | 含 `网盘 / 云盘 / 夸克 / 天翼 / 115 / Alist / 小雅 / 迅雷` |
+| api | `csp_` 后含 `Pan / Quark / AList / AliYun / Uc / Baidu / Tianyi / 115 / Xiaoya`，排除 `PanConfig` 这类设置面板 |
+| ext | 含 `quark.cn / aliyundrive / cloud.189 / 115.com / pan.baidu` 等网盘域名 |
+
+想保留网盘站，设置环境变量 `KEEP_NETDISK=1` 即可。
+
 ## 本地运行
 
 ```bash

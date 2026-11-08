@@ -101,6 +101,7 @@ def main() -> int:
         "jar_md5_mismatch": len(jar_mismatch),
         "multi": len(multi_up),
         "sites_total": sum(x.get("sites_valid") or 0 for x in up_items),
+        "netdisk_filtered": merge_meta.get("netdisk_filtered", 0),
         "elapsed_sec": data.get("elapsed_sec"),
         "degraded": bool(degraded),
         "avg_score": avg_score,
@@ -151,6 +152,7 @@ def main() -> int:
         f"- 可用：**{len(up_items)}** / {len(items)}",
         f"- spider 可用：**{len(jar_ok)}**，MD5 不符：{len(jar_mismatch)}，多仓：{len(multi_up)}",
         f"- 可用站点合计：**{summary['sites_total']}**",
+        f"- 已排除网盘站：**{summary.get('netdisk_filtered', 0)}** 个（需网盘会员，播放不了）",
     ]
     if degraded:
         lines.append(f"- ⚠️ 本次聚合降级：`{degraded.get('reason')}`，沿用上次 official.json")

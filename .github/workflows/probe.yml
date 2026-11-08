@@ -39,6 +39,8 @@ jobs:
         run: python3 scripts/mirrors.py
 
       - name: Merge official config
+        env:
+          KEEP_NETDISK: ${{ vars.KEEP_NETDISK }}
         run: python3 scripts/merge.py
 
       - name: Build dist and dashboard data

@@ -13,6 +13,7 @@
     "jar_md5_mismatch": 0,
     "multi": 0,
     "sites_total": 1484,
+    "netdisk_filtered": 32,
     "elapsed_sec": 58.3,
     "degraded": false,
     "avg_score": 74,
