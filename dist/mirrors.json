@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-09T03:06:24Z",
+  "generated_at": "2026-11-09T14:26:50Z",
   "repo": "QYF233/TVbox",
   "files": {
     "official.json": [
@@ -10,7 +10,7 @@
         "ok": true,
         "status": 200,
         "size": 28486,
-        "ms": 371,
+        "ms": 232,
         "error": ""
       },
       {
@@ -19,8 +19,8 @@
         "url": "https://fastly.jsdelivr.net/gh/QYF233/TVbox@main/dist/official.json",
         "ok": true,
         "status": 200,
-        "size": 28483,
-        "ms": 102,
+        "size": 28486,
+        "ms": 693,
         "error": ""
       },
       {
@@ -29,8 +29,8 @@
         "url": "https://cdn.jsdelivr.net/gh/QYF233/TVbox@main/dist/official.json",
         "ok": true,
         "status": 200,
-        "size": 28483,
-        "ms": 60,
+        "size": 28486,
+        "ms": 343,
         "error": ""
       },
       {
@@ -40,18 +40,18 @@
         "ok": true,
         "status": 200,
         "size": 28486,
-        "ms": 244,
+        "ms": 316,
         "error": ""
       },
       {
         "name": "ghproxy-net",
         "label": "ghproxy.net 代理",
         "url": "https://ghproxy.net/https://raw.githubusercontent.com/QYF233/TVbox/main/dist/official.json",
-        "ok": true,
-        "status": 200,
-        "size": 28486,
-        "ms": 835,
-        "error": ""
+        "ok": false,
+        "status": 0,
+        "size": 0,
+        "ms": 20385,
+        "error": "TimeoutError: The read operation timed out"
       }
     ],
     "tvbox.json": [
@@ -62,7 +62,7 @@
         "ok": true,
         "status": 200,
         "size": 2841,
-        "ms": 340,
+        "ms": 212,
         "error": ""
       },
       {
@@ -72,7 +72,7 @@
         "ok": true,
         "status": 200,
         "size": 2841,
-        "ms": 193,
+        "ms": 2499,
         "error": ""
       },
       {
@@ -82,7 +82,7 @@
         "ok": true,
         "status": 200,
         "size": 2841,
-        "ms": 48,
+        "ms": 337,
         "error": ""
       },
       {
@@ -92,18 +92,18 @@
         "ok": true,
         "status": 200,
         "size": 2841,
-        "ms": 169,
+        "ms": 172,
         "error": ""
       },
       {
         "name": "ghproxy-net",
         "label": "ghproxy.net 代理",
         "url": "https://ghproxy.net/https://raw.githubusercontent.com/QYF233/TVbox/main/dist/tvbox.json",
-        "ok": true,
-        "status": 200,
-        "size": 2841,
-        "ms": 607,
-        "error": ""
+        "ok": false,
+        "status": 0,
+        "size": 0,
+        "ms": 20310,
+        "error": "TimeoutError: The read operation timed out"
       }
     ],
     "list.json": [
@@ -113,8 +113,8 @@
         "url": "https://raw.githubusercontent.com/QYF233/TVbox/main/dist/list.json",
         "ok": true,
         "status": 200,
-        "size": 26204,
-        "ms": 139,
+        "size": 26203,
+        "ms": 137,
         "error": ""
       },
       {
@@ -123,8 +123,8 @@
         "url": "https://fastly.jsdelivr.net/gh/QYF233/TVbox@main/dist/list.json",
         "ok": true,
         "status": 200,
-        "size": 26201,
-        "ms": 38,
+        "size": 26203,
+        "ms": 1139,
         "error": ""
       },
       {
@@ -133,8 +133,8 @@
         "url": "https://cdn.jsdelivr.net/gh/QYF233/TVbox@main/dist/list.json",
         "ok": true,
         "status": 200,
-        "size": 26201,
-        "ms": 50,
+        "size": 26203,
+        "ms": 232,
         "error": ""
       },
       {
@@ -143,19 +143,19 @@
         "url": "https://gh-proxy.com/https://raw.githubusercontent.com/QYF233/TVbox/main/dist/list.json",
         "ok": true,
         "status": 200,
-        "size": 26204,
-        "ms": 269,
+        "size": 26203,
+        "ms": 188,
         "error": ""
       },
       {
         "name": "ghproxy-net",
         "label": "ghproxy.net 代理",
         "url": "https://ghproxy.net/https://raw.githubusercontent.com/QYF233/TVbox/main/dist/list.json",
-        "ok": true,
-        "status": 200,
-        "size": 26204,
-        "ms": 847,
-        "error": ""
+        "ok": false,
+        "status": 500,
+        "size": 0,
+        "ms": 468,
+        "error": "HTTP 500"
       }
     ]
   }
