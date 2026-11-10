@@ -85,6 +85,15 @@
       "type": 1
     },
     {
+      "key": "tv_pool_金鹰资源",
+      "name": "🌼金鹰┃资源🌼",
+      "api": "https://jyzyapi.com/provide/vod/from/jinyingm3u8/at/json",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "type": 1
+    },
+    {
       "key": "tv_back-012_feifan",
       "name": "🍀┃非凡┃资源·二月红接口",
       "type": 1,
@@ -101,15 +110,6 @@
         "大陆综艺"
       ],
       "hide": 1
-    },
-    {
-      "key": "tv_pool_金鹰资源",
-      "name": "🌼金鹰┃资源🌼",
-      "api": "https://jyzyapi.com/provide/vod/from/jinyingm3u8/at/json",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "type": 1
     },
     {
       "key": "tv_pool_建安采集",
@@ -247,15 +247,6 @@
       "type": 1
     },
     {
-      "key": "tv_pool_天涯资源",
-      "name": "天涯资源┃刺桐",
-      "api": "https://tyyszyapi.com/api.php/provide/vod/",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "type": 1
-    },
-    {
       "key": "tv_pool_天涯采集",
       "name": "影视 | 天涯",
       "api": "http://tyyszy.com/api.php/provide/vod",
@@ -319,6 +310,24 @@
       "type": 1
     },
     {
+      "key": "tv_pool_zuid",
+      "name": "最大资源",
+      "api": "https://api.zuidapi.com/api.php/provide/vod/?ac=list",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "type": 1
+    },
+    {
+      "key": "tv_pool_最大资源",
+      "name": "最大资源┃刺桐",
+      "api": "https://api.zuidapi.com/api.php/provide/vod/from/zuidam3u8/",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "type": 1
+    },
+    {
       "key": "tv_pool_yinghua",
       "name": "樱花资源",
       "api": "https://api.ukuapi88.com/api.php/provide/vod/?ac=list",
@@ -355,9 +364,9 @@
       "type": 1
     },
     {
-      "key": "tv_pool_金鹰",
-      "name": "金鹰 | 采集",
-      "api": "https://jyzyapi.com/api.php/provide/vod/",
+      "key": "tv_pool_量子资源",
+      "name": "量子资源(切)",
+      "api": "http://cj.lziapi.com/api.php/provide/vod/",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -409,12 +418,12 @@
       "type": 1
     },
     {
-      "key": "tv_pool_量子资源",
-      "name": "🥑┃量子┃资源",
-      "api": "https://lzizy1.com/api.php/provide/vod/",
+      "key": "tv_pool_zy_金鹰影视点主页切换源",
+      "name": "🔰金鹰┃影视",
+      "api": "https://jyzyapi.com/provide/vod/",
       "searchable": 1,
       "quickSearch": 1,
-      "filterable": 0,
+      "filterable": 1,
       "type": 1
     },
     {
@@ -463,6 +472,15 @@
       "type": 1
     },
     {
+      "key": "tv_pool_天涯资源",
+      "name": "天涯资源┃刺桐",
+      "api": "https://tyyszyapi.com/api.php/provide/vod/",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "type": 1
+    },
+    {
       "key": "tv_pool_量子",
       "name": "影视 | 量子[直连]",
       "api": "https://cj.lziapi.com/api.php/provide/vod/",
@@ -481,27 +499,9 @@
       "type": 1
     },
     {
-      "key": "tv_pool_zuid",
-      "name": "最大资源",
-      "api": "https://api.zuidapi.com/api.php/provide/vod/?ac=list",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "type": 1
-    },
-    {
-      "key": "tv_pool_最大资源",
-      "name": "最大资源┃刺桐",
-      "api": "https://api.zuidapi.com/api.php/provide/vod/from/zuidam3u8/",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "type": 1
-    },
-    {
-      "key": "tv_pool_zy_金鹰影视点主页切换源",
-      "name": "🔰金鹰┃影视",
-      "api": "https://jyzyapi.com/provide/vod/",
+      "key": "tv_pool_金鹰",
+      "name": "金鹰 | 采集",
+      "api": "https://jyzyapi.com/api.php/provide/vod/",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
