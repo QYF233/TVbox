@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-10T13:51:39Z",
+  "generated_at": "2026-11-10T22:35:46Z",
   "repo": "QYF233/TVbox",
   "files": {
     "official.json": [
@@ -9,8 +9,8 @@
         "url": "https://raw.githubusercontent.com/QYF233/TVbox/main/dist/official.json",
         "ok": true,
         "status": 200,
-        "size": 28483,
-        "ms": 169,
+        "size": 28507,
+        "ms": 185,
         "error": ""
       },
       {
@@ -20,7 +20,7 @@
         "ok": true,
         "status": 200,
         "size": 28483,
-        "ms": 751,
+        "ms": 129,
         "error": ""
       },
       {
@@ -29,8 +29,8 @@
         "url": "https://cdn.jsdelivr.net/gh/QYF233/TVbox@main/dist/official.json",
         "ok": true,
         "status": 200,
-        "size": 28483,
-        "ms": 491,
+        "size": 28507,
+        "ms": 577,
         "error": ""
       },
       {
@@ -39,19 +39,19 @@
         "url": "https://gh-proxy.com/https://raw.githubusercontent.com/QYF233/TVbox/main/dist/official.json",
         "ok": true,
         "status": 200,
-        "size": 28483,
-        "ms": 264,
+        "size": 28507,
+        "ms": 207,
         "error": ""
       },
       {
         "name": "ghproxy-net",
         "label": "ghproxy.net 代理",
         "url": "https://ghproxy.net/https://raw.githubusercontent.com/QYF233/TVbox/main/dist/official.json",
-        "ok": false,
-        "status": 0,
-        "size": 0,
-        "ms": 20337,
-        "error": "TimeoutError: The read operation timed out"
+        "ok": true,
+        "status": 200,
+        "size": 28507,
+        "ms": 799,
+        "error": ""
       }
     ],
     "tvbox.json": [
@@ -62,7 +62,7 @@
         "ok": true,
         "status": 200,
         "size": 2841,
-        "ms": 121,
+        "ms": 200,
         "error": ""
       },
       {
@@ -72,7 +72,7 @@
         "ok": true,
         "status": 200,
         "size": 2841,
-        "ms": 2196,
+        "ms": 68,
         "error": ""
       },
       {
@@ -82,7 +82,7 @@
         "ok": true,
         "status": 200,
         "size": 2841,
-        "ms": 205,
+        "ms": 751,
         "error": ""
       },
       {
@@ -92,18 +92,18 @@
         "ok": true,
         "status": 200,
         "size": 2841,
-        "ms": 231,
+        "ms": 373,
         "error": ""
       },
       {
         "name": "ghproxy-net",
         "label": "ghproxy.net 代理",
         "url": "https://ghproxy.net/https://raw.githubusercontent.com/QYF233/TVbox/main/dist/tvbox.json",
-        "ok": false,
-        "status": 0,
-        "size": 0,
-        "ms": 20240,
-        "error": "TimeoutError: The read operation timed out"
+        "ok": true,
+        "status": 200,
+        "size": 2841,
+        "ms": 534,
+        "error": ""
       }
     ],
     "list.json": [
@@ -113,8 +113,8 @@
         "url": "https://raw.githubusercontent.com/QYF233/TVbox/main/dist/list.json",
         "ok": true,
         "status": 200,
-        "size": 26212,
-        "ms": 152,
+        "size": 26315,
+        "ms": 211,
         "error": ""
       },
       {
@@ -124,7 +124,7 @@
         "ok": true,
         "status": 200,
         "size": 26212,
-        "ms": 575,
+        "ms": 68,
         "error": ""
       },
       {
@@ -133,8 +133,8 @@
         "url": "https://cdn.jsdelivr.net/gh/QYF233/TVbox@main/dist/list.json",
         "ok": true,
         "status": 200,
-        "size": 26212,
-        "ms": 223,
+        "size": 26315,
+        "ms": 610,
         "error": ""
       },
       {
@@ -143,19 +143,19 @@
         "url": "https://gh-proxy.com/https://raw.githubusercontent.com/QYF233/TVbox/main/dist/list.json",
         "ok": true,
         "status": 200,
-        "size": 26212,
-        "ms": 258,
+        "size": 26315,
+        "ms": 204,
         "error": ""
       },
       {
         "name": "ghproxy-net",
         "label": "ghproxy.net 代理",
         "url": "https://ghproxy.net/https://raw.githubusercontent.com/QYF233/TVbox/main/dist/list.json",
-        "ok": false,
-        "status": 0,
-        "size": 0,
-        "ms": 20278,
-        "error": "TimeoutError: The read operation timed out"
+        "ok": true,
+        "status": 200,
+        "size": 26315,
+        "ms": 742,
+        "error": ""
       }
     ]
   }
