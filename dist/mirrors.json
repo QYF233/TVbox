@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-10T00:53:19Z",
+  "generated_at": "2026-11-10T13:51:39Z",
   "repo": "QYF233/TVbox",
   "files": {
     "official.json": [
@@ -9,8 +9,8 @@
         "url": "https://raw.githubusercontent.com/QYF233/TVbox/main/dist/official.json",
         "ok": true,
         "status": 200,
-        "size": 28486,
-        "ms": 242,
+        "size": 28483,
+        "ms": 169,
         "error": ""
       },
       {
@@ -19,8 +19,8 @@
         "url": "https://fastly.jsdelivr.net/gh/QYF233/TVbox@main/dist/official.json",
         "ok": true,
         "status": 200,
-        "size": 28486,
-        "ms": 217,
+        "size": 28483,
+        "ms": 751,
         "error": ""
       },
       {
@@ -29,8 +29,8 @@
         "url": "https://cdn.jsdelivr.net/gh/QYF233/TVbox@main/dist/official.json",
         "ok": true,
         "status": 200,
-        "size": 28486,
-        "ms": 211,
+        "size": 28483,
+        "ms": 491,
         "error": ""
       },
       {
@@ -39,19 +39,19 @@
         "url": "https://gh-proxy.com/https://raw.githubusercontent.com/QYF233/TVbox/main/dist/official.json",
         "ok": true,
         "status": 200,
-        "size": 28486,
-        "ms": 462,
+        "size": 28483,
+        "ms": 264,
         "error": ""
       },
       {
         "name": "ghproxy-net",
         "label": "ghproxy.net 代理",
         "url": "https://ghproxy.net/https://raw.githubusercontent.com/QYF233/TVbox/main/dist/official.json",
-        "ok": true,
-        "status": 200,
-        "size": 28486,
-        "ms": 777,
-        "error": ""
+        "ok": false,
+        "status": 0,
+        "size": 0,
+        "ms": 20337,
+        "error": "TimeoutError: The read operation timed out"
       }
     ],
     "tvbox.json": [
@@ -62,7 +62,7 @@
         "ok": true,
         "status": 200,
         "size": 2841,
-        "ms": 154,
+        "ms": 121,
         "error": ""
       },
       {
@@ -72,7 +72,7 @@
         "ok": true,
         "status": 200,
         "size": 2841,
-        "ms": 298,
+        "ms": 2196,
         "error": ""
       },
       {
@@ -82,7 +82,7 @@
         "ok": true,
         "status": 200,
         "size": 2841,
-        "ms": 408,
+        "ms": 205,
         "error": ""
       },
       {
@@ -92,18 +92,18 @@
         "ok": true,
         "status": 200,
         "size": 2841,
-        "ms": 203,
+        "ms": 231,
         "error": ""
       },
       {
         "name": "ghproxy-net",
         "label": "ghproxy.net 代理",
         "url": "https://ghproxy.net/https://raw.githubusercontent.com/QYF233/TVbox/main/dist/tvbox.json",
-        "ok": true,
-        "status": 200,
-        "size": 2841,
-        "ms": 676,
-        "error": ""
+        "ok": false,
+        "status": 0,
+        "size": 0,
+        "ms": 20240,
+        "error": "TimeoutError: The read operation timed out"
       }
     ],
     "list.json": [
@@ -113,8 +113,8 @@
         "url": "https://raw.githubusercontent.com/QYF233/TVbox/main/dist/list.json",
         "ok": true,
         "status": 200,
-        "size": 26210,
-        "ms": 157,
+        "size": 26212,
+        "ms": 152,
         "error": ""
       },
       {
@@ -123,8 +123,8 @@
         "url": "https://fastly.jsdelivr.net/gh/QYF233/TVbox@main/dist/list.json",
         "ok": true,
         "status": 200,
-        "size": 26203,
-        "ms": 221,
+        "size": 26212,
+        "ms": 575,
         "error": ""
       },
       {
@@ -133,8 +133,8 @@
         "url": "https://cdn.jsdelivr.net/gh/QYF233/TVbox@main/dist/list.json",
         "ok": true,
         "status": 200,
-        "size": 26210,
-        "ms": 605,
+        "size": 26212,
+        "ms": 223,
         "error": ""
       },
       {
@@ -143,19 +143,19 @@
         "url": "https://gh-proxy.com/https://raw.githubusercontent.com/QYF233/TVbox/main/dist/list.json",
         "ok": true,
         "status": 200,
-        "size": 26210,
-        "ms": 284,
+        "size": 26212,
+        "ms": 258,
         "error": ""
       },
       {
         "name": "ghproxy-net",
         "label": "ghproxy.net 代理",
         "url": "https://ghproxy.net/https://raw.githubusercontent.com/QYF233/TVbox/main/dist/list.json",
-        "ok": true,
-        "status": 200,
-        "size": 26210,
-        "ms": 751,
-        "error": ""
+        "ok": false,
+        "status": 0,
+        "size": 0,
+        "ms": 20278,
+        "error": "TimeoutError: The read operation timed out"
       }
     ]
   }
