@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-11-10T22:36:24Z",
+  "generated_at": "2026-11-11T03:17:19Z",
   "homepage": "https://www.tvbox.org/",
   "repo": "https://github.com/TVboxorg/TVbox",
   "primary": "王二小",
   "primary_jar_status": "ok",
-  "sites": 56,
+  "sites": 53,
   "mode": "pure-cms",
   "netdisk_filtered": 101,
   "cms_filtered": 367,
   "cms_dead": 0,
-  "pool_added": 68,
-  "pool_unplayable": 53,
+  "pool_added": 65,
+  "pool_unplayable": 50,
   "parses": 29,
   "lives": 12,
   "sources": [
@@ -63,18 +63,6 @@
       "spider": "http://oss4liview.moji.com/thd_file/2026/11/06/99191348af7606ed51e66a4f13a85d8e.jpg"
     },
     {
-      "id": "back-012",
-      "name": "二月红接口",
-      "group": "back",
-      "url": "https://700sjro44343.vicp.fun/eggp/0211/tv.json",
-      "primary": false,
-      "sites_added": 1,
-      "sites_skipped": 0,
-      "jar_status": "ok",
-      "jar_md5_match": null,
-      "spider": "http://118.89.172.248:8025/jar/tan.php"
-    },
-    {
       "id": "back-017",
       "name": "潇洒",
       "group": "back",
@@ -97,6 +85,18 @@
       "jar_status": "fail",
       "jar_md5_match": null,
       "spider": "https://qist.wyfc.qzz.io/jar/fan.txt"
+    },
+    {
+      "id": "back-012",
+      "name": "二月红接口",
+      "group": "back",
+      "url": "https://700sjro44343.vicp.fun/eggp/0211/tv.json",
+      "primary": false,
+      "sites_added": 1,
+      "sites_skipped": 0,
+      "jar_status": "fail",
+      "jar_md5_match": null,
+      "spider": "http://118.89.172.248:8025/jar/tan.php"
     }
   ],
   "subscribe": "https://raw.githubusercontent.com/TVboxorg/TVbox/main/dist/official.json",

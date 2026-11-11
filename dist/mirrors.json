@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-10T22:35:46Z",
+  "generated_at": "2026-11-11T03:16:16Z",
   "repo": "QYF233/TVbox",
   "files": {
     "official.json": [
@@ -9,7 +9,7 @@
         "url": "https://raw.githubusercontent.com/QYF233/TVbox/main/dist/official.json",
         "ok": true,
         "status": 200,
-        "size": 28507,
+        "size": 28483,
         "ms": 185,
         "error": ""
       },
@@ -20,7 +20,7 @@
         "ok": true,
         "status": 200,
         "size": 28483,
-        "ms": 129,
+        "ms": 2069,
         "error": ""
       },
       {
@@ -30,7 +30,7 @@
         "ok": true,
         "status": 200,
         "size": 28507,
-        "ms": 577,
+        "ms": 295,
         "error": ""
       },
       {
@@ -39,8 +39,8 @@
         "url": "https://gh-proxy.com/https://raw.githubusercontent.com/QYF233/TVbox/main/dist/official.json",
         "ok": true,
         "status": 200,
-        "size": 28507,
-        "ms": 207,
+        "size": 28483,
+        "ms": 231,
         "error": ""
       },
       {
@@ -49,8 +49,8 @@
         "url": "https://ghproxy.net/https://raw.githubusercontent.com/QYF233/TVbox/main/dist/official.json",
         "ok": true,
         "status": 200,
-        "size": 28507,
-        "ms": 799,
+        "size": 28483,
+        "ms": 761,
         "error": ""
       }
     ],
@@ -62,7 +62,7 @@
         "ok": true,
         "status": 200,
         "size": 2841,
-        "ms": 200,
+        "ms": 161,
         "error": ""
       },
       {
@@ -72,7 +72,7 @@
         "ok": true,
         "status": 200,
         "size": 2841,
-        "ms": 68,
+        "ms": 539,
         "error": ""
       },
       {
@@ -82,7 +82,7 @@
         "ok": true,
         "status": 200,
         "size": 2841,
-        "ms": 751,
+        "ms": 258,
         "error": ""
       },
       {
@@ -92,7 +92,7 @@
         "ok": true,
         "status": 200,
         "size": 2841,
-        "ms": 373,
+        "ms": 290,
         "error": ""
       },
       {
@@ -102,7 +102,7 @@
         "ok": true,
         "status": 200,
         "size": 2841,
-        "ms": 534,
+        "ms": 596,
         "error": ""
       }
     ],
@@ -113,8 +113,8 @@
         "url": "https://raw.githubusercontent.com/QYF233/TVbox/main/dist/list.json",
         "ok": true,
         "status": 200,
-        "size": 26315,
-        "ms": 211,
+        "size": 26214,
+        "ms": 155,
         "error": ""
       },
       {
@@ -123,8 +123,8 @@
         "url": "https://fastly.jsdelivr.net/gh/QYF233/TVbox@main/dist/list.json",
         "ok": true,
         "status": 200,
-        "size": 26212,
-        "ms": 68,
+        "size": 26214,
+        "ms": 579,
         "error": ""
       },
       {
@@ -134,7 +134,7 @@
         "ok": true,
         "status": 200,
         "size": 26315,
-        "ms": 610,
+        "ms": 67,
         "error": ""
       },
       {
@@ -143,8 +143,8 @@
         "url": "https://gh-proxy.com/https://raw.githubusercontent.com/QYF233/TVbox/main/dist/list.json",
         "ok": true,
         "status": 200,
-        "size": 26315,
-        "ms": 204,
+        "size": 26214,
+        "ms": 222,
         "error": ""
       },
       {
@@ -153,8 +153,8 @@
         "url": "https://ghproxy.net/https://raw.githubusercontent.com/QYF233/TVbox/main/dist/list.json",
         "ok": true,
         "status": 200,
-        "size": 26315,
-        "ms": 742,
+        "size": 26214,
+        "ms": 691,
         "error": ""
       }
     ]
