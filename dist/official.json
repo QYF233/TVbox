@@ -175,6 +175,15 @@
       "type": 1
     },
     {
+      "key": "tv_pool_速播",
+      "name": "速播 | 采集",
+      "api": "https://subocaiji.com/api.php/provide/vod/",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "type": 1
+    },
+    {
       "key": "tv_pool_索尼资源",
       "name": "✅索尼┃影视",
       "api": "https://suoniapi.com/api.php/provide/vod/from/snm3u8/",
@@ -247,6 +256,24 @@
       "type": 1
     },
     {
+      "key": "tv_pool_极速资源",
+      "name": "影视 | 极速[直连]",
+      "api": "https://jszyapi.com/api.php/provide/vod/?ac=list",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "type": 1
+    },
+    {
+      "key": "tv_pool_率率",
+      "name": "影视 | 率率[直连]",
+      "api": "https://suoniapi.com/api.php/provide/vod/?ac=list",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "type": 1
+    },
+    {
       "key": "tv_pool_新浪",
       "name": "新浪 | 采集",
       "api": "https://api.xinlangapi.com/xinlangapi.php/provide/vod/",
@@ -283,9 +310,54 @@
       "type": 1
     },
     {
+      "key": "tv_pool_zuid",
+      "name": "最大资源",
+      "api": "https://api.zuidapi.com/api.php/provide/vod/?ac=list",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "type": 1
+    },
+    {
+      "key": "tv_pool_yinghua",
+      "name": "樱花资源",
+      "api": "https://api.ukuapi88.com/api.php/provide/vod/?ac=list",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "type": 1
+    },
+    {
       "key": "tv_pool_牛牛资源",
       "name": "牛牛资源┃刺桐",
       "api": "https://api.niuniuzy.me/api.php/provide/vod/",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "type": 1
+    },
+    {
+      "key": "tv_pool_豪华资源",
+      "name": "豪华资源┃刺桐",
+      "api": "https://hhzyapi.com/api.php/provide/vod",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "type": 1
+    },
+    {
+      "key": "tv_pool_量子资源",
+      "name": "量子资源(切)",
+      "api": "http://cj.lziapi.com/api.php/provide/vod/",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "type": 1
+    },
+    {
+      "key": "tv_pool_金鹰",
+      "name": "金鹰 | 采集",
+      "api": "https://jyzyapi.com/api.php/provide/vod/",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -310,9 +382,9 @@
       "type": 1
     },
     {
-      "key": "tv_pool_极速资源",
-      "name": "🌻极速采集🌻",
-      "api": "http://www.jisuziyuan.com/api.php/provide/vod/",
+      "key": "tv_pool_TV无尽",
+      "name": "🌻TV无尽🌻",
+      "api": "https://api.wujinapi.cc/api.php/provide/vod",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -337,15 +409,6 @@
       "type": 1
     },
     {
-      "key": "tv_pool_量子资源",
-      "name": "🥑┃量子┃资源",
-      "api": "https://lzizy1.com/api.php/provide/vod/",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 0,
-      "type": 1
-    },
-    {
       "key": "tv_pool_电影天堂",
       "name": "☀天堂🔹采集",
       "api": "http://caiji.dyttzyapi.com/api.php/provide/vod/from/dyttm3u8/at/json/?ac=list",
@@ -355,27 +418,9 @@
       "type": 1
     },
     {
-      "key": "tv_pool_速播",
-      "name": "速播 | 采集",
-      "api": "https://subocaiji.com/api.php/provide/vod/",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "type": 1
-    },
-    {
-      "key": "tv_pool_优质",
-      "name": "优质 | 采集",
-      "api": "https://api.yyzy-tv.vip/inc/apijson.php",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "type": 1
-    },
-    {
-      "key": "tv_pool_率率",
-      "name": "影视 | 率率[直连]",
-      "api": "https://suoniapi.com/api.php/provide/vod/?ac=list",
+      "key": "tv_pool_优质资源",
+      "name": "优质资源┃刺桐",
+      "api": "https://api.yyzy-tv.vip/inc/api_mac10_all.php",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -391,18 +436,18 @@
       "type": 1
     },
     {
-      "key": "tv_pool_zuid",
-      "name": "最大资源",
-      "api": "https://api.zuidapi.com/api.php/provide/vod/?ac=list",
+      "key": "tv_pool_非凡",
+      "name": "影视 | 非凡[直连]",
+      "api": "http://ffzy.tv/api.php/provide/vod/",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
       "type": 1
     },
     {
-      "key": "tv_pool_yinghua",
-      "name": "樱花资源",
-      "api": "https://api.ukuapi88.com/api.php/provide/vod/?ac=list",
+      "key": "tv_pool_最大资源",
+      "name": "最大资源┃刺桐",
+      "api": "https://api.zuidapi.com/api.php/provide/vod/from/zuidam3u8/",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -415,42 +460,6 @@
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 0,
-      "type": 1
-    },
-    {
-      "key": "tv_pool_豪华资源",
-      "name": "豪华资源┃刺桐",
-      "api": "https://hhzyapi.com/api.php/provide/vod",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "type": 1
-    },
-    {
-      "key": "tv_pool_金鹰",
-      "name": "金鹰 | 采集",
-      "api": "https://jyzyapi.com/api.php/provide/vod/",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "type": 1
-    },
-    {
-      "key": "tv_pool_非凡",
-      "name": "非凡 | 采集",
-      "api": "https://cj.ffzyapi.com/api.php/provide/vod/",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "type": 1
-    },
-    {
-      "key": "tv_pool_TV无尽",
-      "name": "🌻TV无尽🌻",
-      "api": "https://api.wujinapi.cc/api.php/provide/vod",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
       "type": 1
     },
     {
@@ -472,18 +481,9 @@
       "type": 1
     },
     {
-      "key": "tv_pool_优质资源",
-      "name": "优质资源┃刺桐",
-      "api": "https://api.yyzy-tv.vip/inc/api_mac10_all.php",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "type": 1
-    },
-    {
-      "key": "tv_pool_最大资源",
-      "name": "最大资源┃刺桐",
-      "api": "https://api.zuidapi.com/api.php/provide/vod/from/zuidam3u8/",
+      "key": "tv_pool_优质",
+      "name": "优质 | 采集",
+      "api": "https://api.yyzy-tv.vip/inc/apijson.php",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
