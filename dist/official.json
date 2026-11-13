@@ -13,15 +13,6 @@
       "type": 1
     },
     {
-      "key": "tv_pool_创享",
-      "name": "创享 | 采集",
-      "api": "https://ys.cxkjg.cn/api/provide/vod/",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "type": 1
-    },
-    {
       "key": "tv_pool_魔都资源",
       "name": "🌼魔都┃影视🌼",
       "api": "https://www.mdzyapi.com/api.php/provide/vod",
@@ -31,9 +22,18 @@
       "type": 1
     },
     {
-      "key": "tv_pool_虎牙",
-      "name": "🌼虎牙┃采集🌼",
-      "api": "https://www.huyaapi.com/api.php/provide/vod/from/hym3u8",
+      "key": "tv_pool_暴風",
+      "name": "影视 | 暴風[直连]",
+      "api": "https://bfzyapi.com/api.php/provide/vod/?ac=list",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "type": 1
+    },
+    {
+      "key": "tv_pool_bfzycj",
+      "name": "👖裤佬丨暴风丨采集",
+      "api": "http://by.bfzyapi.com/api.php/provide/vod",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -43,24 +43,6 @@
       "key": "tv_pool_csp_xml_光速",
       "name": "❤光速资源",
       "api": "https://api.guangsuapi.com/api.php/provide/vod/from/gsm3u8/",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "type": 1
-    },
-    {
-      "key": "tv_pool_jszy",
-      "name": "🌻极速2影视🌻",
-      "api": "https://jszyapi.com/api.php/provide/vod/from/jsm3u8",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "type": 1
-    },
-    {
-      "key": "tv_pool_jszycj",
-      "name": "👖裤佬丨极速丨采集",
-      "api": "https://jszyapi.com/api.php/provide/vod/from/jsm3u8/at/json",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -85,6 +67,15 @@
       "hide": 1
     },
     {
+      "key": "tv_pool_jszy",
+      "name": "🌻极速2影视🌻",
+      "api": "https://jszyapi.com/api.php/provide/vod/from/jsm3u8",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "type": 1
+    },
+    {
       "key": "tv_pool_金鹰资源",
       "name": "🌼金鹰┃资源🌼",
       "api": "https://jyzyapi.com/provide/vod/from/jinyingm3u8/at/json",
@@ -94,18 +85,9 @@
       "type": 1
     },
     {
-      "key": "tv_pool_暴風",
-      "name": "影视 | 暴風[直连]",
-      "api": "https://bfzyapi.com/api.php/provide/vod/?ac=list",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "type": 1
-    },
-    {
-      "key": "tv_pool_bfzycj",
-      "name": "👖裤佬丨暴风丨采集",
-      "api": "http://by.bfzyapi.com/api.php/provide/vod",
+      "key": "tv_pool_jszycj",
+      "name": "👖裤佬丨极速丨采集",
+      "api": "https://jszyapi.com/api.php/provide/vod/from/jsm3u8/at/json",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -139,9 +121,9 @@
       "type": 1
     },
     {
-      "key": "tv_pool_didizy",
-      "name": "滴滴资源",
-      "api": "https://api.ddapi.cc/api.php/provide/vod/?ac=list",
+      "key": "tv_pool_猫眼资源",
+      "name": "猫眼资源┃刺桐",
+      "api": "https://api.maoyanapi.top/api.php/provide/vod/",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -175,18 +157,18 @@
       "type": 1
     },
     {
-      "key": "tv_pool_csp_xml_无尽",
-      "name": "❤无尽资源",
-      "api": "https://api.wujinapi.me/api.php/provide/vod/?ac=list",
+      "key": "tv_pool_csp_xml_闪电资源",
+      "name": "❤闪电资源",
+      "api": "https://sdzyapi.com/api.php/provide/vod/?ac=list",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
       "type": 1
     },
     {
-      "key": "tv_pool_csp_xml_闪电资源",
-      "name": "❤闪电资源",
-      "api": "https://sdzyapi.com/api.php/provide/vod/?ac=list",
+      "key": "tv_pool_丫丫资源",
+      "name": "丫丫资源┃刺桐",
+      "api": "https://cj.yayazy.net/api.php/provide/vod/",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -229,24 +211,6 @@
       "type": 1
     },
     {
-      "key": "tv_pool_极速资源",
-      "name": "影视 | 极速[直连]",
-      "api": "https://jszyapi.com/api.php/provide/vod/?ac=list",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "type": 1
-    },
-    {
-      "key": "tv_pool_率率",
-      "name": "影视 | 率率[直连]",
-      "api": "https://suoniapi.com/api.php/provide/vod/?ac=list",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "type": 1
-    },
-    {
       "key": "tv_pool_新浪",
       "name": "新浪 | 采集",
       "api": "https://api.xinlangapi.com/xinlangapi.php/provide/vod/",
@@ -274,18 +238,9 @@
       "type": 1
     },
     {
-      "key": "tv_pool_无尽资源",
-      "name": "无尽资源┃刺桐",
-      "api": "https://api.wujinapi.com/api.php/provide/vod/",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "type": 1
-    },
-    {
-      "key": "tv_pool_牛牛资源",
-      "name": "牛牛资源┃刺桐",
-      "api": "https://api.niuniuzy.me/api.php/provide/vod/",
+      "key": "tv_pool_豪华资源",
+      "name": "豪华资源┃刺桐",
+      "api": "https://hhzyapi.com/api.php/provide/vod",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -310,18 +265,18 @@
       "type": 1
     },
     {
-      "key": "tv_pool_vod_极速",
-      "name": "雷蒙影视 | ️🚀极速",
-      "api": "https://jszyapi.com/api.php/provide/vod/at/json",
+      "key": "tv_pool_TV无尽",
+      "name": "🌻TV无尽🌻",
+      "api": "https://api.wujinapi.cc/api.php/provide/vod",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
       "type": 1
     },
     {
-      "key": "tv_pool_TV无尽",
-      "name": "🌻TV无尽🌻",
-      "api": "https://api.wujinapi.cc/api.php/provide/vod",
+      "key": "tv_pool_牛牛资源",
+      "name": "🌻牛牛采集🌻",
+      "api": "https://niuniuzy6.com/api.php/provide/vod/",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -334,42 +289,6 @@
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
-      "type": 1
-    },
-    {
-      "key": "tv_pool_鸭鸭资源",
-      "name": "🌻鸭鸭采集🌻",
-      "api": "https://yayazy2.com/api.php/provide/vod/",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "type": 1
-    },
-    {
-      "key": "tv_pool_zy_金鹰影视点主页切换源",
-      "name": "🔰金鹰┃影视",
-      "api": "https://jyzyapi.com/provide/vod/",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "type": 1
-    },
-    {
-      "key": "tv_pool_量子资源",
-      "name": "🥑┃量子┃资源",
-      "api": "https://lzizy1.com/api.php/provide/vod/",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 0,
-      "type": 1
-    },
-    {
-      "key": "tv_pool_电影天堂",
-      "name": "☀天堂🔹采集",
-      "api": "http://caiji.dyttzyapi.com/api.php/provide/vod/from/dyttm3u8/at/json/?ac=list",
-      "searchable": 1,
-      "quickSearch": 0,
-      "filterable": 0,
       "type": 1
     },
     {
@@ -391,27 +310,18 @@
       "type": 1
     },
     {
-      "key": "tv_pool_csp_xml_非凡资源",
-      "name": "❤非凡资源",
-      "api": "http://cj.ffzyapi.com/api.php/provide/vod/",
+      "key": "tv_pool_csp_xml_无尽",
+      "name": "❤无尽资源",
+      "api": "https://api.wujinapi.me/api.php/provide/vod/?ac=list",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
       "type": 1
     },
     {
-      "key": "tv_pool_丫丫资源",
-      "name": "丫丫资源┃刺桐",
-      "api": "https://cj.yayazy.net/api.php/provide/vod/",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "type": 1
-    },
-    {
-      "key": "tv_pool_优质",
-      "name": "优质 | 采集",
-      "api": "https://api.yyzy-tv.vip/inc/apijson.php",
+      "key": "tv_pool_率率",
+      "name": "影视 | 率率[直连]",
+      "api": "https://suoniapi.com/api.php/provide/vod/?ac=list",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -427,9 +337,18 @@
       "type": 1
     },
     {
-      "key": "tv_pool_zuid",
-      "name": "最大资源",
-      "api": "https://api.zuidapi.com/api.php/provide/vod/?ac=list",
+      "key": "tv_pool_非凡",
+      "name": "影视 | 非凡[直连]",
+      "api": "http://ffzy.tv/api.php/provide/vod/",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "type": 1
+    },
+    {
+      "key": "tv_pool_无尽资源",
+      "name": "无尽资源┃刺桐",
+      "api": "https://api.wujinapi.com/api.php/provide/vod/",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -454,27 +373,63 @@
       "type": 1
     },
     {
-      "key": "tv_pool_豪华资源",
-      "name": "豪华资源┃刺桐",
-      "api": "https://hhzyapi.com/api.php/provide/vod",
+      "key": "tv_pool_量子资源",
+      "name": "量子资源(切)",
+      "api": "http://cj.lziapi.com/api.php/provide/vod/",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
       "type": 1
     },
     {
-      "key": "tv_pool_非凡",
-      "name": "非凡 | 采集",
-      "api": "https://cj.ffzyapi.com/api.php/provide/vod/",
+      "key": "tv_pool_极速资源",
+      "name": "🌻极速采集🌻",
+      "api": "http://www.jisuziyuan.com/api.php/provide/vod/",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
+      "type": 1
+    },
+    {
+      "key": "tv_pool_鸭鸭资源",
+      "name": "🌻鸭鸭采集🌻",
+      "api": "https://yayazy2.com/api.php/provide/vod/",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "type": 1
+    },
+    {
+      "key": "tv_pool_zy_金鹰影视点主页切换源",
+      "name": "🔰金鹰┃影视",
+      "api": "https://jyzyapi.com/provide/vod/",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "type": 1
+    },
+    {
+      "key": "tv_pool_电影天堂",
+      "name": "☀天堂🔹采集",
+      "api": "http://caiji.dyttzyapi.com/api.php/provide/vod/from/dyttm3u8/at/json/?ac=list",
+      "searchable": 1,
+      "quickSearch": 0,
+      "filterable": 0,
       "type": 1
     },
     {
       "key": "tv_pool_非凡影视",
       "name": "✅非凡┃影视",
       "api": "http://cj.ffzyapi.com//api.php/provide/vod",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "type": 1
+    },
+    {
+      "key": "tv_pool_csp_xml_非凡资源",
+      "name": "❤非凡资源",
+      "api": "http://cj.ffzyapi.com/api.php/provide/vod/",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -490,18 +445,27 @@
       "type": 1
     },
     {
-      "key": "tv_pool_最大资源",
-      "name": "最大资源┃刺桐",
-      "api": "https://api.zuidapi.com/api.php/provide/vod/from/zuidam3u8/",
+      "key": "tv_pool_优质",
+      "name": "优质 | 采集",
+      "api": "https://api.yyzy-tv.vip/inc/apijson.php",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
       "type": 1
     },
     {
-      "key": "tv_pool_猫眼资源",
-      "name": "猫眼资源┃刺桐",
-      "api": "https://api.maoyanapi.top/api.php/provide/vod/",
+      "key": "tv_pool_didizy",
+      "name": "滴滴资源",
+      "api": "https://api.ddapi.cc/api.php/provide/vod/?ac=list",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "type": 1
+    },
+    {
+      "key": "tv_pool_vod_极速",
+      "name": "雷蒙影视 | ️🚀极速",
+      "api": "https://jszyapi.com/api.php/provide/vod/at/json",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -876,27 +840,17 @@
       }
     },
     {
-      "name": "云解",
-      "type": 0,
-      "url": "https://yparse.ik9.cc/index.php?url=",
-      "ext": {
-        "header": {
-          "user-agent": "Mozilla/5.0 (Linux; Android 13; V2049A Build/TP1A.220624.014; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/116.0.0.0 Mobile Safari/537.36"
-        }
-      }
-    },
-    {
-      "name": "咸鱼",
+      "name": "-咸鱼-",
       "type": 0,
       "url": "https://jx.xymp4.cc/?url=",
       "ext": {
         "header": {
-          "user-agent": "Mozilla/5.0 (Linux; Android 13; V2049A Build/TP1A.220624.014; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/116.0.0.0 Mobile Safari/537.36"
+          "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36 Edg/134.0.3124.68"
         }
       }
     },
     {
-      "name": "淘片",
+      "name": "-淘片-",
       "type": 0,
       "url": "https://jx.yparse.com/index.php?url=",
       "ext": {
@@ -906,7 +860,7 @@
       }
     },
     {
-      "name": "冰豆",
+      "name": "-冰豆-",
       "type": 0,
       "url": "https://bd.jx.cn/?url=",
       "ext": {
@@ -916,29 +870,9 @@
       }
     },
     {
-      "name": "七七",
+      "name": "-77解析-",
       "type": 0,
       "url": "https://jx.77flv.cc/?url=",
-      "ext": {
-        "header": {
-          "user-agent": "Mozilla/5.0 (Linux; Android 13; V2049A Build/TP1A.220624.014; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/116.0.0.0 Mobile Safari/537.36"
-        }
-      }
-    },
-    {
-      "name": "盘古",
-      "type": 0,
-      "url": "https://www.playm3u8.cn/jiexi.php?url=",
-      "ext": {
-        "header": {
-          "user-agent": "Mozilla/5.0 (Linux; Android 13; V2049A Build/TP1A.220624.014; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/116.0.0.0 Mobile Safari/537.36"
-        }
-      }
-    },
-    {
-      "name": "夜幕",
-      "type": 0,
-      "url": "https://yemu.xyz/?url=",
       "ext": {
         "header": {
           "user-agent": "Mozilla/5.0 (Linux; Android 13; V2049A Build/TP1A.220624.014; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/116.0.0.0 Mobile Safari/537.36"
@@ -949,6 +883,36 @@
       "name": "-zui-",
       "type": 0,
       "url": "https://jx.zui.cm/?url=",
+      "ext": {
+        "header": {
+          "user-agent": "Mozilla/5.0 (Linux; Android 13; V2049A Build/TP1A.220624.014; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/116.0.0.0 Mobile Safari/537.36"
+        }
+      }
+    },
+    {
+      "name": "-盘古-",
+      "type": 0,
+      "url": "https://www.playm3u8.cn/jiexi.php?url=",
+      "ext": {
+        "header": {
+          "user-agent": "Mozilla/5.0 (Linux; Android 13; V2049A Build/TP1A.220624.014; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/116.0.0.0 Mobile Safari/537.36"
+        }
+      }
+    },
+    {
+      "name": "-夜幕-",
+      "type": 0,
+      "url": "https://yemu.xyz/?url=",
+      "ext": {
+        "header": {
+          "user-agent": "Mozilla/5.0 (Linux; Android 13; V2049A Build/TP1A.220624.014; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/116.0.0.0 Mobile Safari/537.36"
+        }
+      }
+    },
+    {
+      "name": "云解",
+      "type": 0,
+      "url": "https://yparse.ik9.cc/index.php?url=",
       "ext": {
         "header": {
           "user-agent": "Mozilla/5.0 (Linux; Android 13; V2049A Build/TP1A.220624.014; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/116.0.0.0 Mobile Safari/537.36"
@@ -986,6 +950,23 @@
       "epg": "http://epg.51zmt.top:8000/api/diyp/?ch={name}&date={date}"
     },
     {
+      "name": "平台直播",
+      "type": 0,
+      "url": "http://118.89.172.248:8025/jar/zb.php",
+      "playerType": 1
+    },
+    {
+      "name": "Guovin",
+      "type": 0,
+      "url": "https://cdn.jsdelivr.net/gh/Guovin/iptv-api@gd/output/result.m3u"
+    },
+    {
+      "name": "港澳台",
+      "type": 0,
+      "url": "http://rihou.cc:567/gggg.nzk",
+      "playerType": 1
+    },
+    {
       "name": "牛播一",
       "url": "http://127.0.0.1:9978/proxy?do=cctva",
       "timeZone": "Asia/Shanghai"
@@ -1011,23 +992,6 @@
       "playerType": 2,
       "timeout": 10,
       "ua": "okHttp/Mod-1.5.0.0"
-    },
-    {
-      "name": "平台直播",
-      "type": 0,
-      "url": "http://118.89.172.248:8025/jar/zb.php",
-      "playerType": 1
-    },
-    {
-      "name": "Guovin",
-      "type": 0,
-      "url": "https://cdn.jsdelivr.net/gh/Guovin/iptv-api@gd/output/result.m3u"
-    },
-    {
-      "name": "港澳台",
-      "type": 0,
-      "url": "http://rihou.cc:567/gggg.nzk",
-      "playerType": 1
     }
   ],
   "homepage": "https://www.tvbox.org/",

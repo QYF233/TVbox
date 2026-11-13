@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-13T03:43:09Z",
+  "generated_at": "2026-11-13T13:28:54Z",
   "repo": "QYF233/TVbox",
   "files": {
     "official.json": [
@@ -9,8 +9,8 @@
         "url": "https://raw.githubusercontent.com/QYF233/TVbox/main/dist/official.json",
         "ok": true,
         "status": 200,
-        "size": 28320,
-        "ms": 154,
+        "size": 28323,
+        "ms": 149,
         "error": ""
       },
       {
@@ -20,7 +20,7 @@
         "ok": true,
         "status": 200,
         "size": 28320,
-        "ms": 619,
+        "ms": 280,
         "error": ""
       },
       {
@@ -29,8 +29,8 @@
         "url": "https://cdn.jsdelivr.net/gh/QYF233/TVbox@main/dist/official.json",
         "ok": true,
         "status": 200,
-        "size": 28504,
-        "ms": 102,
+        "size": 28323,
+        "ms": 640,
         "error": ""
       },
       {
@@ -39,19 +39,19 @@
         "url": "https://gh-proxy.com/https://raw.githubusercontent.com/QYF233/TVbox/main/dist/official.json",
         "ok": true,
         "status": 200,
-        "size": 28320,
-        "ms": 130,
+        "size": 28323,
+        "ms": 186,
         "error": ""
       },
       {
         "name": "ghproxy-net",
         "label": "ghproxy.net 代理",
         "url": "https://ghproxy.net/https://raw.githubusercontent.com/QYF233/TVbox/main/dist/official.json",
-        "ok": true,
-        "status": 200,
-        "size": 28320,
-        "ms": 728,
-        "error": ""
+        "ok": false,
+        "status": 0,
+        "size": 0,
+        "ms": 20319,
+        "error": "TimeoutError: The read operation timed out"
       }
     ],
     "tvbox.json": [
@@ -62,7 +62,7 @@
         "ok": true,
         "status": 200,
         "size": 2841,
-        "ms": 145,
+        "ms": 144,
         "error": ""
       },
       {
@@ -72,7 +72,7 @@
         "ok": true,
         "status": 200,
         "size": 2841,
-        "ms": 547,
+        "ms": 49,
         "error": ""
       },
       {
@@ -82,7 +82,7 @@
         "ok": true,
         "status": 200,
         "size": 2841,
-        "ms": 54,
+        "ms": 467,
         "error": ""
       },
       {
@@ -92,18 +92,18 @@
         "ok": true,
         "status": 200,
         "size": 2841,
-        "ms": 273,
+        "ms": 334,
         "error": ""
       },
       {
         "name": "ghproxy-net",
         "label": "ghproxy.net 代理",
         "url": "https://ghproxy.net/https://raw.githubusercontent.com/QYF233/TVbox/main/dist/tvbox.json",
-        "ok": true,
-        "status": 200,
-        "size": 2841,
-        "ms": 533,
-        "error": ""
+        "ok": false,
+        "status": 0,
+        "size": 0,
+        "ms": 20255,
+        "error": "TimeoutError: The read operation timed out"
       }
     ],
     "list.json": [
@@ -113,8 +113,8 @@
         "url": "https://raw.githubusercontent.com/QYF233/TVbox/main/dist/list.json",
         "ok": true,
         "status": 200,
-        "size": 26205,
-        "ms": 159,
+        "size": 26147,
+        "ms": 164,
         "error": ""
       },
       {
@@ -124,7 +124,7 @@
         "ok": true,
         "status": 200,
         "size": 26205,
-        "ms": 404,
+        "ms": 260,
         "error": ""
       },
       {
@@ -133,8 +133,8 @@
         "url": "https://cdn.jsdelivr.net/gh/QYF233/TVbox@main/dist/list.json",
         "ok": true,
         "status": 200,
-        "size": 26216,
-        "ms": 109,
+        "size": 26147,
+        "ms": 478,
         "error": ""
       },
       {
@@ -143,8 +143,8 @@
         "url": "https://gh-proxy.com/https://raw.githubusercontent.com/QYF233/TVbox/main/dist/list.json",
         "ok": true,
         "status": 200,
-        "size": 26205,
-        "ms": 160,
+        "size": 26147,
+        "ms": 207,
         "error": ""
       },
       {
@@ -153,8 +153,8 @@
         "url": "https://ghproxy.net/https://raw.githubusercontent.com/QYF233/TVbox/main/dist/list.json",
         "ok": true,
         "status": 200,
-        "size": 26205,
-        "ms": 807,
+        "size": 26147,
+        "ms": 14765,
         "error": ""
       }
     ]
