@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-16T03:18:48Z",
+  "generated_at": "2026-11-16T14:05:25Z",
   "repo": "QYF233/TVbox",
   "files": {
     "official.json": [
@@ -9,8 +9,8 @@
         "url": "https://raw.githubusercontent.com/QYF233/TVbox/main/dist/official.json",
         "ok": true,
         "status": 200,
-        "size": 28288,
-        "ms": 206,
+        "size": 28486,
+        "ms": 273,
         "error": ""
       },
       {
@@ -19,8 +19,8 @@
         "url": "https://fastly.jsdelivr.net/gh/QYF233/TVbox@main/dist/official.json",
         "ok": true,
         "status": 200,
-        "size": 28270,
-        "ms": 419,
+        "size": 28486,
+        "ms": 771,
         "error": ""
       },
       {
@@ -30,7 +30,7 @@
         "ok": true,
         "status": 200,
         "size": 28288,
-        "ms": 709,
+        "ms": 48,
         "error": ""
       },
       {
@@ -39,8 +39,8 @@
         "url": "https://gh-proxy.com/https://raw.githubusercontent.com/QYF233/TVbox/main/dist/official.json",
         "ok": true,
         "status": 200,
-        "size": 28288,
-        "ms": 257,
+        "size": 28486,
+        "ms": 293,
         "error": ""
       },
       {
@@ -49,8 +49,8 @@
         "url": "https://ghproxy.net/https://raw.githubusercontent.com/QYF233/TVbox/main/dist/official.json",
         "ok": true,
         "status": 200,
-        "size": 28288,
-        "ms": 873,
+        "size": 28486,
+        "ms": 8630,
         "error": ""
       }
     ],
@@ -61,8 +61,8 @@
         "url": "https://raw.githubusercontent.com/QYF233/TVbox/main/dist/tvbox.json",
         "ok": true,
         "status": 200,
-        "size": 2841,
-        "ms": 154,
+        "size": 2756,
+        "ms": 628,
         "error": ""
       },
       {
@@ -71,8 +71,8 @@
         "url": "https://fastly.jsdelivr.net/gh/QYF233/TVbox@main/dist/tvbox.json",
         "ok": true,
         "status": 200,
-        "size": 2841,
-        "ms": 349,
+        "size": 2756,
+        "ms": 478,
         "error": ""
       },
       {
@@ -82,7 +82,7 @@
         "ok": true,
         "status": 200,
         "size": 2841,
-        "ms": 587,
+        "ms": 75,
         "error": ""
       },
       {
@@ -91,8 +91,8 @@
         "url": "https://gh-proxy.com/https://raw.githubusercontent.com/QYF233/TVbox/main/dist/tvbox.json",
         "ok": true,
         "status": 200,
-        "size": 2841,
-        "ms": 177,
+        "size": 2756,
+        "ms": 500,
         "error": ""
       },
       {
@@ -101,8 +101,8 @@
         "url": "https://ghproxy.net/https://raw.githubusercontent.com/QYF233/TVbox/main/dist/tvbox.json",
         "ok": true,
         "status": 200,
-        "size": 2841,
-        "ms": 643,
+        "size": 2756,
+        "ms": 5790,
         "error": ""
       }
     ],
@@ -113,8 +113,8 @@
         "url": "https://raw.githubusercontent.com/QYF233/TVbox/main/dist/list.json",
         "ok": true,
         "status": 200,
-        "size": 26200,
-        "ms": 164,
+        "size": 26028,
+        "ms": 182,
         "error": ""
       },
       {
@@ -123,8 +123,8 @@
         "url": "https://fastly.jsdelivr.net/gh/QYF233/TVbox@main/dist/list.json",
         "ok": true,
         "status": 200,
-        "size": 26169,
-        "ms": 333,
+        "size": 26028,
+        "ms": 661,
         "error": ""
       },
       {
@@ -134,7 +134,7 @@
         "ok": true,
         "status": 200,
         "size": 26200,
-        "ms": 578,
+        "ms": 52,
         "error": ""
       },
       {
@@ -143,8 +143,8 @@
         "url": "https://gh-proxy.com/https://raw.githubusercontent.com/QYF233/TVbox/main/dist/list.json",
         "ok": true,
         "status": 200,
-        "size": 26200,
-        "ms": 230,
+        "size": 26028,
+        "ms": 260,
         "error": ""
       },
       {
@@ -153,8 +153,8 @@
         "url": "https://ghproxy.net/https://raw.githubusercontent.com/QYF233/TVbox/main/dist/list.json",
         "ok": true,
         "status": 200,
-        "size": 26200,
-        "ms": 796,
+        "size": 26028,
+        "ms": 6860,
         "error": ""
       }
     ]
