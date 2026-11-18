@@ -121,15 +121,6 @@
       "type": 1
     },
     {
-      "key": "tv_pool_360资源",
-      "name": "⏱┃三六┃资源",
-      "api": "https://360zy.com/api.php/seaxml/vod/",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "type": 1
-    },
-    {
       "key": "tv_pool_裤佬体育",
       "name": "更新公告",
       "api": "https://7952.kstore.vip/JAR/lib/genxin.json",
@@ -169,24 +160,6 @@
       "key": "tv_pool_虎牙资源",
       "name": "烂大街",
       "api": "https://www.huyaapi.com/api.php/provide/vod/",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "type": 1
-    },
-    {
-      "key": "tv_pool_速播",
-      "name": "速播 | 采集",
-      "api": "https://subocaiji.com/api.php/provide/vod/",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "type": 1
-    },
-    {
-      "key": "tv_pool_索尼资源",
-      "name": "✅索尼┃影视",
-      "api": "https://suoniapi.com/api.php/provide/vod/from/snm3u8/",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -328,45 +301,9 @@
       "type": 1
     },
     {
-      "key": "tv_pool_牛牛资源",
-      "name": "牛牛资源┃刺桐",
-      "api": "https://api.niuniuzy.me/api.php/provide/vod/",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "type": 1
-    },
-    {
-      "key": "tv_pool_百度",
-      "name": "百度",
-      "api": "https://api.apibdzy.com/api.php/provide/vod?ac=list",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 0,
-      "type": 1
-    },
-    {
       "key": "tv_pool_豪华资源",
       "name": "豪华资源┃刺桐",
       "api": "https://hhzyapi.com/api.php/provide/vod",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "type": 1
-    },
-    {
-      "key": "tv_pool_量子资源",
-      "name": "量子资源(切)",
-      "api": "http://cj.lziapi.com/api.php/provide/vod/",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "type": 1
-    },
-    {
-      "key": "tv_pool_金鹰",
-      "name": "金鹰 | 采集",
-      "api": "https://jyzyapi.com/api.php/provide/vod/",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -391,15 +328,6 @@
       "type": 1
     },
     {
-      "key": "tv_pool_非凡",
-      "name": "非凡 | 采集",
-      "api": "https://cj.ffzyapi.com/api.php/provide/vod/",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "type": 1
-    },
-    {
       "key": "tv_pool_TV无尽",
       "name": "🌻TV无尽🌻",
       "api": "https://api.wujinapi.cc/api.php/provide/vod",
@@ -409,9 +337,18 @@
       "type": 1
     },
     {
-      "key": "tv_pool_鸭鸭资源",
-      "name": "🌻鸭鸭采集🌻",
-      "api": "https://yayazy2.com/api.php/provide/vod/",
+      "key": "tv_pool_牛牛资源",
+      "name": "🌻牛牛采集🌻",
+      "api": "https://niuniuzy6.com/api.php/provide/vod/",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "type": 1
+    },
+    {
+      "key": "tv_pool_金鹰点播",
+      "name": "🌻金鹰点播🌻",
+      "api": "https://jinyingzy.com/api.php/provide/vod",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -427,12 +364,48 @@
       "type": 1
     },
     {
-      "key": "tv_pool_电影天堂",
-      "name": "☀天堂🔹采集",
-      "api": "http://caiji.dyttzyapi.com/api.php/provide/vod/from/dyttm3u8/at/json/?ac=list",
+      "key": "tv_pool_量子资源",
+      "name": "🥑┃量子┃资源",
+      "api": "https://lzizy1.com/api.php/provide/vod/",
       "searchable": 1,
-      "quickSearch": 0,
+      "quickSearch": 1,
       "filterable": 0,
+      "type": 1
+    },
+    {
+      "key": "tv_pool_电影天堂",
+      "name": "影视 | 电影天堂",
+      "api": "http://caiji.dyttzyapi.com/api.php/provide/vod",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "type": 1
+    },
+    {
+      "key": "tv_pool_速播",
+      "name": "速播 | 采集",
+      "api": "https://subocaiji.com/api.php/provide/vod/",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "type": 1
+    },
+    {
+      "key": "tv_pool_索尼资源",
+      "name": "✅索尼┃影视",
+      "api": "https://suoniapi.com/api.php/provide/vod/from/snm3u8/",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "type": 1
+    },
+    {
+      "key": "tv_pool_非凡影视",
+      "name": "✅非凡┃影视",
+      "api": "http://cj.ffzyapi.com//api.php/provide/vod",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
       "type": 1
     },
     {
@@ -445,18 +418,18 @@
       "type": 1
     },
     {
-      "key": "tv_pool_优质",
-      "name": "优质 | 采集",
-      "api": "https://api.yyzy-tv.vip/inc/apijson.php",
+      "key": "tv_pool_量子",
+      "name": "影视 | 量子[直连]",
+      "api": "https://cj.lziapi.com/api.php/provide/vod/",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
       "type": 1
     },
     {
-      "key": "tv_pool_量子",
-      "name": "影视 | 量子[直连]",
-      "api": "https://cj.lziapi.com/api.php/provide/vod/",
+      "key": "tv_pool_非凡",
+      "name": "影视 | 非凡[直连]",
+      "api": "http://ffzy.tv/api.php/provide/vod/",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -481,18 +454,36 @@
       "type": 1
     },
     {
-      "key": "tv_pool_金鹰点播",
-      "name": "🌻金鹰点播🌻",
-      "api": "https://jinyingzy.com/api.php/provide/vod",
+      "key": "tv_pool_百度",
+      "name": "百度",
+      "api": "https://api.apibdzy.com/api.php/provide/vod?ac=list",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 0,
+      "type": 1
+    },
+    {
+      "key": "tv_pool_金鹰",
+      "name": "金鹰 | 采集",
+      "api": "https://jyzyapi.com/api.php/provide/vod/",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
       "type": 1
     },
     {
-      "key": "tv_pool_非凡影视",
-      "name": "✅非凡┃影视",
-      "api": "http://cj.ffzyapi.com//api.php/provide/vod",
+      "key": "tv_pool_鸭鸭资源",
+      "name": "🌻鸭鸭采集🌻",
+      "api": "https://yayazy2.com/api.php/provide/vod/",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "type": 1
+    },
+    {
+      "key": "tv_pool_优质",
+      "name": "优质 | 采集",
+      "api": "https://api.yyzy-tv.vip/inc/apijson.php",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
