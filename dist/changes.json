@@ -1,26 +1,5 @@
 {
-  "at": "2026-11-18T14:38:26Z",
-  "count": 2,
-  "items": [
-    {
-      "id": "back-014",
-      "name": "王二小接口",
-      "group": "back",
-      "url": "http://tvbox.xn--4kq62z5rby2qupq9ub.top/",
-      "change": "up",
-      "from": "DOWN",
-      "to": "UP",
-      "reason": ""
-    },
-    {
-      "id": "back-015",
-      "name": "王二小放牛娃",
-      "group": "back",
-      "url": "http://tv.999888987.xyz",
-      "change": "up",
-      "from": "DOWN",
-      "to": "UP",
-      "reason": ""
-    }
-  ]
+  "at": "2026-11-18T23:38:10Z",
+  "count": 0,
+  "items": []
 }
