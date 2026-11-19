@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-18T23:38:11Z",
+  "generated_at": "2026-11-19T04:39:20Z",
   "repo": "QYF233/TVbox",
   "files": {
     "official.json": [
@@ -9,8 +9,8 @@
         "url": "https://raw.githubusercontent.com/QYF233/TVbox/main/dist/official.json",
         "ok": true,
         "status": 200,
-        "size": 28137,
-        "ms": 178,
+        "size": 28129,
+        "ms": 187,
         "error": ""
       },
       {
@@ -19,8 +19,8 @@
         "url": "https://fastly.jsdelivr.net/gh/QYF233/TVbox@main/dist/official.json",
         "ok": true,
         "status": 200,
-        "size": 28101,
-        "ms": 208,
+        "size": 28129,
+        "ms": 429,
         "error": ""
       },
       {
@@ -30,7 +30,7 @@
         "ok": true,
         "status": 200,
         "size": 28137,
-        "ms": 420,
+        "ms": 34,
         "error": ""
       },
       {
@@ -39,19 +39,19 @@
         "url": "https://gh-proxy.com/https://raw.githubusercontent.com/QYF233/TVbox/main/dist/official.json",
         "ok": true,
         "status": 200,
-        "size": 28137,
-        "ms": 161,
+        "size": 28129,
+        "ms": 276,
         "error": ""
       },
       {
         "name": "ghproxy-net",
         "label": "ghproxy.net 代理",
         "url": "https://ghproxy.net/https://raw.githubusercontent.com/QYF233/TVbox/main/dist/official.json",
-        "ok": false,
-        "status": 0,
-        "size": 0,
-        "ms": 20061,
-        "error": "URLError: <urlopen error [Errno 101] Network is unreachable>"
+        "ok": true,
+        "status": 200,
+        "size": 28129,
+        "ms": 933,
+        "error": ""
       }
     ],
     "tvbox.json": [
@@ -62,7 +62,7 @@
         "ok": true,
         "status": 200,
         "size": 2841,
-        "ms": 166,
+        "ms": 146,
         "error": ""
       },
       {
@@ -71,8 +71,8 @@
         "url": "https://fastly.jsdelivr.net/gh/QYF233/TVbox@main/dist/tvbox.json",
         "ok": true,
         "status": 200,
-        "size": 2651,
-        "ms": 323,
+        "size": 2841,
+        "ms": 410,
         "error": ""
       },
       {
@@ -82,7 +82,7 @@
         "ok": true,
         "status": 200,
         "size": 2841,
-        "ms": 558,
+        "ms": 29,
         "error": ""
       },
       {
@@ -92,18 +92,18 @@
         "ok": true,
         "status": 200,
         "size": 2841,
-        "ms": 142,
+        "ms": 166,
         "error": ""
       },
       {
         "name": "ghproxy-net",
         "label": "ghproxy.net 代理",
         "url": "https://ghproxy.net/https://raw.githubusercontent.com/QYF233/TVbox/main/dist/tvbox.json",
-        "ok": false,
-        "status": 0,
-        "size": 0,
-        "ms": 20024,
-        "error": "URLError: <urlopen error [Errno 101] Network is unreachable>"
+        "ok": true,
+        "status": 200,
+        "size": 2841,
+        "ms": 725,
+        "error": ""
       }
     ],
     "list.json": [
@@ -113,8 +113,8 @@
         "url": "https://raw.githubusercontent.com/QYF233/TVbox/main/dist/list.json",
         "ok": true,
         "status": 200,
-        "size": 26127,
-        "ms": 167,
+        "size": 26116,
+        "ms": 150,
         "error": ""
       },
       {
@@ -123,8 +123,8 @@
         "url": "https://fastly.jsdelivr.net/gh/QYF233/TVbox@main/dist/list.json",
         "ok": true,
         "status": 200,
-        "size": 25894,
-        "ms": 341,
+        "size": 26116,
+        "ms": 605,
         "error": ""
       },
       {
@@ -134,7 +134,7 @@
         "ok": true,
         "status": 200,
         "size": 26127,
-        "ms": 539,
+        "ms": 37,
         "error": ""
       },
       {
@@ -143,19 +143,19 @@
         "url": "https://gh-proxy.com/https://raw.githubusercontent.com/QYF233/TVbox/main/dist/list.json",
         "ok": true,
         "status": 200,
-        "size": 26127,
-        "ms": 132,
+        "size": 26116,
+        "ms": 260,
         "error": ""
       },
       {
         "name": "ghproxy-net",
         "label": "ghproxy.net 代理",
         "url": "https://ghproxy.net/https://raw.githubusercontent.com/QYF233/TVbox/main/dist/list.json",
-        "ok": false,
-        "status": 0,
-        "size": 0,
-        "ms": 20024,
-        "error": "URLError: <urlopen error [Errno 101] Network is unreachable>"
+        "ok": true,
+        "status": 200,
+        "size": 26116,
+        "ms": 909,
+        "error": ""
       }
     ]
   }
