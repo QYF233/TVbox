@@ -1,36 +1,5 @@
 {
-  "at": "2026-11-22T13:39:43Z",
-  "count": 3,
-  "items": [
-    {
-      "id": "back-033",
-      "name": "拾光",
-      "group": "back",
-      "url": "https://gh-proxy.com/https://raw.githubusercontent.com/xmbjm/svip/refs/heads/main/svip.json",
-      "change": "up",
-      "from": "DOWN",
-      "to": "UP",
-      "reason": ""
-    },
-    {
-      "id": "back-038",
-      "name": "金鹰",
-      "group": "back",
-      "url": "http://550.3vcn.work/wdjyys.json",
-      "change": "up",
-      "from": "DOWN",
-      "to": "UP",
-      "reason": ""
-    },
-    {
-      "id": "pref-004",
-      "name": "肥猫",
-      "group": "pref",
-      "url": "http://肥猫.net/",
-      "change": "down",
-      "from": "UP",
-      "to": "DOWN",
-      "reason": "HTTP 522"
-    }
-  ]
+  "at": "2026-11-22T22:55:09Z",
+  "count": 0,
+  "items": []
 }
