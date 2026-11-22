@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T22:28:58Z",
+  "generated_at": "2026-11-22T03:37:40Z",
   "repo": "QYF233/TVbox",
   "files": {
     "official.json": [
@@ -9,8 +9,8 @@
         "url": "https://raw.githubusercontent.com/QYF233/TVbox/main/dist/official.json",
         "ok": true,
         "status": 200,
-        "size": 28333,
-        "ms": 143,
+        "size": 28359,
+        "ms": 154,
         "error": ""
       },
       {
@@ -20,7 +20,7 @@
         "ok": true,
         "status": 200,
         "size": 28333,
-        "ms": 444,
+        "ms": 78,
         "error": ""
       },
       {
@@ -29,29 +29,29 @@
         "url": "https://cdn.jsdelivr.net/gh/QYF233/TVbox@main/dist/official.json",
         "ok": true,
         "status": 200,
-        "size": 28333,
-        "ms": 268,
+        "size": 28359,
+        "ms": 649,
         "error": ""
       },
       {
         "name": "gh-proxy",
         "label": "gh-proxy 代理",
         "url": "https://gh-proxy.com/https://raw.githubusercontent.com/QYF233/TVbox/main/dist/official.json",
-        "ok": true,
-        "status": 200,
-        "size": 28333,
-        "ms": 180,
-        "error": ""
+        "ok": false,
+        "status": 403,
+        "size": 0,
+        "ms": 84,
+        "error": "HTTP 403"
       },
       {
         "name": "ghproxy-net",
         "label": "ghproxy.net 代理",
         "url": "https://ghproxy.net/https://raw.githubusercontent.com/QYF233/TVbox/main/dist/official.json",
-        "ok": true,
-        "status": 200,
-        "size": 28333,
-        "ms": 715,
-        "error": ""
+        "ok": false,
+        "status": 502,
+        "size": 0,
+        "ms": 433,
+        "error": "HTTP 502"
       }
     ],
     "tvbox.json": [
@@ -61,8 +61,8 @@
         "url": "https://raw.githubusercontent.com/QYF233/TVbox/main/dist/tvbox.json",
         "ok": true,
         "status": 200,
-        "size": 2841,
-        "ms": 135,
+        "size": 2912,
+        "ms": 146,
         "error": ""
       },
       {
@@ -72,7 +72,7 @@
         "ok": true,
         "status": 200,
         "size": 2841,
-        "ms": 564,
+        "ms": 51,
         "error": ""
       },
       {
@@ -81,29 +81,29 @@
         "url": "https://cdn.jsdelivr.net/gh/QYF233/TVbox@main/dist/tvbox.json",
         "ok": true,
         "status": 200,
-        "size": 2841,
-        "ms": 376,
+        "size": 2912,
+        "ms": 405,
         "error": ""
       },
       {
         "name": "gh-proxy",
         "label": "gh-proxy 代理",
         "url": "https://gh-proxy.com/https://raw.githubusercontent.com/QYF233/TVbox/main/dist/tvbox.json",
-        "ok": true,
-        "status": 200,
-        "size": 2841,
-        "ms": 235,
-        "error": ""
+        "ok": false,
+        "status": 403,
+        "size": 0,
+        "ms": 80,
+        "error": "HTTP 403"
       },
       {
         "name": "ghproxy-net",
         "label": "ghproxy.net 代理",
         "url": "https://ghproxy.net/https://raw.githubusercontent.com/QYF233/TVbox/main/dist/tvbox.json",
-        "ok": true,
-        "status": 200,
-        "size": 2841,
-        "ms": 496,
-        "error": ""
+        "ok": false,
+        "status": 502,
+        "size": 0,
+        "ms": 373,
+        "error": "HTTP 502"
       }
     ],
     "list.json": [
@@ -113,8 +113,8 @@
         "url": "https://raw.githubusercontent.com/QYF233/TVbox/main/dist/list.json",
         "ok": true,
         "status": 200,
-        "size": 26107,
-        "ms": 206,
+        "size": 26226,
+        "ms": 134,
         "error": ""
       },
       {
@@ -124,7 +124,7 @@
         "ok": true,
         "status": 200,
         "size": 26107,
-        "ms": 534,
+        "ms": 152,
         "error": ""
       },
       {
@@ -133,19 +133,19 @@
         "url": "https://cdn.jsdelivr.net/gh/QYF233/TVbox@main/dist/list.json",
         "ok": true,
         "status": 200,
-        "size": 26107,
-        "ms": 208,
+        "size": 26226,
+        "ms": 1808,
         "error": ""
       },
       {
         "name": "gh-proxy",
         "label": "gh-proxy 代理",
         "url": "https://gh-proxy.com/https://raw.githubusercontent.com/QYF233/TVbox/main/dist/list.json",
-        "ok": true,
-        "status": 200,
-        "size": 26107,
-        "ms": 204,
-        "error": ""
+        "ok": false,
+        "status": 403,
+        "size": 0,
+        "ms": 100,
+        "error": "HTTP 403"
       },
       {
         "name": "ghproxy-net",
@@ -153,8 +153,8 @@
         "url": "https://ghproxy.net/https://raw.githubusercontent.com/QYF233/TVbox/main/dist/list.json",
         "ok": true,
         "status": 200,
-        "size": 26107,
-        "ms": 671,
+        "size": 26226,
+        "ms": 12004,
         "error": ""
       }
     ]
