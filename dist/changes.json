@@ -1,5 +1,5 @@
 {
-  "at": "2026-11-23T04:08:31Z",
+  "at": "2026-11-23T16:34:17Z",
   "count": 1,
   "items": [
     {
@@ -7,10 +7,10 @@
       "name": "肥猫",
       "group": "pref",
       "url": "http://肥猫.net/",
-      "change": "up",
-      "from": "DOWN",
-      "to": "UP",
-      "reason": ""
+      "change": "down",
+      "from": "UP",
+      "to": "DOWN",
+      "reason": "html"
     }
   ]
 }
