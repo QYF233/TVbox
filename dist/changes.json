@@ -1,5 +1,16 @@
 {
-  "at": "2026-11-22T22:55:09Z",
-  "count": 0,
-  "items": []
+  "at": "2026-11-23T04:08:31Z",
+  "count": 1,
+  "items": [
+    {
+      "id": "pref-004",
+      "name": "肥猫",
+      "group": "pref",
+      "url": "http://肥猫.net/",
+      "change": "up",
+      "from": "DOWN",
+      "to": "UP",
+      "reason": ""
+    }
+  ]
 }
