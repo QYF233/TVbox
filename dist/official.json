@@ -22,24 +22,6 @@
       "type": 1
     },
     {
-      "key": "tv_pool_bfzycj",
-      "name": "👖裤佬丨暴风丨采集",
-      "api": "http://by.bfzyapi.com/api.php/provide/vod",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "type": 1
-    },
-    {
-      "key": "tv_pool_暴風",
-      "name": "影视 | 暴風[直连]",
-      "api": "https://bfzyapi.com/api.php/provide/vod/?ac=list",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "type": 1
-    },
-    {
       "key": "tv_pool_魔都资源",
       "name": "🌼魔都┃影视🌼",
       "api": "https://www.mdzyapi.com/api.php/provide/vod",
@@ -74,6 +56,24 @@
         "大陆综艺"
       ],
       "hide": 1
+    },
+    {
+      "key": "tv_pool_暴風",
+      "name": "影视 | 暴風[直连]",
+      "api": "https://bfzyapi.com/api.php/provide/vod/?ac=list",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "type": 1
+    },
+    {
+      "key": "tv_pool_bfzycj",
+      "name": "👖裤佬丨暴风丨采集",
+      "api": "http://by.bfzyapi.com/api.php/provide/vod",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "type": 1
     },
     {
       "key": "tv_pool_建安采集",
@@ -157,18 +157,18 @@
       "type": 1
     },
     {
-      "key": "tv_pool_csp_xml_闪电资源",
-      "name": "❤闪电资源",
-      "api": "https://sdzyapi.com/api.php/provide/vod/?ac=list",
+      "key": "tv_pool_csp_xml_无尽",
+      "name": "❤无尽资源",
+      "api": "https://api.wujinapi.me/api.php/provide/vod/?ac=list",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
       "type": 1
     },
     {
-      "key": "tv_pool_丫丫资源",
-      "name": "丫丫资源┃刺桐",
-      "api": "https://cj.yayazy.net/api.php/provide/vod/",
+      "key": "tv_pool_csp_xml_闪电资源",
+      "name": "❤闪电资源",
+      "api": "https://sdzyapi.com/api.php/provide/vod/?ac=list",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -187,6 +187,15 @@
       "key": "tv_pool_tyyszy",
       "name": "天涯资源",
       "api": "https://tyyszy.com/api.php/provide/vod/?ac=list",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "type": 1
+    },
+    {
+      "key": "tv_pool_天涯资源",
+      "name": "天涯资源┃刺桐",
+      "api": "https://tyyszyapi.com/api.php/provide/vod/",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -238,18 +247,18 @@
       "type": 1
     },
     {
-      "key": "tv_pool_zuid",
-      "name": "最大资源",
-      "api": "https://api.zuidapi.com/api.php/provide/vod/?ac=list",
+      "key": "tv_pool_无尽",
+      "name": "无尽 | 采集",
+      "api": "https://api.wujinapi.net/api.php/provide/vod/",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
       "type": 1
     },
     {
-      "key": "tv_pool_最大资源",
-      "name": "最大资源┃刺桐",
-      "api": "https://api.zuidapi.com/api.php/provide/vod/from/zuidam3u8/",
+      "key": "tv_pool_zuid",
+      "name": "最大资源",
+      "api": "https://api.zuidapi.com/api.php/provide/vod/?ac=list",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -310,6 +319,15 @@
       "type": 1
     },
     {
+      "key": "tv_pool_金鹰点播",
+      "name": "🌻金鹰点播🌻",
+      "api": "https://jinyingzy.com/api.php/provide/vod",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "type": 1
+    },
+    {
       "key": "tv_pool_鸭鸭资源",
       "name": "🌻鸭鸭采集🌻",
       "api": "https://yayazy2.com/api.php/provide/vod/",
@@ -328,21 +346,21 @@
       "type": 1
     },
     {
-      "key": "tv_pool_zy_金鹰影视点主页切换源",
-      "name": "🔰金鹰┃影视",
-      "api": "https://jyzyapi.com/provide/vod/",
+      "key": "tv_pool_电影天堂",
+      "name": "☀天堂🔹采集",
+      "api": "http://caiji.dyttzyapi.com/api.php/provide/vod/from/dyttm3u8/at/json/?ac=list",
       "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
+      "quickSearch": 0,
+      "filterable": 0,
       "type": 1
     },
     {
-      "key": "tv_pool_量子资源",
-      "name": "🥑┃量子┃资源",
-      "api": "https://lzizy1.com/api.php/provide/vod/",
+      "key": "tv_pool_优质资源",
+      "name": "优质资源┃刺桐",
+      "api": "https://api.yyzy-tv.vip/inc/api_mac10_all.php",
       "searchable": 1,
       "quickSearch": 1,
-      "filterable": 0,
+      "filterable": 1,
       "type": 1
     },
     {
@@ -364,15 +382,6 @@
       "type": 1
     },
     {
-      "key": "tv_pool_电影天堂",
-      "name": "🌼电影┃天堂🌼",
-      "api": "https://caiji.dyttzyapi.com/api.php/provide/vod",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "type": 1
-    },
-    {
       "key": "tv_pool_索尼资源",
       "name": "✅索尼┃影视",
       "api": "https://suoniapi.com/api.php/provide/vod/from/snm3u8/",
@@ -382,9 +391,9 @@
       "type": 1
     },
     {
-      "key": "tv_pool_天涯资源",
-      "name": "天涯资源┃刺桐",
-      "api": "https://tyyszyapi.com/api.php/provide/vod/",
+      "key": "tv_pool_丫丫资源",
+      "name": "丫丫资源┃刺桐",
+      "api": "https://cj.yayazy.net/api.php/provide/vod/",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -400,6 +409,33 @@
       "type": 1
     },
     {
+      "key": "tv_pool_非凡",
+      "name": "影视 | 非凡[直连]",
+      "api": "http://ffzy.tv/api.php/provide/vod/",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "type": 1
+    },
+    {
+      "key": "tv_pool_无尽资源",
+      "name": "无尽资源┃刺桐",
+      "api": "https://api.wujinapi.com/api.php/provide/vod/",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "type": 1
+    },
+    {
+      "key": "tv_pool_最大资源",
+      "name": "最大资源┃刺桐",
+      "api": "https://api.zuidapi.com/api.php/provide/vod/from/zuidam3u8/",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "type": 1
+    },
+    {
       "key": "tv_pool_百度",
       "name": "百度",
       "api": "https://api.apibdzy.com/api.php/provide/vod?ac=list",
@@ -409,9 +445,18 @@
       "type": 1
     },
     {
-      "key": "tv_pool_金鹰点播",
-      "name": "🌻金鹰点播🌻",
-      "api": "https://jinyingzy.com/api.php/provide/vod",
+      "key": "tv_pool_量子资源",
+      "name": "量子资源(切)",
+      "api": "http://cj.lziapi.com/api.php/provide/vod/",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "type": 1
+    },
+    {
+      "key": "tv_pool_TV无尽",
+      "name": "🌻TV无尽🌻",
+      "api": "https://api.wujinapi.cc/api.php/provide/vod",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -421,15 +466,6 @@
       "key": "tv_pool_优质",
       "name": "优质 | 采集",
       "api": "https://api.yyzy-tv.vip/inc/apijson.php",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "type": 1
-    },
-    {
-      "key": "tv_pool_优质资源",
-      "name": "优质资源┃刺桐",
-      "api": "https://api.yyzy-tv.vip/inc/api_mac10_all.php",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -454,18 +490,18 @@
       "type": 1
     },
     {
-      "key": "tv_pool_非凡",
-      "name": "影视 | 非凡[直连]",
-      "api": "http://ffzy.tv/api.php/provide/vod/",
+      "key": "tv_pool_猫眼资源",
+      "name": "猫眼资源┃刺桐",
+      "api": "https://api.maoyanapi.top/api.php/provide/vod/",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
       "type": 1
     },
     {
-      "key": "tv_pool_猫眼资源",
-      "name": "猫眼资源┃刺桐",
-      "api": "https://api.maoyanapi.top/api.php/provide/vod/",
+      "key": "tv_pool_zy_金鹰影视点主页切换源",
+      "name": "🔰金鹰┃影视",
+      "api": "https://jyzyapi.com/provide/vod/",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
