@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-11-25T16:14:04Z",
+  "generated_at": "2026-11-26T01:12:51Z",
   "homepage": "https://www.tvbox.org/",
   "repo": "https://github.com/TVboxorg/TVbox",
   "primary": "王二小",
   "primary_jar_status": "ok",
-  "sites": 55,
+  "sites": 56,
   "mode": "pure-cms",
   "netdisk_filtered": 99,
   "cms_filtered": 366,
   "cms_dead": 0,
-  "pool_added": 67,
-  "pool_unplayable": 59,
+  "pool_added": 68,
+  "pool_unplayable": 60,
   "parses": 29,
   "lives": 11,
   "sources": [
@@ -24,7 +24,7 @@
       "sites_skipped": 0,
       "jar_status": "ok",
       "jar_md5_match": true,
-      "spider": "http://oss4liview.moji.com/thd_file/2026/11/24/0684202079fbec343ec03f772b72e928.jpg"
+      "spider": "http://oss4liview.moji.com/thd_file/2026/11/26/51ee39d57065aba54aeb3b13ec328da6.jpg"
     },
     {
       "id": "pref-007",
@@ -60,7 +60,7 @@
       "sites_skipped": 0,
       "jar_status": "ok",
       "jar_md5_match": true,
-      "spider": "http://oss4liview.moji.com/thd_file/2026/11/24/0684202079fbec343ec03f772b72e928.jpg"
+      "spider": "http://oss4liview.moji.com/thd_file/2026/11/26/51ee39d57065aba54aeb3b13ec328da6.jpg"
     },
     {
       "id": "back-017",
