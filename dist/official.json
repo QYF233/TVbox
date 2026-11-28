@@ -13,6 +13,15 @@
       "type": 1
     },
     {
+      "key": "tv_pool_创享",
+      "name": "创享 | 采集",
+      "api": "https://ys.cxkjg.cn/api/provide/vod/",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "type": 1
+    },
+    {
       "key": "tv_pool_魔都资源",
       "name": "🌼魔都┃影视🌼",
       "api": "https://www.mdzyapi.com/api.php/provide/vod",
@@ -76,15 +85,6 @@
       "type": 1
     },
     {
-      "key": "tv_pool_创享",
-      "name": "创享 | 采集",
-      "api": "https://ys.cxkjg.cn/api/provide/vod/",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "type": 1
-    },
-    {
       "key": "tv_pool_裤佬体育",
       "name": "更新公告",
       "api": "https://7952.kstore.vip/JAR/lib/genxin.json",
@@ -121,6 +121,15 @@
       "type": 1
     },
     {
+      "key": "tv_pool_索尼资源",
+      "name": "✅索尼┃影视",
+      "api": "https://suoniapi.com/api.php/provide/vod/from/snm3u8/",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "type": 1
+    },
+    {
       "key": "tv_pool_csp_xml_新浪",
       "name": "❤新浪资源",
       "api": "https://api.xinlangapi.com/xinlangapi.php/provide//vod/",
@@ -133,6 +142,15 @@
       "key": "tv_pool_csp_xml_无尽",
       "name": "❤无尽资源",
       "api": "https://api.wujinapi.me/api.php/provide/vod/?ac=list",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "type": 1
+    },
+    {
+      "key": "tv_pool_csp_xml_闪电资源",
+      "name": "❤闪电资源",
+      "api": "https://sdzyapi.com/api.php/provide/vod/?ac=list",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -293,53 +311,26 @@
     },
     {
       "key": "tv_pool_电影天堂",
-      "name": "☀天堂🔹采集",
-      "api": "http://caiji.dyttzyapi.com/api.php/provide/vod/from/dyttm3u8/at/json/?ac=list",
+      "name": "影视 | 电影天堂",
+      "api": "http://caiji.dyttzyapi.com/api.php/provide/vod",
       "searchable": 1,
-      "quickSearch": 0,
-      "filterable": 0,
+      "quickSearch": 1,
+      "filterable": 1,
+      "type": 1
+    },
+    {
+      "key": "tv_pool_yinghua",
+      "name": "樱花资源",
+      "api": "https://api.ukuapi88.com/api.php/provide/vod/?ac=list",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
       "type": 1
     },
     {
       "key": "tv_pool_速播",
       "name": "速播 | 采集",
       "api": "https://subocaiji.com/api.php/provide/vod/",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "type": 1
-    },
-    {
-      "key": "tv_pool_索尼资源",
-      "name": "✅索尼┃影视",
-      "api": "https://suoniapi.com/api.php/provide/vod/from/snm3u8/",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "type": 1
-    },
-    {
-      "key": "tv_pool_非凡影视",
-      "name": "✅非凡┃影视",
-      "api": "http://cj.ffzyapi.com//api.php/provide/vod",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "type": 1
-    },
-    {
-      "key": "tv_pool_csp_xml_闪电资源",
-      "name": "❤闪电资源",
-      "api": "https://sdzyapi.com/api.php/provide/vod/?ac=list",
-      "searchable": 1,
-      "quickSearch": 1,
-      "filterable": 1,
-      "type": 1
-    },
-    {
-      "key": "tv_pool_csp_xml_非凡资源",
-      "name": "❤非凡资源",
-      "api": "http://cj.ffzyapi.com/api.php/provide/vod/",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
@@ -400,18 +391,27 @@
       "type": 1
     },
     {
-      "key": "tv_pool_非凡",
-      "name": "影视 | 非凡[直连]",
-      "api": "http://ffzy.tv/api.php/provide/vod/",
+      "key": "tv_pool_非凡影视",
+      "name": "✅非凡┃影视",
+      "api": "http://cj.ffzyapi.com//api.php/provide/vod",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
       "type": 1
     },
     {
-      "key": "tv_pool_yinghua",
-      "name": "樱花资源",
-      "api": "https://api.ukuapi88.com/api.php/provide/vod/?ac=list",
+      "key": "tv_pool_csp_xml_非凡资源",
+      "name": "❤非凡资源",
+      "api": "http://cj.ffzyapi.com/api.php/provide/vod/",
+      "searchable": 1,
+      "quickSearch": 1,
+      "filterable": 1,
+      "type": 1
+    },
+    {
+      "key": "tv_pool_非凡",
+      "name": "影视 | 非凡[直连]",
+      "api": "http://ffzy.tv/api.php/provide/vod/",
       "searchable": 1,
       "quickSearch": 1,
       "filterable": 1,
